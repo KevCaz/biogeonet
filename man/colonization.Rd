@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{colonization}
 \alias{colonization}
-\title{Colonisation in a given abtiotic environment.}
+\title{Colonisation rate in a given abtiotic environment.}
 \usage{
 colonization(envir, maxcolo, opti, width)
 }

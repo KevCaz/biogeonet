@@ -1,7 +1,7 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-//' @name extinctio
+//' @name extinction
 //' @title Extinction rate for a given set of biotic interactions.
 //' @description This function returns the extinction associated with a given biotic environment.
 //'
@@ -9,7 +9,7 @@ using namespace Rcpp;
 //' Kevin Cazelles
 //'
 //' @param inter a real number giving the sum of interactions.
-//' @param inter basexti extinction rate without interaction.
+//' @param basexti extinction rate without interaction.
 //' @param mn a real number giving the minimum rate of extnction.
 //' @param mx a real number giving the maximum rate of extnction.
 //' @param shape a positive real number controling the impact of biotic interactions: the larger the value the stronger the impact of interactions.

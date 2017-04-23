@@ -2,7 +2,7 @@
 using namespace Rcpp;
 
 //' @name colonization
-//' @title Colonisation in a given abtiotic environment.
+//' @title Colonisation rate in a given abtiotic environment.
 //' @description This function returns a colonisation rate in a given abtiotic enviromemnt.
 //' This colonisation function is hump-shaped and its paramters allow for controlling
 //' the height and the width of the hump.
