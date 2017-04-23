@@ -12,7 +12,8 @@ License: License: MIT + file LICENSE
 LazyData: true
 LinkingTo: Rcpp
 Imports:
-    Rcpp (>= 0.12.7)
+    Rcpp (>= 0.12.7),
+    magrittr
 Suggests:
     knitr,
     rmarkdown,
