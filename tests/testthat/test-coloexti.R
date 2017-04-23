@@ -1,4 +1,4 @@
-library(recruitR)
+library(biogeonet)
 context("Test mean Dispersal kernel")
 
 test_that("checking simple values", {
