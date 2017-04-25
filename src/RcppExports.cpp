@@ -5,6 +5,23 @@
 
 using namespace Rcpp;
 
+// buildMarkov
+NumericMatrix buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, double basexti, double mn, double mx, double shape);
+RcppExport SEXP biogeonet_buildMarkov(SEXP nbspSEXP, SEXP coloSEXP, SEXP metawebSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type nbsp(nbspSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type colo(coloSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type metaweb(metawebSEXP);
+    Rcpp::traits::input_parameter< double >::type basexti(basextiSEXP);
+    Rcpp::traits::input_parameter< double >::type mn(mnSEXP);
+    Rcpp::traits::input_parameter< double >::type mx(mxSEXP);
+    Rcpp::traits::input_parameter< double >::type shape(shapeSEXP);
+    rcpp_result_gen = Rcpp::wrap(buildMarkov(nbsp, colo, metaweb, basexti, mn, mx, shape));
+    return rcpp_result_gen;
+END_RCPP
+}
 // colonization
 double colonization(double envir, double maxcolo, double opti, double width);
 RcppExport SEXP biogeonet_colonization(SEXP envirSEXP, SEXP maxcoloSEXP, SEXP optiSEXP, SEXP widthSEXP) {

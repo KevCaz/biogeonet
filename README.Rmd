@@ -62,7 +62,7 @@ Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of bioti
 nicheModel(5, .2, 1)
 ```
 
-### Colonzation
+### Colonization
 
 ```{r}
 par(las=1)

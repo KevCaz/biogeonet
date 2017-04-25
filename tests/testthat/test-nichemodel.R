@@ -11,5 +11,3 @@ test_that("checking errors", {
   expect_error(nicheModel(10, .2, 5))
   expect_error(nicheModel(10, 1, 3))
 })
-
-print(nicheModel(10, 0.2, 2))
