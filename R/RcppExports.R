@@ -50,3 +50,28 @@ extinction <- function(inter, basexti, mn, mx, shape) {
     .Call('biogeonet_extinction', PACKAGE = 'biogeonet', inter, basexti, mn, mx, shape)
 }
 
+#' @name nicheModel
+#' @title Generate an interaction network using the niche model.
+#' @description This function returns an interaction network using the model
+#' proposed by Williams & Martinez (2000), the sign of coefficients can be
+#' modified to simulate different kind of network.
+#'
+#' @author
+#' Kevin Cazelles
+#'
+#' @param nbsp an integer, the number of species.
+#' @param connec a real number giving the connectance of the network to be generated (between 0 and .5).
+#' @param mode an integer used to select the sign used in the network (1- for predation; 2-competition;  3-nutualism)  a real number giving the optimum value, i.e the abiotic values at which the colonisation rate is maximal.
+#'
+#' @return Returns a numeric matrix describing the interaction network.
+#'
+#' @references
+#' Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of
+#' biotic interaction and environmental constraints at the biogeographical scale.
+#' Williams, R. J. & Martinez, N. D. Simple rules yield complex food webs.
+#' Nature 404, 180–183 (2000).
+#' @export
+nicheModel <- function(nbsp, connec, mode) {
+    .Call('biogeonet_nicheModel', PACKAGE = 'biogeonet', nbsp, connec, mode)
+}
+

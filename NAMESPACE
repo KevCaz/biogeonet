@@ -2,6 +2,7 @@
 
 export(colonization)
 export(extinction)
+export(nicheModel)
 import(Rcpp)
 import(magrittr)
 importFrom(Rcpp,evalCpp)

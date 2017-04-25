@@ -34,3 +34,16 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// nicheModel
+NumericMatrix nicheModel(int nbsp, double connec, int mode);
+RcppExport SEXP biogeonet_nicheModel(SEXP nbspSEXP, SEXP connecSEXP, SEXP modeSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< int >::type nbsp(nbspSEXP);
+    Rcpp::traits::input_parameter< double >::type connec(connecSEXP);
+    Rcpp::traits::input_parameter< int >::type mode(modeSEXP);
+    rcpp_result_gen = Rcpp::wrap(nicheModel(nbsp, connec, mode));
+    return rcpp_result_gen;
+END_RCPP
+}
