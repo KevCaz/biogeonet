@@ -2,12 +2,17 @@
 % Please edit documentation in R/RcppExports.R
 \name{solveMarkov}
 \alias{solveMarkov}
-\title{Markov transition matrix solver.
-the probability of presence associated with all species in the network.}
+\alias{solveMarkov}
+\title{Markov transition matrix solver.}
 \description{
+Solve the Markov transition matrix and return the eigen vector giving
+the probability of presence associated with all the networks's species.
+
 Solve the Markov transition matrix and return the eigen vector giving
 the probability of presence associated with all the networks's species.
 }
 \author{
+Kevin Cazelles
+
 Kevin Cazelles
 }

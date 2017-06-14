@@ -39,12 +39,12 @@ Examples
 
 ``` r
 nicheModel(5, .2, 1)
-#>            [,1]       [,2]        [,3]       [,4]       [,5]
-#> [1,] -0.8825545  0.0000000  0.00000000  0.6024244 0.00000000
-#> [2,]  0.0000000 -0.2203791  0.82101524  0.5825640 0.21686270
-#> [3,]  0.0000000 -0.7030125  0.00000000  0.1670781 0.06995792
-#> [4,] -0.4184533 -0.2443256 -0.00499321  0.0000000 0.11434529
-#> [5,]  0.0000000 -0.8277094 -0.82263488 -0.7520698 0.00000000
+#>            [,1]       [,2]       [,3]       [,4]       [,5]
+#> [1,] -0.6551532  0.4809696  0.5797243  0.0000000  0.5927752
+#> [2,] -0.1456578 -0.5918119  0.0000000  0.0000000  0.9419722
+#> [3,] -0.9182947  0.0000000  0.0000000  0.6489161  0.4918560
+#> [4,]  0.0000000  0.0000000 -0.2001309 -0.1712266  0.8546011
+#> [5,] -0.7979611 -0.7656937 -0.7393156 -0.4017819 -0.8812419
 ```
 
 ### Colonization
@@ -62,11 +62,12 @@ plot(seqx, valy, type="l")
 
 ``` r
 mat <- rbind(c(.4, 0, .6), c(.3, .4, .3), c(.4, .1, .5))
+res <- solveMarkov(mat)
 ```
 
 TODO
 ----
 
 -   \[ \] Convert all the C/C++ code to RCPP (should not be that difficult);
--   \[ \] write a mimimal documentation including the simulations (or the exact way of how to procedd with less species) presented within the paper;
+-   \[ \] write a minimal documentation including the simulations (or the exact way of how to proceed with a number of species lower that what it was in the paper) presented within the paper;
 -   \[X\] use ~RcppEigen or~ Armadillo to solve the Markov chain.

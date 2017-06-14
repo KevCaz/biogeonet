@@ -66,14 +66,24 @@ BEGIN_RCPP
 END_RCPP
 }
 // solveMarkov
-Rcpp::List solveMarkov(arma::mat markov, bool continuous);
-RcppExport SEXP biogeonet_solveMarkov(SEXP markovSEXP, SEXP continuousSEXP) {
+Rcpp::List solveMarkov(arma::mat markov);
+RcppExport SEXP biogeonet_solveMarkov(SEXP markovSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat >::type markov(markovSEXP);
-    Rcpp::traits::input_parameter< bool >::type continuous(continuousSEXP);
-    rcpp_result_gen = Rcpp::wrap(solveMarkov(markov, continuous));
+    rcpp_result_gen = Rcpp::wrap(solveMarkov(markov));
+    return rcpp_result_gen;
+END_RCPP
+}
+// solveSparseMarkov
+Rcpp::List solveSparseMarkov(arma::sp_mat smarkov);
+RcppExport SEXP biogeonet_solveSparseMarkov(SEXP smarkovSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::sp_mat >::type smarkov(smarkovSEXP);
+    rcpp_result_gen = Rcpp::wrap(solveSparseMarkov(smarkov));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -83,7 +93,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"biogeonet_colonization", (DL_FUNC) &biogeonet_colonization, 4},
     {"biogeonet_extinction", (DL_FUNC) &biogeonet_extinction, 5},
     {"biogeonet_nicheModel", (DL_FUNC) &biogeonet_nicheModel, 3},
-    {"biogeonet_solveMarkov", (DL_FUNC) &biogeonet_solveMarkov, 2},
+    {"biogeonet_solveMarkov", (DL_FUNC) &biogeonet_solveMarkov, 1},
+    {"biogeonet_solveSparseMarkov", (DL_FUNC) &biogeonet_solveSparseMarkov, 1},
     {NULL, NULL, 0}
 };
 

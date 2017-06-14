@@ -76,12 +76,12 @@ plot(seqx, valy, type="l")
 
 ```{r}
 mat <- rbind(c(.4, 0, .6), c(.3, .4, .3), c(.4, .1, .5))
-solverMarkov(mat)
+res <- solveMarkov(mat)
 ```
 
 
 ## TODO
 
 - [ ] Convert all the C/C++ code to RCPP (should not be that difficult);
-- [ ] write a mimimal documentation including the simulations (or the exact way of how to procedd with less species) presented within the paper;
+- [ ] write a minimal documentation including the simulations (or the exact way of how to proceed with a number of species lower that what it was in the paper) presented within the paper;
 - [X] use ~RcppEigen or~ Armadillo to solve the Markov chain.
