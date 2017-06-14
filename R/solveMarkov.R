@@ -20,6 +20,8 @@
 #' of eigen values to be computed and is currently set to 1 in
 #' \code{getEigenElementsSp()}).
 #'
+#' @importClassesFrom Matrix dgCMatrix
+#'
 #' @export
 
 solveMarkov <- function(markov, sparse = TRUE, continuous = FALSE) {
@@ -30,7 +32,7 @@ solveMarkov <- function(markov, sparse = TRUE, continuous = FALSE) {
     stopifnot(all(abs(csm - val) < 10^-12))
     ## 
     if (sparse) {
-        smarkov <- as(markov, "sparseMatrix")
+        smarkov <- Matrix::Matrix(markov, sparse = TRUE)
         res <- getEigenElementsSp(smarkov)$eigvec
     } else {
         tmp <- getEigenElements(markov)$eigvec

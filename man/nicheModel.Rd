@@ -22,10 +22,8 @@ proposed by Williams & Martinez (2000), the sign of coefficients can be
 modified to simulate different kind of network.
 }
 \references{
-Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of
-biotic interaction and environmental constraints at the biogeographical scale.
 Williams, R. J. & Martinez, N. D. Simple rules yield complex food webs.
-Nature 404, 180–183 (2000).
+Nature 404, 180-183 (2000).
 }
 \author{
 Kevin Cazelles

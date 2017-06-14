@@ -17,7 +17,7 @@ $(md): $(rdm)
 	Rscript --no-init-file $(rscr) 0
 
 check:
-	Rscript --no-init-file -e 'cat("##-- checking ....\n"); devtools::check(".")'
+	Rscript --no-init-file -e "devtools::check('.')"
 
 clean:
 	rm -rf man/* NAMESPACES src/*.so src/*.o

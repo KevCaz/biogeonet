@@ -12,12 +12,12 @@ Depends:
 License: GPL (>= 2)
 LazyData: true
 Imports:
+    Matrix,
     Rcpp (>= 0.12.11),
     magrittr
 LinkingTo: Rcpp, RcppArmadillo
 Suggests:
     knitr,
-    Matrix,
     rmarkdown,
     testthat
 NeedsCompilation: yes
