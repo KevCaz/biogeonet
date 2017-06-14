@@ -52,6 +52,28 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// getEigenElements
+Rcpp::List getEigenElements(arma::mat markov);
+RcppExport SEXP biogeonet_getEigenElements(SEXP markovSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type markov(markovSEXP);
+    rcpp_result_gen = Rcpp::wrap(getEigenElements(markov));
+    return rcpp_result_gen;
+END_RCPP
+}
+// getEigenElementsSp
+Rcpp::List getEigenElementsSp(arma::sp_mat smarkov);
+RcppExport SEXP biogeonet_getEigenElementsSp(SEXP smarkovSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::sp_mat >::type smarkov(smarkovSEXP);
+    rcpp_result_gen = Rcpp::wrap(getEigenElementsSp(smarkov));
+    return rcpp_result_gen;
+END_RCPP
+}
 // nicheModel
 NumericMatrix nicheModel(int nbsp, double connec, int mode);
 RcppExport SEXP biogeonet_nicheModel(SEXP nbspSEXP, SEXP connecSEXP, SEXP modeSEXP) {
@@ -65,36 +87,14 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// solveMarkov
-Rcpp::List solveMarkov(arma::mat markov);
-RcppExport SEXP biogeonet_solveMarkov(SEXP markovSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::mat >::type markov(markovSEXP);
-    rcpp_result_gen = Rcpp::wrap(solveMarkov(markov));
-    return rcpp_result_gen;
-END_RCPP
-}
-// solveSparseMarkov
-Rcpp::List solveSparseMarkov(arma::sp_mat smarkov);
-RcppExport SEXP biogeonet_solveSparseMarkov(SEXP smarkovSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::sp_mat >::type smarkov(smarkovSEXP);
-    rcpp_result_gen = Rcpp::wrap(solveSparseMarkov(smarkov));
-    return rcpp_result_gen;
-END_RCPP
-}
 
 static const R_CallMethodDef CallEntries[] = {
     {"biogeonet_buildMarkov", (DL_FUNC) &biogeonet_buildMarkov, 7},
     {"biogeonet_colonization", (DL_FUNC) &biogeonet_colonization, 4},
     {"biogeonet_extinction", (DL_FUNC) &biogeonet_extinction, 5},
+    {"biogeonet_getEigenElements", (DL_FUNC) &biogeonet_getEigenElements, 1},
+    {"biogeonet_getEigenElementsSp", (DL_FUNC) &biogeonet_getEigenElementsSp, 1},
     {"biogeonet_nicheModel", (DL_FUNC) &biogeonet_nicheModel, 3},
-    {"biogeonet_solveMarkov", (DL_FUNC) &biogeonet_solveMarkov, 1},
-    {"biogeonet_solveSparseMarkov", (DL_FUNC) &biogeonet_solveSparseMarkov, 1},
     {NULL, NULL, 0}
 };
 

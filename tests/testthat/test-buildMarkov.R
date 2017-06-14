@@ -2,12 +2,14 @@ library(biogeonet)
 context("Testing buildMarkov")
 
 nbsp <- 5
+set.seed(42)
+
 web <- nicheModel(nbsp, 0.2, 3)
 colo <- runif(nbsp)
 mark <- buildMarkov(nbsp, colo, web, .2, 0.01, 0.5, 2)
 
 test_that("checking simple values", {
-  expect_equal(all(abs(colSums(mark))<10^-14), TRUE)
+  expect_equal(all(abs(colSums(mark))<10^-12), TRUE)
 })
 
 test_that("checking errors", {

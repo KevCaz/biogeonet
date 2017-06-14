@@ -20,4 +20,4 @@ check:
 	Rscript --no-init-file -e 'cat("##-- checking ....\n"); devtools::check(".")'
 
 clean:
-	rm -rf man/* NAMESPACES
+	rm -rf man/* NAMESPACES src/*.so src/*.o
