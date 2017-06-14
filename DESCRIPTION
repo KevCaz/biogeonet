@@ -17,6 +17,7 @@ Imports:
 LinkingTo: Rcpp, RcppArmadillo
 Suggests:
     knitr,
+    Matrix,
     rmarkdown,
     testthat
 NeedsCompilation: yes
