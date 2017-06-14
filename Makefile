@@ -11,10 +11,13 @@ rscr = ../pkg2date.R
 all: $(md) $(chk)
 
 $(chk): $(rfun) $(rtes) $(rman) $(rsrc)
-	Rscript --no-site-file  --no-init-file $(rscr) `pwd` 1
+	Rscript --no-init-file $(rscr) 1
 
 $(md): $(rdm)
-	Rscript --no-site-file  --no-init-file $(rscr) `pwd` 0
+	Rscript --no-init-file $(rscr) 0
+
+check:
+	Rscript --no-init-file -e 'cat("##-- checking ....\n"); devtools::check(".")'
 
 clean:
 	rm -rf man/* NAMESPACES

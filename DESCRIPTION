@@ -2,18 +2,19 @@ Package: biogeonet
 Title: Code implementation for DOI:10.1111/ecog.01714
 Version: 0.0.1
 Authors@R: c(
-  person("Kevin", "Cazelles", email = "kevin.cazelles@um2.fr", role = c("aut", "cre"))
+  person("Kevin", "Cazelles", email = "kcazelle@uoguelph.ca", role = c("aut", "cre"))
   )
 Description: Code implementation for DOI:10.1111/ecog.01714.
+![](https://img.shields.io/badge/licence->=2-ac3ae2.svg)
 BugReports: https://github.com/KevCaz/biogeonet/issues
 Depends:
     R (>= 3.2.3)
-License: License: MIT + file LICENSE
+License: GPL (>= 2)
 LazyData: true
-LinkingTo: Rcpp
 Imports:
-    Rcpp (>= 0.12.7),
+    Rcpp (>= 0.12.11),
     magrittr
+LinkingTo: Rcpp, RcppArmadillo
 Suggests:
     knitr,
     rmarkdown,

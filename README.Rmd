@@ -40,6 +40,7 @@ library(biogeonet)
 [![Travis](https://travis-ci.org/KevCaz/recruitR.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet)
 [![Build status](https://ci.appveyor.com/api/projects/status/sk3sbvusvcyy0at0?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet/build/1.0.7)
 [![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet)
+![](https://img.shields.io/badge/licence-GPL>=2-8f10cb.svg)
 
 
 
@@ -71,9 +72,16 @@ valy <- sapply(seqx, FUN=colonization, 1, 5, 2)
 plot(seqx, valy, type="l")
 ```
 
+### Solving the Markov chain
+
+```{r}
+mat <- rbind(c(.4, 0, .6), c(.3, .4, .3), c(.4, .1, .5))
+solverMarkov(mat)
+```
+
 
 ## TODO
 
 - [ ] Convert all the C/C++ code to RCPP (should not be that difficult);
-- [ ] write a mimi doc including the simulation presented within the paper;
-- [ ] use RcppEigen or Armadillo to solve the Markov chain.
+- [ ] write a mimimal documentation including the simulations (or the exact way of how to procedd with less species) presented within the paper;
+- [X] use ~RcppEigen or~ Armadillo to solve the Markov chain.

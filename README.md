@@ -19,7 +19,7 @@ library(biogeonet)
 Current Status
 --------------
 
-[![Travis](https://travis-ci.org/KevCaz/recruitR.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet) [![Build status](https://ci.appveyor.com/api/projects/status/sk3sbvusvcyy0at0?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet/build/1.0.7) [![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet)
+[![Travis](https://travis-ci.org/KevCaz/recruitR.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet) [![Build status](https://ci.appveyor.com/api/projects/status/sk3sbvusvcyy0at0?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet/build/1.0.7) [![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet) ![](https://img.shields.io/badge/licence-GPL%3E=2-8f10cb.svg)
 
 About the paper
 ---------------
@@ -39,12 +39,12 @@ Examples
 
 ``` r
 nicheModel(5, .2, 1)
-#>            [,1]       [,2]      [,3]       [,4]      [,5]
-#> [1,] -0.7630479  0.0000000 0.7218967  0.1134038 0.0000000
-#> [2,]  0.0000000  0.0000000 0.4304917  0.0000000 0.0000000
-#> [3,] -0.2812222 -0.2375294 0.0000000  0.0000000 0.0000000
-#> [4,] -0.5758863  0.0000000 0.0000000  0.0000000 0.5088485
-#> [5,]  0.0000000  0.0000000 0.0000000 -0.7773740 0.0000000
+#>            [,1]       [,2]        [,3]       [,4]       [,5]
+#> [1,] -0.8825545  0.0000000  0.00000000  0.6024244 0.00000000
+#> [2,]  0.0000000 -0.2203791  0.82101524  0.5825640 0.21686270
+#> [3,]  0.0000000 -0.7030125  0.00000000  0.1670781 0.06995792
+#> [4,] -0.4184533 -0.2443256 -0.00499321  0.0000000 0.11434529
+#> [5,]  0.0000000 -0.8277094 -0.82263488 -0.7520698 0.00000000
 ```
 
 ### Colonization
@@ -58,9 +58,15 @@ plot(seqx, valy, type="l")
 
 ![](inst/unnamed-chunk-3-1.png)
 
+### Solving the Markov chain
+
+``` r
+mat <- rbind(c(.4, 0, .6), c(.3, .4, .3), c(.4, .1, .5))
+```
+
 TODO
 ----
 
 -   \[ \] Convert all the C/C++ code to RCPP (should not be that difficult);
--   \[ \] write a mimi doc including the simulation presented within the paper;
--   \[ \] use RcppEigen or Armadillo to solve the Markov chain.
+-   \[ \] write a mimimal documentation including the simulations (or the exact way of how to procedd with less species) presented within the paper;
+-   \[X\] use ~RcppEigen or~ Armadillo to solve the Markov chain.

@@ -100,3 +100,22 @@ nicheModel <- function(nbsp, connec, mode) {
     .Call('biogeonet_nicheModel', PACKAGE = 'biogeonet', nbsp, connec, mode)
 }
 
+#' @name solveMarkov
+#' @title Markov transition matrix solver.
+#' the probability of presence associated with all species in the network.
+#' @description Solve the Markov transition matrix and return the eigen vector giving
+#' the probability of presence associated with all the networks's species.
+#'
+#' @author
+#' Kevin Cazelles
+#'
+NULL
+
+#' @return Returns the eigen values associated to the vector and eigen values
+#' transition matrix of the markov chain to be solved.
+NULL
+
+solveMarkov <- function(markov, continuous = FALSE) {
+    .Call('biogeonet_solveMarkov', PACKAGE = 'biogeonet', markov, continuous)
+}
+
