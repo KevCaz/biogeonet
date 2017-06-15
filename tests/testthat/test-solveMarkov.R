@@ -1,5 +1,4 @@
 library(biogeonet)
-library(Matrix)
 context("Testing getEigenElements* and solveMarkov")
 
 mat <- mat2 <- rbind(
@@ -7,7 +6,7 @@ mat <- mat2 <- rbind(
   c(.5, .5, 0),
   c(0, .5, .5))
 mat2[1,2] <- mat2[2,3] <- mat2[3,1] <- -1
-mats <- as(mat, "sparseMatrix")
+mats <- Matrix::Matrix(mat, sparse = TRUE)
 
 
 res1 <- getEigenElements(mat)

@@ -39,3 +39,4 @@ vignettes/*.pdf
 /src/*.d
 /src/*.so
 *.dll
+src/symbols.rds
