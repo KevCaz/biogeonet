@@ -8,7 +8,7 @@ R (Rcpp) implementation for Cazelles *et al.* 2016 <DOI:10.1111/ecog.01714>
 Current Status
 --------------
 
-[![Travis](https://travis-ci.org/KevCaz/recruitR.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet) [![Build status](https://ci.appveyor.com/api/projects/status/sk3sbvusvcyy0at0?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet/build/1.0.7) [![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet) ![](https://img.shields.io/badge/licence-GPL%3E=2-8f10cb.svg)
+[![Travis](https://travis-ci.org/KevCaz/biogeonet.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet) [![Build status](https://ci.appveyor.com/api/projects/status/82soqdq3d0g0ceo2?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet) [![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet) ![](https://img.shields.io/badge/licence-GPL%3E=2-8f10cb.svg)
 
 Installation
 ------------
@@ -41,12 +41,12 @@ To be included in the vignette.
 
 ``` r
 nicheModel(5, .2, 1)
-#>            [,1]         [,2]       [,3]      [,4]    [,5]
-#> [1,]  0.0000000  0.000000000  0.0000000 0.6359357 0.00000
-#> [2,]  0.0000000 -0.539739437  0.6173124 0.1065440 0.78813
-#> [3,]  0.0000000 -0.007115243  0.0000000 0.3922849 0.00000
-#> [4,] -0.2904029 -0.569464925 -0.5111803 0.0000000 0.00000
-#> [5,]  0.0000000 -0.834825828  0.0000000 0.0000000 0.00000
+#>              [,1]        [,2]        [,3]      [,4] [,5]
+#> [1,]  0.000000000  0.00000000  0.06014186 0.4137611    0
+#> [2,]  0.000000000  0.00000000  0.88955398 0.7410672    0
+#> [3,] -0.007545309 -0.01404541  0.00000000 0.1436551    0
+#> [4,] -0.841572043 -0.25667370 -0.96801417 0.0000000    0
+#> [5,]  0.000000000  0.00000000  0.00000000 0.0000000    0
 ```
 
 ### Colonization
