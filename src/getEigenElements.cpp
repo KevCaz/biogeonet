@@ -13,6 +13,8 @@
 //'
 //' @return Returns the eigen values associated to the vector and eigen values
 //' transition matrix of the markov chain to be solved.
+//'
+//' @export
 //
 // [[Rcpp::depends(RcppArmadillo)]]
 //

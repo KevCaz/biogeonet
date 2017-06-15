@@ -3,6 +3,8 @@
 export(buildMarkov)
 export(colonization)
 export(extinction)
+export(getEigenElements)
+export(getEigenElementsSp)
 export(nicheModel)
 export(solveMarkov)
 import(Rcpp)

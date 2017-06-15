@@ -87,6 +87,8 @@ extinction <- function(inter, basexti, mn, mx, shape) {
 #'
 #' @return Returns the eigen values associated to the vector and eigen values
 #' transition matrix of the markov chain to be solved.
+#'
+#' @export
 NULL
 
 getEigenElements <- function(markov) {
@@ -105,6 +107,8 @@ getEigenElements <- function(markov) {
 #'
 #' @return Returns the eigen values associated to the vector and eigen values
 #' transition matrix of the markov chain to be solved.
+#'
+#' @export
 NULL
 
 getEigenElementsSp <- function(smarkov) {
