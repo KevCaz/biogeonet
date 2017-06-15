@@ -37,3 +37,10 @@ test_that("checking simple values", {
   expect_true(all(round(res4,12) == round(1/3,12)))
   expect_true(all(round(res6,12) == round(1/3,12)))
 })
+
+# x <- double(10)
+# for(i in 1:10) {
+#   plot(runif(20), runif(20));
+#   tmp <- locator(type="p", pch=21, bg=2)
+#   x[i] <- tmp$x[length(tmp$x)]
+# }
