@@ -10,7 +10,11 @@ r_github_packages:
 
 before_install:
   - sudo apt-get update
-  - sudo apt-get install r-cran-rcpp r-cran-rcpparmadillo r-cran-matrix
+
+apt_packages:
+  - r-cran-matrix
+  - r-cran-rcpp
+  - r-cran-rcpparmadillo
 
 after_success:
   - Rscript -e 'covr::codecov()'

@@ -34,9 +34,8 @@ vignettes/*.pdf
 
 
 # Rcpp
-/src/*.o
-/src/*.o-*
-/src/*.d
-/src/*.so
-*.dll
+inst/lib
+src/*.o
+src/*.so
+src/*.dll
 src/symbols.rds

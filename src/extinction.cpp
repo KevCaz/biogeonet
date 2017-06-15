@@ -1,5 +1,4 @@
 #include <Rcpp.h>
-using namespace Rcpp;
 
 //' @name extinction
 //' @title Extinction rate for a given set of biotic interactions.
