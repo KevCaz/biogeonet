@@ -5,6 +5,7 @@ output:
 ---
 
 # biogeonet
+[![R-CMD-check](https://github.com/KevCaz/biogeonet/workflows/R-CMD-check/badge.svg)](https://github.com/KevCaz/biogeonet/actions)
 [![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet)
 
 

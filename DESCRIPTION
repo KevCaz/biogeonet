@@ -18,6 +18,7 @@ Imports:
     Matrix,
     magrittr,
     Rcpp (>= 0.12.11),
+    RcppArmadillo
 LinkingTo: Rcpp, RcppArmadillo
 Suggests:
     knitr,
