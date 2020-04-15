@@ -4,8 +4,8 @@ using namespace std;
 #include "called.h"
 
 //' @name buildMarkov
-//' @title Generates the transiton matrix for a given probability and  an interaction network using the niche model.
-//' @description Generates the transiton matrix for a given probability and  an interaction network using the niche model.
+//' @title Generates the transition matrix for a given probability and  an interaction network using the niche model.
+//' @description Generates the transition matrix for a given probability and  an interaction network using the niche model.
 //'
 //' @author
 //' Kevin Cazelles
@@ -14,11 +14,11 @@ using namespace std;
 //' @param colo a vector giving the colonization rates of all species.
 //' @param metaweb a matrix describing the interaction network.
 //' @param basexti extinction rate without interaction.
-//' @param mn a real number giving the minimum rate of extnction.
-//' @param mx a real number giving the maximum rate of extnction.
-//' @param shape a positive real number controling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
+//' @param mn a real number giving the minimum rate of extinction.
+//' @param mx a real number giving the maximum rate of extinction.
+//' @param shape a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
 //'
-//' @return Returns the transition matrix of the markov chain to be solved.
+//' @return Returns the transition matrix of the Markov chain to be solved.
 //'
 //' @references
 //' Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of

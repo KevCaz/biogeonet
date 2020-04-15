@@ -10,3 +10,4 @@
 ^src/Makevars\.local$
 .Rprofile
 ^LICENSE\.md$
+^\.github/workflows/R-CMD-check\.yaml$

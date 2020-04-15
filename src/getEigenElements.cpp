@@ -4,15 +4,15 @@
 //' @name getEigenElements
 //' @title Markov transition matrix solver.
 //' @description Solve the Markov transition matrix and return the eigen vector giving
-//' the probability of presence associated with all the networks's species.
+//' the probability of presence associated with all the network's species.
 //'
 //' @author
 //' Kevin Cazelles
 //'
-//' @param markov A transition matrix of a markov chain.
+//' @param markov A transition matrix of a Markov chain.
 //'
 //' @return Returns the eigen values associated to the vector and eigen values
-//' transition matrix of the markov chain to be solved.
+//' transition matrix of the Markov chain to be solved.
 //'
 //' @export
 //

@@ -11,22 +11,19 @@ solveMarkov(markov, sparse = TRUE, continuous = FALSE)
 
 \item{sparse}{a logical. Should a sparse matrix be used? Default value is \code{TRUE} (See details).}
 
-\item{continuous}{a logical. Do \code{markov} a continuous time markov chain?
+\item{continuous}{a logical. Is \code{markov} a continuous time Markov chain?
 Default is set to \code{FALSE}.}
 }
 \value{
 A vector of probabilities
 }
 \description{
-Compute the communities probabilities associated at equilibrium for a givem
+Compute the communities probabilities associated at equilibrium for a given
 transition matrix.
 }
 \details{
-If \code{sparse} is \code{TRUE}, then only the larger eigen values is returned
-(function \code{eigs_gen()}' in the armadillo C++ library requires the number
-of eigen values to be computed and is currently set to 1 in
+If \code{sparse} is \code{TRUE}, then only the larger eigen values is
+returned (function \code{eigs_gen()} in the armadillo C++ library requires
+the number of eigen values to be computed and is currently set to 1 in
 \code{getEigenElementsSp()}).
-}
-\author{
-Kevin Cazelles
 }

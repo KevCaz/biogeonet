@@ -8,7 +8,7 @@ using namespace Rcpp;
 
 // buildMarkov
 NumericMatrix buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, double basexti, double mn, double mx, double shape);
-RcppExport SEXP biogeonet_buildMarkov(SEXP nbspSEXP, SEXP coloSEXP, SEXP metawebSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
+RcppExport SEXP _biogeonet_buildMarkov(SEXP nbspSEXP, SEXP coloSEXP, SEXP metawebSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -25,7 +25,7 @@ END_RCPP
 }
 // colonization
 double colonization(double envir, double maxcolo, double opti, double width);
-RcppExport SEXP biogeonet_colonization(SEXP envirSEXP, SEXP maxcoloSEXP, SEXP optiSEXP, SEXP widthSEXP) {
+RcppExport SEXP _biogeonet_colonization(SEXP envirSEXP, SEXP maxcoloSEXP, SEXP optiSEXP, SEXP widthSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -39,7 +39,7 @@ END_RCPP
 }
 // extinction
 double extinction(double inter, double basexti, double mn, double mx, double shape);
-RcppExport SEXP biogeonet_extinction(SEXP interSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
+RcppExport SEXP _biogeonet_extinction(SEXP interSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -54,7 +54,7 @@ END_RCPP
 }
 // getEigenElements
 Rcpp::List getEigenElements(arma::mat markov);
-RcppExport SEXP biogeonet_getEigenElements(SEXP markovSEXP) {
+RcppExport SEXP _biogeonet_getEigenElements(SEXP markovSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -65,7 +65,7 @@ END_RCPP
 }
 // getEigenElementsSp
 Rcpp::List getEigenElementsSp(arma::sp_mat smarkov);
-RcppExport SEXP biogeonet_getEigenElementsSp(SEXP smarkovSEXP) {
+RcppExport SEXP _biogeonet_getEigenElementsSp(SEXP smarkovSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -76,7 +76,7 @@ END_RCPP
 }
 // nicheModel
 NumericMatrix nicheModel(int nbsp, double connec, int mode);
-RcppExport SEXP biogeonet_nicheModel(SEXP nbspSEXP, SEXP connecSEXP, SEXP modeSEXP) {
+RcppExport SEXP _biogeonet_nicheModel(SEXP nbspSEXP, SEXP connecSEXP, SEXP modeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -89,12 +89,12 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"biogeonet_buildMarkov", (DL_FUNC) &biogeonet_buildMarkov, 7},
-    {"biogeonet_colonization", (DL_FUNC) &biogeonet_colonization, 4},
-    {"biogeonet_extinction", (DL_FUNC) &biogeonet_extinction, 5},
-    {"biogeonet_getEigenElements", (DL_FUNC) &biogeonet_getEigenElements, 1},
-    {"biogeonet_getEigenElementsSp", (DL_FUNC) &biogeonet_getEigenElementsSp, 1},
-    {"biogeonet_nicheModel", (DL_FUNC) &biogeonet_nicheModel, 3},
+    {"_biogeonet_buildMarkov", (DL_FUNC) &_biogeonet_buildMarkov, 7},
+    {"_biogeonet_colonization", (DL_FUNC) &_biogeonet_colonization, 4},
+    {"_biogeonet_extinction", (DL_FUNC) &_biogeonet_extinction, 5},
+    {"_biogeonet_getEigenElements", (DL_FUNC) &_biogeonet_getEigenElements, 1},
+    {"_biogeonet_getEigenElementsSp", (DL_FUNC) &_biogeonet_getEigenElementsSp, 1},
+    {"_biogeonet_nicheModel", (DL_FUNC) &_biogeonet_nicheModel, 3},
     {NULL, NULL, 0}
 };
 

@@ -7,20 +7,20 @@
 colonization(envir, maxcolo, opti, width)
 }
 \arguments{
-\item{envir}{a real number giving the abitic value.}
+\item{envir}{a real number giving the abiotic value.}
 
-\item{maxcolo}{extinction rate associated with the optimmu value, it controls the height of the hump.}
+\item{maxcolo}{extinction rate associated with the optimum value, it controls the height of the hump.}
 
 \item{opti}{a real number giving the optimum value, i.e the abiotic values at which the colonisation rate is maximal.}
 
-\item{width}{a real number controling the width of the hump, the larger the wider the hump.}
+\item{width}{a real number controlling the width of the hump, the larger the wider the hump.}
 }
 \value{
 Returns the colonisation rate associated with a given biotic environment.
 }
 \description{
 This function returns a colonisation rate in a given abtiotic enviromemnt.
-This colonisation function is hump-shaped and its paramters allow for controlling
+This colonisation function is hump-shaped and its parameters allow for controlling
 the height and the width of the hump.
 }
 \references{

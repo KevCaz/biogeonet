@@ -10,9 +10,9 @@ using namespace Rcpp;
 //'
 //' @param inter a real number giving the sum of interactions.
 //' @param basexti extinction rate without interaction.
-//' @param mn a real number giving the minimum rate of extnction.
-//' @param mx a real number giving the maximum rate of extnction.
-//' @param shape a positive real number controling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
+//' @param mn a real number giving the minimum rate of extinction.
+//' @param mx a real number giving the maximum rate of extinction.
+//' @param shape a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
 //'
 //' @return Returns the extinction rate associated with a given biotic environment.
 //'

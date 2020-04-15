@@ -1,17 +1,14 @@
 ---
 output:
   md_document:
-    variant: markdown_github
+    variant: gfm
 ---
 
 # biogeonet
-[![Travis](https://travis-ci.org/KevCaz/biogeonet.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet)
-[![Build status](https://ci.appveyor.com/api/projects/status/82soqdq3d0g0ceo2?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet)
 [![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet)
 
 
-
-R (Rcpp) implementation for Cazelles *et al.* 2016 DOI:10.1111/ecog.01714
+R (and Rcpp) implementation for Cazelles *et al.* 2016 DOI:10.1111/ecog.01714
 
 ```{r echo=FALSE}
 knitr::opts_chunk$set(
@@ -20,23 +17,24 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   warning = FALSE,
   message = FALSE,
-  fig.width=4,
-  fig.height=4
+  fig.width = 4,
+  fig.height = 4
 )
-devtools::load_all(".")
 ```
 
-
+```{R, echo = FALSE}
+devtools::load_all()
+```
 
 
 ## Installation
 
 To get the current development version of this repository from R, use the
-[*devtools*](http://cran.r-project.org/web/packages/devtools/index.html) package like so:
+[`remotes`](https://CRAN.R-project.org/package=remotes) package like so:
 
 ```r
-if (!require("devtools'")) install.packages("devtools")
-devtools::install_github("KevCaz/biogeonet")
+if (!require("remotes'")) install.packages("remotes")
+remotes::install_github("KevCaz/biogeonet")
 library(biogeonet)
 ```
 

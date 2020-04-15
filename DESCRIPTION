@@ -1,13 +1,13 @@
 Package: biogeonet
-Title:
-Version: 0.0.1
+Title: biogeography and interaction networks
+Version: 0.0.1.9000
 Authors@R:
     person(given = "Kevin",
            family = "Cazelles",
            role = c("aut", "cre"),
            email = "kevin.cazelles@gmail.com",
            comment = c(ORCID = "0000-0001-6619-9874"))
-Description: Research compendium (DOI:10.1111/ecog.01714).
+Description: Research compendium of 'On the integration of biotic interaction and environmental constraints at the biogeographical scale' (DOI:10.1111/ecog.01714).
 URL: https://github.com/KevCaz/biogeonet
 BugReports: https://github.com/KevCaz/biogeonet/issues
 Depends:
@@ -25,4 +25,6 @@ Suggests:
     testthat
 NeedsCompilation: yes
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.0

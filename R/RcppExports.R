@@ -2,8 +2,8 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 #' @name buildMarkov
-#' @title Generates the transiton matrix for a given probability and  an interaction network using the niche model.
-#' @description Generates the transiton matrix for a given probability and  an interaction network using the niche model.
+#' @title Generates the transition matrix for a given probability and  an interaction network using the niche model.
+#' @description Generates the transition matrix for a given probability and  an interaction network using the niche model.
 #'
 #' @author
 #' Kevin Cazelles
@@ -12,33 +12,33 @@
 #' @param colo a vector giving the colonization rates of all species.
 #' @param metaweb a matrix describing the interaction network.
 #' @param basexti extinction rate without interaction.
-#' @param mn a real number giving the minimum rate of extnction.
-#' @param mx a real number giving the maximum rate of extnction.
-#' @param shape a positive real number controling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
+#' @param mn a real number giving the minimum rate of extinction.
+#' @param mx a real number giving the maximum rate of extinction.
+#' @param shape a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
 #'
-#' @return Returns the transition matrix of the markov chain to be solved.
+#' @return Returns the transition matrix of the Markov chain to be solved.
 #'
 #' @references
 #' Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of
 #' biotic interaction and environmental constraints at the biogeographical scale.
 #' @export
 buildMarkov <- function(nbsp, colo, metaweb, basexti, mn, mx, shape) {
-    .Call('biogeonet_buildMarkov', PACKAGE = 'biogeonet', nbsp, colo, metaweb, basexti, mn, mx, shape)
+    .Call('_biogeonet_buildMarkov', PACKAGE = 'biogeonet', nbsp, colo, metaweb, basexti, mn, mx, shape)
 }
 
 #' @name colonization
 #' @title Colonisation rate in a given abtiotic environment.
 #' @description This function returns a colonisation rate in a given abtiotic enviromemnt.
-#' This colonisation function is hump-shaped and its paramters allow for controlling
+#' This colonisation function is hump-shaped and its parameters allow for controlling
 #' the height and the width of the hump.
 #'
 #' @author
 #' Kevin Cazelles
 #'
-#' @param envir a real number giving the abitic value.
-#' @param maxcolo extinction rate associated with the optimmu value, it controls the height of the hump.
+#' @param envir a real number giving the abiotic value.
+#' @param maxcolo extinction rate associated with the optimum value, it controls the height of the hump.
 #' @param opti a real number giving the optimum value, i.e the abiotic values at which the colonisation rate is maximal.
-#' @param width a real number controling the width of the hump, the larger the wider the hump.
+#' @param width a real number controlling the width of the hump, the larger the wider the hump.
 #'
 #' @return Returns the colonisation rate associated with a given biotic environment.
 #'
@@ -48,7 +48,7 @@ buildMarkov <- function(nbsp, colo, metaweb, basexti, mn, mx, shape) {
 #' (equation 9).
 #' @export
 colonization <- function(envir, maxcolo, opti, width) {
-    .Call('biogeonet_colonization', PACKAGE = 'biogeonet', envir, maxcolo, opti, width)
+    .Call('_biogeonet_colonization', PACKAGE = 'biogeonet', envir, maxcolo, opti, width)
 }
 
 #' @name extinction
@@ -60,9 +60,9 @@ colonization <- function(envir, maxcolo, opti, width) {
 #'
 #' @param inter a real number giving the sum of interactions.
 #' @param basexti extinction rate without interaction.
-#' @param mn a real number giving the minimum rate of extnction.
-#' @param mx a real number giving the maximum rate of extnction.
-#' @param shape a positive real number controling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
+#' @param mn a real number giving the minimum rate of extinction.
+#' @param mx a real number giving the maximum rate of extinction.
+#' @param shape a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
 #'
 #' @return Returns the extinction rate associated with a given biotic environment.
 #'
@@ -72,38 +72,38 @@ colonization <- function(envir, maxcolo, opti, width) {
 #' (equation 5).
 #' @export
 extinction <- function(inter, basexti, mn, mx, shape) {
-    .Call('biogeonet_extinction', PACKAGE = 'biogeonet', inter, basexti, mn, mx, shape)
+    .Call('_biogeonet_extinction', PACKAGE = 'biogeonet', inter, basexti, mn, mx, shape)
 }
 
 #' @name getEigenElements
 #' @title Markov transition matrix solver.
 #' @description Solve the Markov transition matrix and return the eigen vector giving
-#' the probability of presence associated with all the networks's species.
+#' the probability of presence associated with all the network's species.
 #'
 #' @author
 #' Kevin Cazelles
 #'
-#' @param markov A transition matrix of a markov chain.
+#' @param markov A transition matrix of a Markov chain.
 #'
 #' @return Returns the eigen values associated to the vector and eigen values
-#' transition matrix of the markov chain to be solved.
+#' transition matrix of the Markov chain to be solved.
 #'
 #' @export
 NULL
 
 getEigenElements <- function(markov) {
-    .Call('biogeonet_getEigenElements', PACKAGE = 'biogeonet', markov)
+    .Call('_biogeonet_getEigenElements', PACKAGE = 'biogeonet', markov)
 }
 
 #' @name getEigenElementsSp
 #' @title Markov transition matrix solver for sparse transition matriices.
 #' @description Solve the Markov transition matrix and return the eigen vector giving
-#' the probability of presence associated with all the networks's species.
+#' the probability of presence associated with all the network's species.
 #'
 #' @author
 #' Kevin Cazelles
 #'
-#' @param smarkov A sparse transition matrix of a markov chain.
+#' @param smarkov A sparse transition matrix of a Markov chain.
 #'
 #' @return Returns the eigen values associated to the vector and eigen values
 #' transition matrix of the markov chain to be solved.
@@ -112,7 +112,7 @@ getEigenElements <- function(markov) {
 NULL
 
 getEigenElementsSp <- function(smarkov) {
-    .Call('biogeonet_getEigenElementsSp', PACKAGE = 'biogeonet', smarkov)
+    .Call('_biogeonet_getEigenElementsSp', PACKAGE = 'biogeonet', smarkov)
 }
 
 #' @name nicheModel
@@ -136,6 +136,6 @@ getEigenElementsSp <- function(smarkov) {
 #'
 #' @export
 nicheModel <- function(nbsp, connec, mode) {
-    .Call('biogeonet_nicheModel', PACKAGE = 'biogeonet', nbsp, connec, mode)
+    .Call('_biogeonet_nicheModel', PACKAGE = 'biogeonet', nbsp, connec, mode)
 }
 

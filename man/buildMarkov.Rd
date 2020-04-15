@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcppExports.R
 \name{buildMarkov}
 \alias{buildMarkov}
-\title{Generates the transiton matrix for a given probability and  an interaction network using the niche model.}
+\title{Generates the transition matrix for a given probability and  an interaction network using the niche model.}
 \usage{
 buildMarkov(nbsp, colo, metaweb, basexti, mn, mx, shape)
 }
@@ -15,17 +15,17 @@ buildMarkov(nbsp, colo, metaweb, basexti, mn, mx, shape)
 
 \item{basexti}{extinction rate without interaction.}
 
-\item{mn}{a real number giving the minimum rate of extnction.}
+\item{mn}{a real number giving the minimum rate of extinction.}
 
-\item{mx}{a real number giving the maximum rate of extnction.}
+\item{mx}{a real number giving the maximum rate of extinction.}
 
-\item{shape}{a positive real number controling the impact of biotic interactions: the larger the value the stronger the impact of interactions.}
+\item{shape}{a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.}
 }
 \value{
-Returns the transition matrix of the markov chain to be solved.
+Returns the transition matrix of the Markov chain to be solved.
 }
 \description{
-Generates the transiton matrix for a given probability and  an interaction network using the niche model.
+Generates the transition matrix for a given probability and  an interaction network using the niche model.
 }
 \references{
 Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of

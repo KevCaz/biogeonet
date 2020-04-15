@@ -3,11 +3,10 @@
 \docType{package}
 \name{biogeonet}
 \alias{biogeonet}
-\alias{biogeonet-package}
-\title{recruitR}
+\title{biogeonet}
 \description{
-R package to assess seeds recruitment
+Research compendium of 'On the integration of biotic interaction and environmental constraints at the biogeographical scale' (DOI:10.1111/ecog.01714).
 }
 \author{
-Kevin Cazelles <kevin.cazelles@gmail.com>
+Kevin Cazelles \href{mailto:kevin.cazelles@gmail.com}{kevin.cazelles@gmail.com}
 }
