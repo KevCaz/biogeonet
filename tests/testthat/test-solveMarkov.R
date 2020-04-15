@@ -11,7 +11,7 @@ mats <- Matrix::Matrix(mat, sparse = TRUE)
 res1 <- getEigenElements(mat)
 res2 <- getEigenElementsSp(mats)
 res3 <- solveMarkov(mat)
-res4 <- solveMarkov(mat, sparse=FALSE)
+res4 <- solveMarkov(mat, sparse = FALSE)
 ##
 res6 <- solveMarkov(mat2, sparse=FALSE, continuous = TRUE)
 

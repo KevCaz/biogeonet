@@ -31,7 +31,7 @@ In Cazelles[^ref], we basically expand the classical Theory of Island Biogeograp
 
 ## Niche model
 
-To simulate I use the niche model that I implemented in `nicheModel()`. The first parameters, ``, determines the number of species:
+To simulate I use the niche model that I implemented in `nicheModel()`. The first parameters, `nbsp`, determines the number of species:
 
 ```{r}
 nicheModel(nbsp = 5, .2, 1)
@@ -45,7 +45,7 @@ nicheModel(5, connec = .1, 1)
 nicheModel(5, connec = .4, 1)
 ```
 
-The last parameter, `mode`, affects the sign structure of the output matrix (not included in the original publication o fthe niche model):
+The last parameter, `mode`, affects the sign structure of the output matrix (not included in the original publication of the niche model):
 
 ```{r}
 # mode 1 + and -, refered as "predation" in Cazelles (2016)
@@ -61,7 +61,7 @@ See `?nicheModel` for further details.
 
 ## Colonization
 
-The colonisation probability bell-shaped function (see `?colonization` for details).
+The colonisation probability is a bell-shaped function (see `?colonization` for details).
 
 
 ```{r}
@@ -77,19 +77,51 @@ The extinction probability is basically a flexible logistic function (see `?exti
 
 ```{r}
 seqx <- seq(-2, 2, .01)
-vc_exti <- sapply(seqx, FUN = extinction, 1e-5, 1e-3, 1e3, -10)
+vc_exti <- sapply(seqx, FUN = extinction, 1e-5, 1e-3, 1e3, -1)
 plot(seqx, log10(vc_exti), type="l", las = 1, ylab = "Extinction probability",
   xlab = "Environmental gradient")
 ```
 
-## Build the Markov chain and solve it
 
+## Building Markov chain and deriving its equilibrium
 
+For a specific vector of colonisation (1 value per species), a specific
+ecological networks (use to derive extinction probabilities), we can build the
+transition matrix of a Markov chain with `buildMarkov()`. So far, it builds the matrix of a continuous-time Markov chain](https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain) ans so probabilities described above should actuall be rates.
+
+```{r}
+# number of species
+nbsp <- 4
+# network
+web <- nicheModel(nbsp, .2, mode = 1)
+# colonisation vector
+colo <- 10^runif(nbsp, -7, -3)
+#
+mat <- buildMarkov(nbsp, colo, web, 1e-5, 1e-3, 1e3, -1)
+mat
+```
+
+then `solveMarkov()` returns the probabilities at equilibrium for all communities:
+
+```{r}
+sol <- solveMarkov(mat, continuous = TRUE)
+sol
+```
+
+This gives the probability at equilibrium (*sensu* MacArthur & Wilson 1967)  for all of the $2^{nbsp}$ community (here `nbsp`=4, so there are 16 potential communities).
+
+```{r}
+# NB some to one
+sum(sol)
+```
 
 
 
 ## Reproduce the study
 
+In Cazelles *et al.* (2016), we basically solved tons of those for 10 species
+(1024 communities), for the 3 sign structure described above and under various
+scenarios of connectance and environmental conditions (so a bunch of for loops using the steps described above!).
 
 
 
