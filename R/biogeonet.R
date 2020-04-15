@@ -4,7 +4,7 @@
 #'
 #' @docType package
 #' @author Kevin Cazelles <kevin.cazelles@gmail.com>
-#' @import Rcpp
+#' @import Rcpp RcppArmadillo
 #' @importFrom Rcpp evalCpp
 #' @useDynLib biogeonet
 #' @name biogeonet

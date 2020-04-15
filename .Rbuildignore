@@ -11,3 +11,4 @@
 .Rprofile
 ^LICENSE\.md$
 ^\.github/workflows/R-CMD-check\.yaml$
+^codecov\.yml$
