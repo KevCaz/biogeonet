@@ -1,4 +1,3 @@
-library(biogeonet)
 context("Testing colonization and extinction")
 
 test_that("checking simple values", {

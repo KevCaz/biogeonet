@@ -1,4 +1,3 @@
-library(biogeonet)
 context("Testing buildMarkov")
 
 nbsp <- 5

@@ -1,4 +1,3 @@
-library(biogeonet)
 context("Testing getEigenElements* and solveMarkov")
 
 mat <- mat2 <- rbind(
@@ -17,7 +16,7 @@ res4 <- solveMarkov(mat, sparse=FALSE)
 res6 <- solveMarkov(mat2, sparse=FALSE, continuous = TRUE)
 
 test_that("checking errors", {
-  expect_error(getEigenElementsSp(mat), "Not an S4 object.")
+  expect_error(getEigenElementsSp(mat), "Not an S4 object.", fixed = TRUE, class = "Rcpp::not_s4")
   expect_error(solveMarkov(mat, continuous = TRUE), "all(abs(csm - val) < 10^-12) is not TRUE", fixed=TRUE)
 })
 
@@ -38,9 +37,3 @@ test_that("checking simple values", {
   expect_true(all(round(res6,12) == round(1/3,12)))
 })
 
-# x <- double(10)
-# for(i in 1:10) {
-#   plot(runif(20), runif(20));
-#   tmp <- locator(type="p", pch=21, bg=2)
-#   x[i] <- tmp$x[length(tmp$x)]
-# }
