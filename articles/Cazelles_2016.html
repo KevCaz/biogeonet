@@ -93,38 +93,129 @@
     
     
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">biogeonet</span>)</pre></body></html></div>
-<p>Here are the basic</p>
-<div id="examples" class="section level2">
+<div id="philosophy" class="section level2">
 <h2 class="hasAnchor">
-<a href="#examples" class="anchor"></a>Examples</h2>
-<p>To be included in the vignette.</p>
-<div id="niche-model" class="section level3">
-<h3 class="hasAnchor">
-<a href="#niche-model" class="anchor"></a>Niche model</h3>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="fl">.2</span>, <span class="fl">1</span>)
-<span class="co">#&gt;            [,1]       [,2]       [,3]       [,4]      [,5]</span>
-<span class="co">#&gt; [1,]  0.0000000  0.0000000  0.0000000  0.0000000 0.4208585</span>
-<span class="co">#&gt; [2,]  0.0000000  0.0000000  0.8066295  0.9234146 0.6298724</span>
-<span class="co">#&gt; [3,]  0.0000000 -0.7224640  0.0000000  0.3018272 0.8566183</span>
-<span class="co">#&gt; [4,]  0.0000000 -0.6504217 -0.5352589 -0.4578146 0.1235422</span>
-<span class="co">#&gt; [5,] -0.1249474 -0.4224857 -0.2377722 -0.6514681 0.0000000</span></pre></body></html></div>
+<a href="#philosophy" class="anchor"></a>Philosophy</h2>
+<p>In Cazelles<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, we basically expand the classical Theory of Island Biogeography<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> to include ecological interactions and a link to the environmental niche. To do so we:</p>
+<ol style="list-style-type: decimal">
+<li>simulated ecological networks of 10 species using the niche model<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+</li>
+<li>link the simulated ecological interactions to extinction probability</li>
+<li>link an arbitrary environmental gradient to the colonization probability</li>
+<li>use all the steps above to create the transition matrix of a Markov chain (from any of the <span class="math inline">\(2^{10}\)</span> communities to any other) and then solve it to obtain the presence absence of all communities.</li>
+</ol>
 </div>
-<div id="colonization" class="section level3">
-<h3 class="hasAnchor">
-<a href="#colonization" class="anchor"></a>Colonization</h3>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">seqx</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="fl">0</span>,<span class="fl">10</span>,<span class="fl">.01</span>)
-<span class="no">valy</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="no">seqx</span>, <span class="kw">FUN</span> <span class="kw">=</span> <span class="no">colonization</span>, <span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">2</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">seqx</span>, <span class="no">valy</span>, <span class="kw">type</span><span class="kw">=</span><span class="st">"l"</span>, <span class="kw">las</span> <span class="kw">=</span> <span class="fl">1</span>)</pre></body></html></div>
-<p><img src="Cazelles_2016_files/figure-html/unnamed-chunk-3-1.png" width="700"></p>
+<div id="niche-model" class="section level2">
+<h2 class="hasAnchor">
+<a href="#niche-model" class="anchor"></a>Niche model</h2>
+<p>To simulate I use the niche model that I implemented in <code><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel()</a></code>. The first parameters, ``, determines the number of species:</p>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="kw">nbsp</span> <span class="kw">=</span> <span class="fl">5</span>, <span class="fl">.2</span>, <span class="fl">1</span>)
+<span class="co">#&gt;            [,1]        [,2]      [,3]       [,4]       [,5]</span>
+<span class="co">#&gt; [1,]  0.0000000  0.08423852 0.7664287  0.0000000  0.0000000</span>
+<span class="co">#&gt; [2,] -0.1673350 -0.59183503 0.0000000  0.0000000  0.0000000</span>
+<span class="co">#&gt; [3,] -0.4846214  0.00000000 0.0000000  0.0000000  0.0000000</span>
+<span class="co">#&gt; [4,]  0.0000000  0.00000000 0.0000000  0.0000000  0.7389576</span>
+<span class="co">#&gt; [5,]  0.0000000  0.00000000 0.0000000 -0.4723567 -0.9623593</span>
+<span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="kw">nbsp</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="fl">.2</span>, <span class="fl">1</span>)
+<span class="co">#&gt;             [,1]       [,2]       [,3]        [,4]         [,5]       [,6]</span>
+<span class="co">#&gt;  [1,]  0.0000000  0.0000000  0.0000000  0.00000000  0.000000000  0.0000000</span>
+<span class="co">#&gt;  [2,]  0.0000000  0.0000000  0.0000000  0.00000000  0.000000000  0.0000000</span>
+<span class="co">#&gt;  [3,]  0.0000000  0.0000000  0.0000000  0.02290975  0.000000000  0.0000000</span>
+<span class="co">#&gt;  [4,]  0.0000000  0.0000000 -0.7154118  0.00000000  0.020137347  0.0000000</span>
+<span class="co">#&gt;  [5,]  0.0000000  0.0000000  0.0000000 -0.20158438 -0.285316206 -0.2173576</span>
+<span class="co">#&gt;  [6,]  0.0000000  0.0000000  0.0000000  0.00000000  0.006646735  0.0000000</span>
+<span class="co">#&gt;  [7,] -0.9921565 -0.3493675 -0.5588185  0.00000000  0.000000000  0.0000000</span>
+<span class="co">#&gt;  [8,]  0.0000000  0.0000000  0.0000000  0.00000000  0.000000000  0.0000000</span>
+<span class="co">#&gt;  [9,]  0.0000000  0.0000000  0.0000000  0.00000000  0.000000000  0.0000000</span>
+<span class="co">#&gt; [10,]  0.0000000  0.0000000  0.0000000  0.00000000  0.000000000  0.0000000</span>
+<span class="co">#&gt;             [,7]         [,8] [,9]     [,10]</span>
+<span class="co">#&gt;  [1,]  0.5200845  0.000000000    0 0.0000000</span>
+<span class="co">#&gt;  [2,]  0.1186515  0.000000000    0 0.0000000</span>
+<span class="co">#&gt;  [3,]  0.8768480  0.000000000    0 0.0000000</span>
+<span class="co">#&gt;  [4,]  0.0000000  0.000000000    0 0.0000000</span>
+<span class="co">#&gt;  [5,]  0.0000000  0.000000000    0 0.0000000</span>
+<span class="co">#&gt;  [6,]  0.0000000  0.000000000    0 0.0000000</span>
+<span class="co">#&gt;  [7,]  0.0000000  0.000000000    0 0.4796585</span>
+<span class="co">#&gt;  [8,]  0.0000000 -0.000819478    0 0.0000000</span>
+<span class="co">#&gt;  [9,]  0.0000000  0.000000000    0 0.0000000</span>
+<span class="co">#&gt; [10,] -0.7841765  0.000000000    0 0.0000000</span></pre></body></html></div>
+<p>The second parameter controls the connectance (the expected connectance).</p>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="kw">connec</span> <span class="kw">=</span> <span class="fl">.1</span>, <span class="fl">1</span>)
+<span class="co">#&gt;      [,1]       [,2]       [,3]       [,4]        [,5]</span>
+<span class="co">#&gt; [1,]    0  0.0000000  0.0000000  0.0000000  0.00000000</span>
+<span class="co">#&gt; [2,]    0 -0.9624372  0.0000000  0.0000000  0.44972237</span>
+<span class="co">#&gt; [3,]    0  0.0000000  0.0000000  0.0000000  0.37335227</span>
+<span class="co">#&gt; [4,]    0  0.0000000  0.0000000  0.0000000  0.32351070</span>
+<span class="co">#&gt; [5,]    0 -0.3008550 -0.9874299 -0.2493751 -0.01861432</span>
+<span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="kw">connec</span> <span class="kw">=</span> <span class="fl">.4</span>, <span class="fl">1</span>)
+<span class="co">#&gt;             [,1]        [,2]       [,3]       [,4]       [,5]</span>
+<span class="co">#&gt; [1,] -0.08938488  0.15414453  0.0000000  0.6573219  0.3285603</span>
+<span class="co">#&gt; [2,] -0.02648614 -0.52872205  0.8381524 -0.1923653  0.3987934</span>
+<span class="co">#&gt; [3,]  0.00000000 -0.45138505 -0.9403534 -0.2618457  0.5103612</span>
+<span class="co">#&gt; [4,] -0.71166805  0.01849329  0.9173436  0.0000000  0.4311981</span>
+<span class="co">#&gt; [5,] -0.65256086 -0.38897821 -0.3942041 -0.7259063 -0.7912346</span></pre></body></html></div>
+<p>The last parameter, <code>mode</code>, affects the sign structure of the output matrix (not included in the original publication o fthe niche model):</p>
+<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co"># mode 1 + and -, refered as "predation" in Cazelles (2016)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="fl">.2</span>, <span class="kw">mode</span> <span class="kw">=</span> <span class="fl">1</span>)
+<span class="co">#&gt;            [,1]       [,2]       [,3]       [,4]       [,5]</span>
+<span class="co">#&gt; [1,] -0.2196047  0.0717989  0.0000000  0.0000000  0.0000000</span>
+<span class="co">#&gt; [2,] -0.8239885  0.0000000  0.0000000  0.1419593  0.0000000</span>
+<span class="co">#&gt; [3,]  0.0000000  0.0000000 -0.4202297  0.6308275  0.2573932</span>
+<span class="co">#&gt; [4,]  0.0000000 -0.6498952 -0.7762214  0.0000000  0.2155817</span>
+<span class="co">#&gt; [5,]  0.0000000  0.0000000 -0.1042250 -0.2414534 -0.1375708</span>
+<span class="co"># mode 2, only -, refered as "competition" in Cazelles (2016)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="fl">.2</span>, <span class="kw">mode</span> <span class="kw">=</span> <span class="fl">2</span>)
+<span class="co">#&gt;      [,1]       [,2]       [,3]       [,4]       [,5]</span>
+<span class="co">#&gt; [1,]    0  0.0000000  0.0000000  0.0000000  0.0000000</span>
+<span class="co">#&gt; [2,]    0 -0.5983179 -0.5183450  0.0000000 -0.7476726</span>
+<span class="co">#&gt; [3,]    0 -0.5660064  0.0000000 -0.6913341  0.0000000</span>
+<span class="co">#&gt; [4,]    0  0.0000000 -0.5779856 -0.2777446  0.0000000</span>
+<span class="co">#&gt; [5,]    0 -0.2365302  0.0000000  0.0000000  0.0000000</span>
+<span class="co"># mode 2, only +, refered as "mutualism" in Cazelles (2016)</span>
+<span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="fl">.2</span>, <span class="kw">mode</span> <span class="kw">=</span> <span class="fl">3</span>)
+<span class="co">#&gt;           [,1]      [,2]      [,3]      [,4]      [,5]</span>
+<span class="co">#&gt; [1,] 0.6247577 0.0000000 0.0000000 0.0000000 0.0000000</span>
+<span class="co">#&gt; [2,] 0.0000000 0.0000000 0.0000000 0.0000000 0.6992318</span>
+<span class="co">#&gt; [3,] 0.0000000 0.0000000 0.0000000 0.0000000 0.2016381</span>
+<span class="co">#&gt; [4,] 0.0000000 0.0000000 0.0000000 0.0000000 0.9097800</span>
+<span class="co">#&gt; [5,] 0.0000000 0.3544592 0.2713317 0.6759271 0.7992786</span></pre></body></html></div>
+<p>See <code><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">?nicheModel</a></code> for further details.</p>
 </div>
-<div id="extinction" class="section level3">
-<h3 class="hasAnchor">
-<a href="#extinction" class="anchor"></a>Extinction</h3>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="no">seqx</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(-<span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">.01</span>)
-<span class="no">valy</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="no">seqx</span>, <span class="kw">FUN</span> <span class="kw">=</span> <span class="no">extinction</span>, <span class="fl">1e-5</span>, <span class="fl">1e-3</span>, <span class="fl">1e3</span>, -<span class="fl">10</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">seqx</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="no">valy</span>), <span class="kw">type</span><span class="kw">=</span><span class="st">"l"</span>, <span class="kw">las</span> <span class="kw">=</span> <span class="fl">1</span>)</pre></body></html></div>
-<p><img src="Cazelles_2016_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+<div id="colonization" class="section level2">
+<h2 class="hasAnchor">
+<a href="#colonization" class="anchor"></a>Colonization</h2>
+<p>The colonisation probability bell-shaped function (see <code><a href="https://rdrr.io/pkg/biogeonet/man/colonization.html">?colonization</a></code> for details).</p>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">seqx</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(<span class="fl">0</span>, <span class="fl">10</span>, <span class="fl">.01</span>)
+<span class="no">vc_colo</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="no">seqx</span>, <span class="kw">FUN</span> <span class="kw">=</span> <span class="no">colonization</span>, <span class="fl">1</span>, <span class="fl">5</span>, <span class="fl">2</span>)
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">seqx</span>, <span class="no">vc_colo</span>, <span class="kw">type</span><span class="kw">=</span><span class="st">"l"</span>, <span class="kw">las</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">"Extinction probability"</span>,
+  <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">"Environmental gradient"</span>)</pre></body></html></div>
+<p><img src="Cazelles_2016_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
+<div id="extinction" class="section level2">
+<h2 class="hasAnchor">
+<a href="#extinction" class="anchor"></a>Extinction</h2>
+<p>The extinction probability is basically a flexible logistic function (see <code><a href="https://rdrr.io/pkg/biogeonet/man/extinction.html">?extinction</a></code> for details)</p>
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">seqx</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(-<span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">.01</span>)
+<span class="no">vc_exti</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="no">seqx</span>, <span class="kw">FUN</span> <span class="kw">=</span> <span class="no">extinction</span>, <span class="fl">1e-5</span>, <span class="fl">1e-3</span>, <span class="fl">1e3</span>, -<span class="fl">10</span>)
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">seqx</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="no">vc_exti</span>), <span class="kw">type</span><span class="kw">=</span><span class="st">"l"</span>, <span class="kw">las</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">"Extinction probability"</span>,
+  <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">"Environmental gradient"</span>)</pre></body></html></div>
+<p><img src="Cazelles_2016_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+</div>
+<div id="build-the-markov-chain-and-solve-it" class="section level2">
+<h2 class="hasAnchor">
+<a href="#build-the-markov-chain-and-solve-it" class="anchor"></a>Build the Markov chain and solve it</h2>
+</div>
+<div id="reproduce-the-study" class="section level2">
+<h2 class="hasAnchor">
+<a href="#reproduce-the-study" class="anchor"></a>Reproduce the study</h2>
+</div>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Cazelles, K., Mouquet, N., Mouillot, D. &amp; Gravel, D. 2016. On the integration of biotic interaction and environmental constraints at the biogeographical scale. Ecography. 39, 921–931. <a href="http://onlinelibrary.wiley.com/doi/10.1111/ecog.01714/abstract">DOI: 10.1111/ecog.01714</a>.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>MacArthur, R. H. and Wilson, E. O. 1967. Theory of island biogeography. – Princeton Univ. Press. <a href="https://press.princeton.edu/books/paperback/9780691088365/the-theory-of-island-biogeography">ISBN: 0691088365</a>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Williams, R. J. and Martinez, N. D. 2000. Simple rules yield complex food webs. – Nature 404: 180–183.<a href="https://doi.org/10.1038/35004572">DOI:10.1038/35004572</a>.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
   </div>
 
