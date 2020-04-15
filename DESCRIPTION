@@ -11,7 +11,7 @@ Description: Research compendium of 'On the integration of biotic interaction an
 URL: https://github.com/KevCaz/biogeonet
 BugReports: https://github.com/KevCaz/biogeonet/issues
 Depends:
-    R (>= 3.2.3)
+    R (>= 3.5.0)
 License: GPL-3
 LazyData: true
 Imports:
