@@ -4,8 +4,12 @@ output:
     variant: markdown_github
 ---
 
-
 # biogeonet
+[![Travis](https://travis-ci.org/KevCaz/biogeonet.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet)
+[![Build status](https://ci.appveyor.com/api/projects/status/82soqdq3d0g0ceo2?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet)
+[![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet)
+
+
 
 R (Rcpp) implementation for Cazelles *et al.* 2016 DOI:10.1111/ecog.01714
 
@@ -22,14 +26,6 @@ knitr::opts_chunk$set(
 devtools::load_all(".")
 ```
 
-
-
-## Current Status
-
-[![Travis](https://travis-ci.org/KevCaz/biogeonet.svg?branch=master)](https://travis-ci.org/KevCaz/biogeonet)
-[![Build status](https://ci.appveyor.com/api/projects/status/82soqdq3d0g0ceo2?svg=true)](https://ci.appveyor.com/project/KevCaz/biogeonet)
-[![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet)
-![](https://img.shields.io/badge/licence-GPL>=2-8f10cb.svg)
 
 
 
