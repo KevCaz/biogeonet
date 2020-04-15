@@ -6,20 +6,18 @@
 
 using namespace Rcpp;
 
-// buildMarkov
-NumericMatrix buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, double basexti, double mn, double mx, double shape);
-RcppExport SEXP _biogeonet_buildMarkov(SEXP nbspSEXP, SEXP coloSEXP, SEXP metawebSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
+// extinction
+double extinction(double inter, double basexti, double mn, double mx, double shape);
+RcppExport SEXP _biogeonet_extinction(SEXP interSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< int >::type nbsp(nbspSEXP);
-    Rcpp::traits::input_parameter< NumericVector >::type colo(coloSEXP);
-    Rcpp::traits::input_parameter< NumericMatrix >::type metaweb(metawebSEXP);
+    Rcpp::traits::input_parameter< double >::type inter(interSEXP);
     Rcpp::traits::input_parameter< double >::type basexti(basextiSEXP);
     Rcpp::traits::input_parameter< double >::type mn(mnSEXP);
     Rcpp::traits::input_parameter< double >::type mx(mxSEXP);
     Rcpp::traits::input_parameter< double >::type shape(shapeSEXP);
-    rcpp_result_gen = Rcpp::wrap(buildMarkov(nbsp, colo, metaweb, basexti, mn, mx, shape));
+    rcpp_result_gen = Rcpp::wrap(extinction(inter, basexti, mn, mx, shape));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -37,18 +35,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// extinction
-double extinction(double inter, double basexti, double mn, double mx, double shape);
-RcppExport SEXP _biogeonet_extinction(SEXP interSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
+// buildMarkov
+NumericMatrix buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, double basexti, double mn, double mx, double shape);
+RcppExport SEXP _biogeonet_buildMarkov(SEXP nbspSEXP, SEXP coloSEXP, SEXP metawebSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< double >::type inter(interSEXP);
+    Rcpp::traits::input_parameter< int >::type nbsp(nbspSEXP);
+    Rcpp::traits::input_parameter< NumericVector >::type colo(coloSEXP);
+    Rcpp::traits::input_parameter< NumericMatrix >::type metaweb(metawebSEXP);
     Rcpp::traits::input_parameter< double >::type basexti(basextiSEXP);
     Rcpp::traits::input_parameter< double >::type mn(mnSEXP);
     Rcpp::traits::input_parameter< double >::type mx(mxSEXP);
     Rcpp::traits::input_parameter< double >::type shape(shapeSEXP);
-    rcpp_result_gen = Rcpp::wrap(extinction(inter, basexti, mn, mx, shape));
+    rcpp_result_gen = Rcpp::wrap(buildMarkov(nbsp, colo, metaweb, basexti, mn, mx, shape));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -89,9 +89,9 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_biogeonet_buildMarkov", (DL_FUNC) &_biogeonet_buildMarkov, 7},
-    {"_biogeonet_colonization", (DL_FUNC) &_biogeonet_colonization, 4},
     {"_biogeonet_extinction", (DL_FUNC) &_biogeonet_extinction, 5},
+    {"_biogeonet_colonization", (DL_FUNC) &_biogeonet_colonization, 4},
+    {"_biogeonet_buildMarkov", (DL_FUNC) &_biogeonet_buildMarkov, 7},
     {"_biogeonet_getEigenElements", (DL_FUNC) &_biogeonet_getEigenElements, 1},
     {"_biogeonet_getEigenElementsSp", (DL_FUNC) &_biogeonet_getEigenElementsSp, 1},
     {"_biogeonet_nicheModel", (DL_FUNC) &_biogeonet_nicheModel, 3},

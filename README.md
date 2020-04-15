@@ -6,26 +6,6 @@
 R (and Rcpp) implementation for Cazelles *et al.* 2016
 <DOI:10.1111/ecog.01714>
 
-    #>   ─  installing *source* package ‘biogeonet’ ...
-    #>      ** using staged installation
-    #>      ** libs
-    #>      g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"  -fopenmp  -fpic  -g -O2 -fdebug-prefix-map=/home/jranke/git/r-backports/buster/r-base-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -UNDEBUG -Wall -pedantic -g -O0 -c RcppExports.cpp -o RcppExports.o
-    #>      g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"  -fopenmp  -fpic  -g -O2 -fdebug-prefix-map=/home/jranke/git/r-backports/buster/r-base-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -UNDEBUG -Wall -pedantic -g -O0 -c buildMarkov.cpp -o buildMarkov.o
-    #>      g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"  -fopenmp  -fpic  -g -O2 -fdebug-prefix-map=/home/jranke/git/r-backports/buster/r-base-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -UNDEBUG -Wall -pedantic -g -O0 -c colonization.cpp -o colonization.o
-    #>      g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"  -fopenmp  -fpic  -g -O2 -fdebug-prefix-map=/home/jranke/git/r-backports/buster/r-base-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -UNDEBUG -Wall -pedantic -g -O0 -c extinction.cpp -o extinction.o
-    #>      g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"  -fopenmp  -fpic  -g -O2 -fdebug-prefix-map=/home/jranke/git/r-backports/buster/r-base-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -UNDEBUG -Wall -pedantic -g -O0 -c getEigenElements.cpp -o getEigenElements.o
-    #>      g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"  -fopenmp  -fpic  -g -O2 -fdebug-prefix-map=/home/jranke/git/r-backports/buster/r-base-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -UNDEBUG -Wall -pedantic -g -O0 -c getEigenElementsSp.cpp -o getEigenElementsSp.o
-    #>      g++ -std=gnu++11 -I"/usr/share/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I"/usr/local/lib/R/site-library/RcppArmadillo/include"  -fopenmp  -fpic  -g -O2 -fdebug-prefix-map=/home/jranke/git/r-backports/buster/r-base-3.6.3=. -fstack-protector-strong -Wformat -Werror=format-security -Wdate-time -D_FORTIFY_SOURCE=2 -g  -UNDEBUG -Wall -pedantic -g -O0 -c nichemodel.cpp -o nichemodel.o
-    #>      nichemodel.cpp: In function ‘Rcpp::NumericMatrix nicheModel(int, double, int)’:
-    #>    nichemodel.cpp:53:15: warning: suggest parentheses around comparison in operand of ‘&’ [-Wparentheses]
-    #>           if (mode==2 & i!=j) {
-    #>               ~~~~^~~
-    #>      g++ -std=gnu++11 -shared -L/usr/lib/R/lib -Wl,-z,relro -o biogeonet.so RcppExports.o buildMarkov.o colonization.o extinction.o getEigenElements.o getEigenElementsSp.o nichemodel.o -fopenmp -llapack -lblas -lgfortran -lm -lquadmath -L/usr/lib/R/lib -lR
-    #>      installing to /tmp/devtools_install_185477cb7e15/00LOCK-biogeonet/00new/biogeonet/libs
-    #>      ** checking absolute paths in shared objects and dynamic libraries
-    #>   ─  DONE (biogeonet)
-    #> 
-
 ## Installation
 
 To get the current development version of this repository from R, use
@@ -79,12 +59,12 @@ To be included in the vignette.
 
 ``` r
 nicheModel(5, .2, 1)
-#>      [,1] [,2]       [,3]       [,4]       [,5]
-#> [1,]    0    0  0.0000000  0.0000000  0.0000000
-#> [2,]    0    0  0.0000000  0.0000000  0.0000000
-#> [3,]    0    0  0.0000000  0.3655858  0.4816922
-#> [4,]    0    0 -0.2138786 -0.9735498 -0.5375986
-#> [5,]    0    0 -0.5162009  0.5944290  0.0000000
+#>      [,1]       [,2]         [,3]      [,4]          [,5]
+#> [1,]    0  0.0000000  0.000000000 0.0000000  0.0000000000
+#> [2,]    0 -0.3770901  0.665946067 0.4054524  0.0000000000
+#> [3,]    0 -0.2652756 -0.792878472 0.3454695  0.0000000000
+#> [4,]    0 -0.6599528 -0.006611955 0.0000000  0.0000000000
+#> [5,]    0  0.0000000  0.000000000 0.0000000 -0.0004435638
 ```
 
 ### Colonization

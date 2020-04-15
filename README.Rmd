@@ -16,14 +16,12 @@ knitr::opts_chunk$set(
   fig.path = "inst/",
   comment = "#>",
   collapse = TRUE,
-  warning = FALSE,
-  message = FALSE,
   fig.width = 4,
   fig.height = 4
 )
 ```
 
-```{R, echo = FALSE}
+```{R, include = FALSE}
 devtools::load_all()
 ```
 

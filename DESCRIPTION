@@ -16,7 +16,6 @@ License: GPL-3
 LazyData: true
 Imports:
     Matrix,
-    magrittr,
     Rcpp (>= 0.12.11),
     RcppArmadillo
 LinkingTo: Rcpp, RcppArmadillo

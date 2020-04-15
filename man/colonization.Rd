@@ -28,6 +28,3 @@ Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of
 biotic interaction and environmental constraints at the biogeographical scale.
 (equation 9).
 }
-\author{
-Kevin Cazelles
-}
