@@ -27,7 +27,7 @@ extinction <- function(inter, basexti, mn, mx, shape) {
 
 #' @name colonization
 #' @title Colonisation rate in a given abtiotic environment.
-#' @description This function returns a colonisation rate in a given abtiotic enviromemnt.
+#' @description This function returns a colonisation rate in a given abtiotic environment.
 #' This colonisation function is hump-shaped and its parameters allow for controlling
 #' the height and the width of the hump.
 #'

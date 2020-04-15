@@ -3,10 +3,10 @@
 #' Compute the communities probabilities associated at equilibrium for a given
 #' transition matrix.
 #'
-#' @param markov a transition matrix
-#' @param sparse a logical. Should a sparse matrix be used? Default value is \code{TRUE} (See details).
+#' @param markov a transition matrix of a Markov chain.
+#' @param sparse a logical. Should a sparse matrix be used? Default value is `TRUE` (See details).
 #' @param continuous a logical. Is `markov` a continuous time Markov chain?
-#' Default is set to `FALSE`.
+#' Default is set to `FALSE` (menaing it is a discrete one).
 #'
 #' @return
 #' A vector of probabilities
@@ -26,7 +26,7 @@ solveMarkov <- function(markov, sparse = TRUE, continuous = FALSE) {
         val <- 0 else val <- 1
 
     csm <- colSums(markov)
-    stopifnot(all(abs(csm - val) < 10^-12))
+    stopifnot(all(abs(csm - val) < 1e-12))
     ##
     if (sparse) {
         smarkov <- Matrix::Matrix(markov, sparse = TRUE)

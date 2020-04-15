@@ -18,32 +18,86 @@ knitr::opts_chunk$set(
 library(biogeonet)
 ```
 
-Here are the basic
+
+## Philosophy
+
+In Cazelles[^ref], we basically expand the classical Theory of Island Biogeography[^ref2] to include ecological interactions and a link to the environmental niche. To do so we:
+
+1. simulated ecological networks of 10 species using the niche model[^ref3]
+2. link the simulated ecological interactions to extinction probability
+3. link an arbitrary environmental gradient to the colonization probability
+4. use all the steps above to create the transition matrix of a Markov chain (from any of the $2^{10}$ communities to any other) and then solve it to obtain the presence absence of all communities.
 
 
-## Examples
+## Niche model
 
-To be included in the vignette.
-
-### Niche model
+To simulate I use the niche model that I implemented in `nicheModel()`. The first parameters, ``, determines the number of species:
 
 ```{r}
-nicheModel(5, .2, 1)
+nicheModel(nbsp = 5, .2, 1)
+nicheModel(nbsp = 10, .2, 1)
 ```
 
-### Colonization
+The second parameter controls the connectance (the expected connectance).
 
 ```{r}
-seqx <- seq(0,10,.01)
-valy <- sapply(seqx, FUN = colonization, 1, 5, 2)
-plot(seqx, valy, type="l", las = 1)
+nicheModel(5, connec = .1, 1)
+nicheModel(5, connec = .4, 1)
 ```
 
-### Extinction
+The last parameter, `mode`, affects the sign structure of the output matrix (not included in the original publication o fthe niche model):
+
+```{r}
+# mode 1 + and -, refered as "predation" in Cazelles (2016)
+nicheModel(5, .2, mode = 1)
+# mode 2, only -, refered as "competition" in Cazelles (2016)
+nicheModel(5, .2, mode = 2)
+# mode 2, only +, refered as "mutualism" in Cazelles (2016)
+nicheModel(5, .2, mode = 3)
+```
+
+See `?nicheModel` for further details.
+
+
+## Colonization
+
+The colonisation probability bell-shaped function (see `?colonization` for details).
+
+
+```{r}
+seqx <- seq(0, 10, .01)
+vc_colo <- sapply(seqx, FUN = colonization, 1, 5, 2)
+plot(seqx, vc_colo, type="l", las = 1, ylab = "Extinction probability",
+  xlab = "Environmental gradient")
+```
+
+## Extinction
+
+The extinction probability is basically a flexible logistic function (see `?extinction` for details)
 
 ```{r}
 seqx <- seq(-2, 2, .01)
-valy <- sapply(seqx, FUN = extinction, 1e-5, 1e-3, 1e3, -10)
-plot(seqx, log10(valy), type="l", las = 1)
+vc_exti <- sapply(seqx, FUN = extinction, 1e-5, 1e-3, 1e3, -10)
+plot(seqx, log10(vc_exti), type="l", las = 1, ylab = "Extinction probability",
+  xlab = "Environmental gradient")
 ```
 
+## Build the Markov chain and solve it
+
+
+
+
+
+## Reproduce the study
+
+
+
+
+
+[^ref]: Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. 2016. On the integration of biotic interaction and environmental constraints at the biogeographical scale. Ecography. 39, 921–931. [DOI: 10.1111/ecog.01714](http://onlinelibrary.wiley.com/doi/10.1111/ecog.01714/abstract).
+
+[^ref2]: MacArthur, R. H. and Wilson, E. O. 1967. Theory of island
+biogeography. – Princeton Univ. Press. [ISBN: 0691088365](https://press.princeton.edu/books/paperback/9780691088365/the-theory-of-island-biogeography).
+
+[^ref3]: Williams, R. J. and Martinez, N. D. 2000. Simple rules yield
+complex food webs. – Nature 404: 180–183.[DOI:10.1038/35004572](https://doi.org/10.1038/35004572).

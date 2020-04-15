@@ -17,7 +17,7 @@ res6 <- solveMarkov(mat2, sparse=FALSE, continuous = TRUE)
 
 test_that("checking errors", {
   expect_error(getEigenElementsSp(mat), "Not an S4 object.", fixed = TRUE, class = "Rcpp::not_s4")
-  expect_error(solveMarkov(mat, continuous = TRUE), "all(abs(csm - val) < 10^-12) is not TRUE", fixed=TRUE)
+  expect_error(solveMarkov(mat, continuous = TRUE), "all(abs(csm - val) < 1e-12) is not TRUE", fixed=TRUE)
 })
 
 test_that("checking simple values", {

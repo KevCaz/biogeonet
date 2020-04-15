@@ -7,12 +7,12 @@
 solveMarkov(markov, sparse = TRUE, continuous = FALSE)
 }
 \arguments{
-\item{markov}{a transition matrix}
+\item{markov}{a transition matrix of a Markov chain.}
 
 \item{sparse}{a logical. Should a sparse matrix be used? Default value is \code{TRUE} (See details).}
 
 \item{continuous}{a logical. Is \code{markov} a continuous time Markov chain?
-Default is set to \code{FALSE}.}
+Default is set to \code{FALSE} (menaing it is a discrete one).}
 }
 \value{
 A vector of probabilities

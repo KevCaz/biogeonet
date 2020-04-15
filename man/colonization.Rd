@@ -19,7 +19,7 @@ colonization(envir, maxcolo, opti, width)
 Returns the colonisation rate associated with a given biotic environment.
 }
 \description{
-This function returns a colonisation rate in a given abtiotic enviromemnt.
+This function returns a colonisation rate in a given abtiotic environment.
 This colonisation function is hump-shaped and its parameters allow for controlling
 the height and the width of the hump.
 }

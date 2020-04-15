@@ -34,7 +34,7 @@ double extinction(double inter, double basexti, double mn, double mx, double sha
 
 //' @name colonization
 //' @title Colonisation rate in a given abtiotic environment.
-//' @description This function returns a colonisation rate in a given abtiotic enviromemnt.
+//' @description This function returns a colonisation rate in a given abtiotic environment.
 //' This colonisation function is hump-shaped and its parameters allow for controlling
 //' the height and the width of the hump.
 //'
