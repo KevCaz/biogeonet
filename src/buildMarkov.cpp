@@ -25,13 +25,10 @@ using namespace std;
 //' @export
 // [[Rcpp::export]]
 double extinction(double inter, double basexti, double mn, double mx, double shape){
-		double val = 0;
 		if (mn >= mx) {
 				stop("'mx' should be larger than 'mn'");
 		}
-		val = 1/( (1/(basexti*(mx-mn))) + ( (1/(basexti*(1-mn)))-(1/(basexti*(mx-mn))) )*exp(shape*inter));
-		val += basexti*mn;
-		return val;
+		return basexti*mn + 1/( (1/(basexti*(mx-mn))) + ( (1/(basexti*(1-mn)))-(1/(basexti*(mx-mn))) )*exp(shape*inter));
 }
 
 
@@ -90,13 +87,13 @@ NumericMatrix buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, d
 		// Writing the transition matrix
 		for (i=0; i<state; i++) {
 				for (j=0; j<state; j++) {
-						markov(i,j) = 0;
+						markov(i, j) = 0;
 						if (i != j) {
 								com = i^j;
 								if ((com & (com - 1)) == 0) { // if com is 2^something, i.e only 1 event has occured (0 for multiple events).
 										k = -1;
 										l = 0;
-										while (l==0) {
+										while (l == 0) {
 												k++;
 												l = (com>>k) & 1;
 										}
@@ -106,9 +103,9 @@ NumericMatrix buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, d
 												for (m=0; m<nbsp; m++) {
 														inter += ((j>>m)&1)*metaweb(k,m); //l'etat de l,ile a t est donner par les especes de j
 												}
-												markov(i,j) = extinction(inter, basexti, mn, mx, shape);
+												markov(i, j) = extinction(inter, basexti, mn, mx, shape);
 										} else { //species k colonizes
-												markov(i,j) = colo(k);
+												markov(i, j) = colo(k);
 										}
 								}
 						}

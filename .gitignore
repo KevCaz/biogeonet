@@ -1,6 +1,9 @@
 # History files
 .Rhistory
 .Rapp.history
+vignettes/*.html
+vignettes/*.R
+docs/
 
 # Session Data files
 .RData
@@ -39,3 +42,4 @@ src/*.o
 src/*.so
 src/*.dll
 src/symbols.rds
+inst/doc

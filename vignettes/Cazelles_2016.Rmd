@@ -1,0 +1,49 @@
+---
+title: "Cazelles et al. (2016)"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Cazelles_2016}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(biogeonet)
+```
+
+Here are the basic
+
+
+## Examples
+
+To be included in the vignette.
+
+### Niche model
+
+```{r}
+nicheModel(5, .2, 1)
+```
+
+### Colonization
+
+```{r}
+seqx <- seq(0,10,.01)
+valy <- sapply(seqx, FUN = colonization, 1, 5, 2)
+plot(seqx, valy, type="l", las = 1)
+```
+
+### Extinction
+
+```{r}
+seqx <- seq(-2, 2, .01)
+valy <- sapply(seqx, FUN = extinction, 1e-5, 1e-3, 1e3, -10)
+plot(seqx, log10(valy), type="l", las = 1)
+```
+

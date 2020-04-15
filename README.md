@@ -1,7 +1,8 @@
 # biogeonet
 
 [![R-CMD-check](https://github.com/KevCaz/biogeonet/workflows/R-CMD-check/badge.svg)](https://github.com/KevCaz/biogeonet/actions)
-[![codecov](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graphs/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet)
+[![Codecov test
+coverage](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graph/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet?branch=master)
 
 R (and Rcpp) implementation for Cazelles *et al.* 2016
 <DOI:10.1111/ecog.01714>
@@ -20,14 +21,14 @@ library(biogeonet)
 
 ## About the paper
 
-### Reference:
+### Reference
 
   - Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the
     integration of biotic interaction and environmental constraints at
     the biogeographical scale. Ecography (Cop.). 39, 921–931 (2016).
     [DOI:10.1111/ecog.01714](http://onlinelibrary.wiley.com/doi/10.1111/ecog.01714/abstract)
 
-### Abstract:
+### Abstract
 
 > Biogeography is primarily concerned with the spatial distribution of
 > biodiversity, including performing scenarios in a changing
@@ -50,39 +51,3 @@ library(biogeonet)
 > several ecological concepts into a single theory in order to perform
 > conceptual and methodological innovations, such as the switch from
 > single-species distribution to community distribution
-
-## Examples
-
-To be included in the vignette.
-
-### Niche model
-
-``` r
-nicheModel(5, .2, 1)
-#>      [,1]       [,2]         [,3]      [,4]          [,5]
-#> [1,]    0  0.0000000  0.000000000 0.0000000  0.0000000000
-#> [2,]    0 -0.3770901  0.665946067 0.4054524  0.0000000000
-#> [3,]    0 -0.2652756 -0.792878472 0.3454695  0.0000000000
-#> [4,]    0 -0.6599528 -0.006611955 0.0000000  0.0000000000
-#> [5,]    0  0.0000000  0.000000000 0.0000000 -0.0004435638
-```
-
-### Colonization
-
-``` r
-par(las=1)
-seqx <- seq(0,10,.01)
-valy <- sapply(seqx, FUN=colonization, 1, 5, 2)
-plot(seqx, valy, type="l")
-```
-
-![](inst/unnamed-chunk-4-1.png)<!-- -->
-
-## TODO
-
-  - [ ] Convert all the C code I originally used to
-    [Rcpp](https://github.com/RcppCore/Rcpp)
-  - [ ] write a minimal documentation including the simulations (or the
-    exact way of how to proceed with a number of species lower that what
-    it was in the paper) presented within the paper;
-  - [x] use \~RcppEigen or\~ Armadillo to solve the Markov chain.
