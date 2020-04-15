@@ -24,10 +24,10 @@ using namespace std;
 //' @export
 // [[Rcpp::export]]
 NumericMatrix nicheModel(int nbsp, double connec, int mode){
-	if (mode<=0 || mode>3) {
+	if (mode <=0 || mode > 3) {
 		stop("'mode' could only takes value in {1,2,3}");
 	}
-	if (connec<0 || connec>0.5) {
+	if (connec < 0 || connec > .5) {
 		stop("'mode' could only takes value in {1,2,3}");
 	}
 	NumericMatrix metaweb(nbsp, nbsp);
@@ -36,21 +36,21 @@ NumericMatrix nicheModel(int nbsp, double connec, int mode){
 	sort(niche.begin(), niche.end());
 	double c, r, rg1, rg2, beta;
 	int i, j;
-	beta = 1/(2*connec)-1;
+	beta = 1/(2*connec) - 1;
   //
 	for(i = 0; i < nbsp; i++) {
-		r = rbeta(1,1,beta)[0]*niche[i];
-		c = runif(1,.5*r,niche[i])[0];
-		rg1 = c-.5*r;
-		rg2 = c+.5*r;
+		r = rbeta(1, 1, beta)[0]*niche[i];
+		c = runif(1, .5*r, niche[i])[0];
+		rg1 = c - .5*r;
+		rg2 = c + .5*r;
 		for(j = 0; j < nbsp; j++) {
-			if (niche[j]>rg1) {
-				if (niche[j]<rg2) {
+			if (niche[j] > rg1) {
+				if (niche[j] < rg2) {
 					metaweb(i, j) = runif(1,0,1)[0];
 					metaweb(j, i) = runif(1,0,1)[0];
-					if (mode<3) {
+					if (mode < 3) {
 						metaweb(i, j) *= -1;
-						if (mode==2 & i!=j) {
+						if (mode == 2 && i != j) {
 							metaweb(j, i) *= -1;
 						}
 					}
