@@ -3,7 +3,7 @@
 [![Codecov test coverage](https://codecov.io/gh/KevCaz/biogeonet/branch/master/graph/badge.svg)](https://codecov.io/gh/KevCaz/biogeonet?branch=master)
 
 
-Functions to reproduce the analysis in Cazelles *et al.* 2016 DOI:[10.1111/ecog.01714](http://onlinelibrary.wiley.com/doi/10.1111/ecog.01714/abstract).
+Functions to reproduce the analysis in Cazelles *et al.* 2016 [DOI:10.1111/ecog.01714](http://onlinelibrary.wiley.com/doi/10.1111/ecog.01714/abstract).
 
 
 ## Installation
