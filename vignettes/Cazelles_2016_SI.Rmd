@@ -1,8 +1,11 @@
 ---
-title: "Cazelles et al. (2016) -- Supplementary Information"
-output: rmarkdown::html_vignette
+title: "Cazelles et al. (2016): Supplementary Information"
+output: bookdown::html_document2
+link-citations: yes
+pkgdown:
+  as_is: true
 vignette: >
-  %\VignetteIndexEntry{Cazelles_2016}
+  %\VignetteIndexEntry{foo}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,13 +25,27 @@ $\mathbb{P}(X_{i,t+dt}|X_{i,t})$. As $X_{i,t}$ has two possible values
 leading to four possibilities:
 
 $$
-\begin{aligned}
-\nonumber \forall (t,c_i, e_i,dt)\in (\mathbb{R}^{+})^{4}: & &  \\
-\label{eqAnn2_1} \mathbb{P}(X_{i,t+dt}=1|X_{i,dt}=0)&=&c_idt+o(dt)\\
-\label{eqAnn2_2} \mathbb{P}(X_{i,t+dt}=0|X_{i,t}=1)&=&e_idt+o(dt) \\
-\label{eqAnn2_3} \mathbb{P}(X_{i,t+dt}=0|X_{i,t}=0)&=&(1-c_idt)+o(dt) \\
-\label{eqAnn2_4} \mathbb{P}(X_{i,t+dt}=1|X_{i,t+dt}=1)&=&(1-e_idt)+o(dt)
-\end{aligned}
+\nonumber \forall (t,c_i, e_i,dt)\in (\mathbb{R}^{+})^{4}:
+$$
+
+$$
+\label{eqAnn2_1} \mathbb{P}(X_{i,t+dt}=1|X_{i,dt}=0) = c_idt + o(dt)
+(\#eq:A2p1)
+$$
+
+$$
+\mathbb{P}(X_{i,t+dt}=0|X_{i,t}=1) = e_idt + o(dt)
+(\#eq:A2p2)
+$$
+
+$$
+\mathbb{P}(X_{i,t+dt}=0|X_{i,t}=0) = (1-c_idt) + o(dt)
+(\#eq:A2p3)
+$$
+
+$$
+\mathbb{P}(X_{i,t+dt}=1|X_{i,t+dt}=1) = (1-e_idt) + o(dt)
+(\#eq:A2p4)
 $$
 
 Where $dt$ is defined such as $e_idt<1$ and $c_idt<1$. For the remaining
@@ -38,26 +55,25 @@ $$
 \lim\limits_{\substack{dt \to 0 \\ dt>0}}\frac{o(dt)}{dt} = 0
 $$
 
-According to the equations above, during $dt$, species $i$ has a probability of
-$c_idt$ of colonizing the island by a single colonization event and
-$o(dt)$ of colonizing it by multiple colonization/extinction events
-(*e.g* colonization-extinction-colonization). These multiple events are
-less likely and neglected when $dt$ tends towards $0$. Similarly,
-[\[eqAnn2\_2\]](#eqAnn2_2){reference-type="eqref" reference="eqAnn2_2"}
-explicits the probability of species $i$ becoming extinct during $dt$,
-[\[eqAnn2\_3\]](#eqAnn2_3){reference-type="eqref" reference="eqAnn2_3"}
-gives us the probability of species $i$ maintaining it-self on island
-and [\[eqAnn2\_4\]](#eqAnn2_4){reference-type="eqref"
-reference="eqAnn2_4"} provides probability of species $i$ staying out of
-the island. The distribution $\mathcal{L}(X_{i,t+dt}|X_{i,t})$ solely
-depends on the duration $dt$ not on $t$, $X_{i,t}$ is a no memory
-process, also called a first order discrete Markov chain. As
-$\{X_{i,t}=0, X_{i,t}=1\}$ is a partition:
+According to \@ref(eq:A2p1), during $dt$, species $i$ has a probability of
+$c_idt$ of colonizing the island by a single colonization event and $o(dt)$ of
+colonizing it by multiple colonization/extinction events (*e.g*
+colonization-extinction-colonization). These multiple events are less likely and
+neglected when $dt$ tends towards $0$. Similarly, \@ref(eq:A2p2) is the
+probability of species $i$ becoming extinct during $dt$, \@ref(eq:A2p3) gives us
+the probability of species $i$ maintaining it-self on island and\@ref(eq:A2p4)
+provides probability of species $i$ staying out of the island. The distribution
+$\mathcal{L}(X_{i,t+dt}|X_{i,t})$ solely depends on the duration $dt$ not on
+$t$, $X_{i,t}$ is a no memory process, also called a first order discrete Markov
+chain. As $\{X_{i,t}=0, X_{i,t}=1\}$ is a partition:
+
 $$
 \begin{aligned}
 \nonumber  \mathbb{P}(X_{i,t+dt}=1)&=& \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=0) \mathbb{P}(X_{i,t}=0) + \\
-\label{eqAnn2_6}              & & \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=1) \mathbb{P}(X_{i,t}=1)\end{aligned}
+\label{eqAnn2_6}              & & \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=1) \mathbb{P}(X_{i,t}=1)
+\end{aligned}
 $$
+
 At time $t+dt$, species $i$ will be on the island either because species
 $i$ has colonized during $dt$ or because it has not died out from there.
 By using $\mathbb{P}(X_{i,t}=0)=1- \mathbb{P}(X_{i,t}=1)$:
@@ -66,7 +82,9 @@ $$
 \begin{aligned}
 \label{eqAnn2_7}  \mathbb{P}(X_{i,t+dt}=1)&=&c_idt(1- \mathbb{P}(X_{i,t}=1))+(1-e_idt) \mathbb{P}(X_{i,t}=1)+o(dt)\end{aligned}
 $$
+
 Let $p_{i,t}$ stand for $\mathbb{P}(X_{i,t}=1)$:
+
 $$
 \begin{aligned}
 \label{eqAnn2_8} p_{i,t+dt}&=&c_idt(1-p_{i,t})+(1-e_idt)p_{i,t}+o(dt)
@@ -83,28 +101,22 @@ By passing to the limit, we finally find MacArthur and Wilson's model
 for one species:
 
 $$
-\begin{aligned}
-\label{eqAnn2_9} \frac{dp_{i}}{dt}&=&c_i(1-p_{i})-e_ip_{i}
-\end{aligned}
+\frac{dp_{i}}{dt} = c_i(1-p_{i})-e_ip_{i}
+(\#eq:A9)
 $$
 
 Similarly:
 
 $$
-\begin{aligned}
-\label{eqAnn2_10} \frac{d(1-p_{i})}{dt}&=&e_i(1-p_{i})-c_ip_{i}
-\end{aligned}
+\frac{d(1-p_{i})}{dt} = e_i(1-p_{i})-c_ip_{i}
+(\#eq:A10)
 $$
 
-Equation [\[eqAnn2\_9\]](#eqAnn2_9){reference-type="eqref"
-reference="eqAnn2_9"} describes distribution of $X_{i,t>0}$: for any
-$t$, $X_t$ follows a Bernoulli distribution with parameter $p_i(t)$.
-Equations [\[eqAnn2\_9\]](#eqAnn2_9){reference-type="eqref"
-reference="eqAnn2_9"} and
-[\[eqAnn2\_10\]](#eqAnn2_10){reference-type="eqref"
-reference="eqAnn2_10"} jointly describe a continuous time Markov Chain.
-We now consider the vector $\mathbf{C}(t)$ defined for any positive real
-number $t$ as:
+
+Equation \@ref(eq:A9) describes distribution of $X_{i,t>0}$: for any $t$, $X_t$
+follows a Bernoulli distribution with parameter $p_i(t)$. Equations \@ref(eq:A9)
+and \@ref(eq:A10) jointly describe a continuous time Markov Chain. We now
+consider the vector $\mathbf{C}(t)$ defined for any positive real number $t$ as:
 
 $$
 \begin{aligned}
@@ -141,9 +153,7 @@ $\mathbf{S_{t>0}} = \mathbf{X_{1,t>0}} + \mathbf{X_{2,t>0}} + .... + \mathbf{X_{
 As species are supposed to be independent, at any time $t$:
 
 $$
-\begin{aligned}
-\label{eqAnn2_2.1} \mathbb{E}(S_t)=\sum_{i=0}^Pp_i(t)
-\end{aligned}
+\mathbb{E}(S_t) = \sum_{i=0}^Pp_i(t)
 $$
 
 For homogeneous colonization and extinction rates among species, we directly
@@ -170,7 +180,7 @@ species $i$. At time $t$, the total influence of insular species on a
 given species $i$, $v_i$ is:
 
 $$
-v_{i,t}=(\mathbf{A}\mathbf{\mathbf{Y_t}}^T)_i=\sum_{j=1}^P\alpha_{ij}\ast x_{j,t}
+v_{i,t} = (\mathbf{A}\mathbf{\mathbf{Y_t}}^T)_i = \sum_{j=1}^P\alpha_{ij}\ast x_{j,t}
 $$
 
 Where $^T$ denotes the transposition operator, $()_i$ denotes the
@@ -214,13 +224,13 @@ $$
 \end{aligned}
 $$
 
-The previous assumption leads us to consider multiple events as
-null-probability events, so we assume $dt$ enough small to get
-$o(dt)=0$.
+The previous assumption leads us to consider multiple events as null-probability
+events, so we assume $dt$ enough small to get $o(dt)=0$.
+
 $$
-\begin{aligned}
-\nonumber \mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}} \mathbf{T_l}|\mathbf{\mathbf{Y_t}}=\mathbf{T_k})&=&\prod_{\substack{i_1\in I_1}}g_{i_1}(v_{i_1,t})dt \prod_{\substack{i_2\in I_2}}f_{i_2}(v_{i_2,t})dt  \\
-\label{eqAnn2_2.4}  & & \prod_{\substack{i_3\in I_3}}(1-f_{i_3}(v_{i_3,t})dt ) \prod_{\substack{i_4\in I_4}}(1-g_{i_4}(v_{i_4,t})dt)\end{aligned}
+\mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}} \mathbf{T_l}|\mathbf{\mathbf{Y_t}} = \mathbf{T_k}) = \prod_{\substack{i_1\in I_1}}g_{i_1}(v_{i_1,t})dt \prod_{\substack{i_2\in I_2}}f_{i_2}(v_{i_2,t})dt
+\prod_{\substack{i_3\in I_3}}(1-f_{i_3}(v_{i_3,t})dt ) \prod_{\substack{i_4\in I_4}}(1-g_{i_4}(v_{i_4,t})dt)
+(\#eq:prod4)
 $$
 
 
@@ -232,54 +242,65 @@ components of the environmental gradient considered; $\mathbf{w}$ will
 be a vector giving a specific set of values for the environmental
 gradient. Colonization and extinction rates are influenced by
 environmental gradients. Consequently, for species $i$, functions $g_i$
-and $f_i$ become multiple inputs functions. Equation
-[\[eqAnn2\_2.4\]](#eqAnn2_2.4){reference-type="eqref"
-reference="eqAnn2_2.4"} then becomes:
+and $f_i$ become multiple inputs functions. Equation \@ref(eq:prod4) then becomes:
+
 $$
-\begin{aligned}
-\nonumber \mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w})&=&\prod_{\substack{i_1\in I_1}}g_{i_1}(v_{i_1,t}, \mathbf{w})dt \prod_{\substack{i_2\in I_2}}f_{i_2}(v_{i_2,t}, \mathbf{w})dt \\
-\nonumber  & & \prod_{\substack{i_3\in I_3}}(1-f_{i_3}(v_{i_3,t}, \mathbf{w})dt ) \\
-\label{eqAnn2_3.1}  & & \prod_{\substack{i_4\in I_4}}(1-g_{i_4}(\mathbf{w}, v_{i_4,t})dt)\end{aligned}
+ \mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w}) =
+ \prod_{\substack{i_1\in I_1}}g_{i_1}(v_{i_1,t}, \mathbf{w})dt
+ \prod_{\substack{i_2\in I_2}}f_{i_2}(v_{i_2,t}, \mathbf{w})dt
+ \prod_{\substack{i_3\in I_3}}(1-f_{i_3}(v_{i_3,t}, \mathbf{w})dt)
+ \prod_{\substack{i_4\in I_4}}(1-g_{i_4}(\mathbf{w}, v_{i_4,t})dt)
+ (\#eq:Aprod4w)
 $$
 
 Using Markov chains
 ===================
 
-Based on equation [\[eqAnn2\_3.1\]](#eqAnn2_3.1){reference-type="eqref"
-reference="eqAnn2_3.1"}, we spawn the transition matrix of a discrete
+Using equation \@ref(eq:Aprod4w), we spawn the transition matrix of a discrete
 Markov chain $\mathbf{M_w^{dt}}$. For a given environment $\mathbf{w}$,
 this matrix describes the probabilities to switch from one state to
 another during $dt$. Its coefficients are obtained as follows:
-$$\label{eqAnn2_4.1} \forall (k,l)\in \{ 1,2,..., 2^P\}^2,~ \mu_{k,l}=\mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w})$$
 
-Now, let $\mathbf{C_w}(t)$ be the line vector defines at each time $t$
-by:
+$$
+\forall (k,l)\in \{ 1,2,..., 2^P\}^2,~ \mu_{k,l}=\mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w})
+$$
+
+Now, let $\mathbf{C_w}(t)$ be the line vector defines at each time $t$ by:
+
 $$
 \begin{aligned}
  \nonumber \mathbf{C_w}(t) &=& \left(\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_1}|\mathbf{W}=\mathbf{w}), \mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_2}|\mathbf{W}=\mathbf{w}),...,\right. \\
  & & \left.\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_{2^n}}|\mathbf{W}=\mathbf{w})\right)\end{aligned}
 $$
+
 This vector describes probabilities of each possible island composition
 at any time $t$, we then derive $\mathbf{C_w}(t+dt)$ from
 $\mathbf{C_w}(t)$ as follows:
+
 $$
-\begin{aligned}
-\label{eqAnn2_4.2} \mathbf{C_w}(t+dt)=\mathbf{C_w}(t)\mathbf{M_w^{dt}}\end{aligned}
+\mathbf{C_w}(t+dt)=\mathbf{C_w}(t)\mathbf{M_w^{dt}}
 $$
 
 We assume that none of the $\mathbf{M^{dt}_w}$ is null, which yields a
 regular Markov chain. In such case, $\mathbf{C}(t)$ converges to an
 equilibrium value $\mathbf{C_{eq}}$ when $t$ increases:
-$$\lim\limits_{\substack{l \to +\infty }} \mathbf{C}_0(\mathbf{M^{dt}_w})^l=\mathbf{C_{eq}}$$
+
+$$
+\lim\limits_{\substack{l \to +\infty }} \mathbf{C}_0(\mathbf{M^{dt}_w})^l=\mathbf{C_{eq}}
+$$
 
 This $\mathbf{C_{eq}}$ satisfies:
+
 $$
-\begin{aligned}
-\mathbf{C_{eq}}(\mathbf{M^{dt}_w}) &=& \mathbf{C_{eq}} \\
-||\mathbf{C_{eq}}|| &=& 1\end{aligned}
-$$ Therefore, $\mathbf{C_{eq}}$ is
-given by the normalized left Eigen vector associated to left Eigen value
-1.
+\mathbf{C_{eq}}(\mathbf{M^{dt}_w}) = \mathbf{C_{eq}}
+$$
+
+$$
+||\mathbf{C_{eq}}|| = 1
+$$
+
+Therefore, $\mathbf{C_{eq}}$ is given by the normalized left Eigen vector
+associated to left Eigen value 1.
 
 Time continuous Markov chain
 ============================
@@ -304,14 +325,14 @@ $$
 \nonumber & & +\mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_2})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 \nonumber & & + \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_3})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 & & + \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_4})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4})
-\label{eqAnn2_5.1}\end{aligned}
-$$ As in this stage, as $\mathbf{Y_t}$ do
-not refer to the same values for the whole equation, we slightly change
-our denotation: $v_{i,\mathbf{T_j}}$ represents $v_{i,t}$ when
-$\mathbf{Y_t}=\mathbf{T_j}$. According to
-[\[eqAnn2\_3.1\]](#eqAnn2_3.1){reference-type="eqref"
-reference="eqAnn2_3.1"}, we get:
+\label{eqAnn2_5.1}
+\end{aligned}
+$$
 
+As in this stage, as $\mathbf{Y_t}$ do not refer to the same values for the
+whole equation, we slightly change our denotation: $v_{i,\mathbf{T_j}}$
+represents $v_{i,t}$ when $\mathbf{Y_t}=\mathbf{T_j}$. According to
+\@ref(eq:Aprod4w), we get:
 
 $$
 \begin{aligned}

@@ -12,7 +12,7 @@ solveMarkov(markov, sparse = TRUE, continuous = FALSE)
 \item{sparse}{a logical. Should a sparse matrix be used? Default value is \code{TRUE} (See details).}
 
 \item{continuous}{a logical. Is \code{markov} a continuous time Markov chain?
-Default is set to \code{FALSE} (menaing it is a discrete one).}
+Default is set to \code{FALSE} (meaning \code{markov} is a discrete one).}
 }
 \value{
 A vector of probabilities
