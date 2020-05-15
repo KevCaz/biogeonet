@@ -4,6 +4,7 @@
 vignettes/*.html
 vignettes/*.R
 docs/
+tmp/
 
 # Session Data files
 .RData

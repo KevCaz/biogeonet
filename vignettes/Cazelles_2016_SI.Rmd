@@ -53,6 +53,7 @@ analyses, we use the symbol $o(dt)$ defines as follows:
 
 $$
 \lim\limits_{\substack{dt \to 0 \\ dt>0}}\frac{o(dt)}{dt} = 0
+(\#eq:A2pp1)
 $$
 
 According to \@ref(eq:A2p1), during $dt$, species $i$ has a probability of
@@ -70,8 +71,9 @@ chain. As $\{X_{i,t}=0, X_{i,t}=1\}$ is a partition:
 $$
 \begin{aligned}
 \nonumber  \mathbb{P}(X_{i,t+dt}=1)&=& \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=0) \mathbb{P}(X_{i,t}=0) + \\
-\label{eqAnn2_6}              & & \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=1) \mathbb{P}(X_{i,t}=1)
+          & & \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=1) \mathbb{P}(X_{i,t}=1)
 \end{aligned}
+(\#eq:A2pp2)
 $$
 
 At time $t+dt$, species $i$ will be on the island either because species
@@ -80,21 +82,23 @@ By using $\mathbb{P}(X_{i,t}=0)=1- \mathbb{P}(X_{i,t}=1)$:
 
 $$
 \begin{aligned}
-\label{eqAnn2_7}  \mathbb{P}(X_{i,t+dt}=1)&=&c_idt(1- \mathbb{P}(X_{i,t}=1))+(1-e_idt) \mathbb{P}(X_{i,t}=1)+o(dt)\end{aligned}
+\mathbb{P}(X_{i,t+dt}=1)&=&c_idt(1- \mathbb{P}(X_{i,t}=1))+(1-e_idt) \mathbb{P}(X_{i,t}=1)+o(dt)
+\end{aligned}
+(\#eq:A2pp3)
 $$
 
 Let $p_{i,t}$ stand for $\mathbb{P}(X_{i,t}=1)$:
 
 $$
-\begin{aligned}
-\label{eqAnn2_8} p_{i,t+dt}&=&c_idt(1-p_{i,t})+(1-e_idt)p_{i,t}+o(dt)
-\end{aligned}
+p_{i,t+dt} = c_idt(1-p_{i,t})+(1-e_idt)p_{i,t}+o(dt)
+(\#eq:A2pp4)
 $$
 
 $dt>0$, then:
 
 $$
 \frac{p_{i,t+dt}-p_{i,t}}{dt} = c_i(1-p_{i,t})-e_ip_{i,t}+\frac{o(dt)}{dt}
+(\#eq:A2pp5)
 $$
 
 By passing to the limit, we finally find MacArthur and Wilson's model
@@ -120,8 +124,9 @@ consider the vector $\mathbf{C}(t)$ defined for any positive real number $t$ as:
 
 $$
 \begin{aligned}
-\label{eqAnn2_11} \mathbf{C}(t)=\left(\begin{array}{cc}p_{i,t} & 1-p_{i,t} \end{array}\right)
+\mathbf{C}(t) = \left(\begin{array}{cc}p_{i,t} & 1-p_{i,t} \end{array}\right)
 \end{aligned}
+(\#eq:A11)
 $$
 
 the derivative is then:
@@ -130,6 +135,7 @@ $$
 \begin{aligned}
 \label{eqAnn2_12} \mathbf{C}'(t)=\mathbf{C}(t)\left(\begin{array}{cc}-e_i & e_i \\c_i & -c_i\end{array}\right)= \mathbf{C}(t)\mathbf{G}
 \end{aligned}
+(\#eq:A2pp6)
 $$
 
 $\mathbf{G}$ is the generator matrix of a continuous-time Markov chain
@@ -149,11 +155,13 @@ We now consider a pool of $P$ species ($P$ is a natural number). When
 species are independent, the species richness on the island can be
 described as a sum of the random processes associated to the $P$
 species:
+
 $\mathbf{S_{t>0}} = \mathbf{X_{1,t>0}} + \mathbf{X_{2,t>0}} + .... + \mathbf{X_{P,t>0}}$.
 As species are supposed to be independent, at any time $t$:
 
 $$
 \mathbb{E}(S_t) = \sum_{i=0}^Pp_i(t)
+(\#eq:commu1)
 $$
 
 For homogeneous colonization and extinction rates among species, we directly
@@ -165,22 +173,22 @@ differential equation with $P$ species.
 $P$ Interacting species
 -----------------------
 
-When species are assumed to interact, the composition of insular
-communities must be integrated and must influence the
-colonization/extinction dynamics. Consequently, we gather species
-processes within
-$\mathbf{Y_{t>0}}=(\mathbf{X_{1,t>0}}, \mathbf{X_{2,t>0}}, ...., \mathbf{X_{P,t>0}})$.
-For any $t$ value, the line vector
-$\mathbf{\mathbf{Y_t}}=(X_{1,t}, X_{2,t}, ...., X_{P,t})$ contains
-presence and absence on the island for all the species of the network.
-Each of $\mathbf{\mathbf{Y_t}}$ elements takes a values of 0 or 1, then
+When species are assumed to interact, the composition of insular communities
+must be integrated and must influence the colonization/extinction dynamics.
+Consequently, we gather species processes within
+$\mathbf{Y_{t>0}}=(\mathbf{X_{1,t>0}}, \mathbf{X_{2,t>0}}, ....,
+\mathbf{X_{P,t>0}})$. For any $t$ value, the line vector
+$\mathbf{\mathbf{Y_t}}=(X_{1,t}, X_{2,t}, ...., X_{P,t})$ contains presence and
+absence on the island for all the species of the network. Each of
+$\mathbf{\mathbf{Y_t}}$ elements takes a values of 0 or 1, then
 $\mathbf{\mathbf{Y_t}}\in \{0,1\}^P$. Elements of matrix $\mathbf{A}$,
-$\alpha_{i,j}$, describe the demographical impact of species $j$ on
-species $i$. At time $t$, the total influence of insular species on a
-given species $i$, $v_i$ is:
+$\alpha_{i,j}$, describe the demographical impact of species $j$ on species $i$.
+At time $t$, the total influence of insular species on a given species $i$,
+$v_i$ is:
 
 $$
 v_{i,t} = (\mathbf{A}\mathbf{\mathbf{Y_t}}^T)_i = \sum_{j=1}^P\alpha_{ij}\ast x_{j,t}
+(\#eq:commu2)
 $$
 
 Where $^T$ denotes the transposition operator, $()_i$ denotes the
@@ -208,6 +216,7 @@ $$
   \nonumber & & \bigcap_{\substack{i_3\in I_3}}(X_{i_3,t+dt}=1|X_{i_3,t}=1), \\
   \label{eqAnn2_13} & & \left.\bigcap_{\substack{i_4\in I_4}}(X_{i_4,t+dt}=0|X_{i_4,t}=0)\right)
 \end{aligned}
+(\#eq:commu3)
 $$
 
 Species are interdependent which apparently prevents from getting simple
@@ -222,6 +231,7 @@ $$
          \prod_{\substack{i_3\in I_3}}\mathbb{P}(X_{i_3,t+dt}=1|X_{i_3,t}=1) \\
  \prod_{\substack{i_4\in I_4}}\mathbb{P}(X_{i_4,t+dt}=0|X_{i_4,t}=0)
 \end{aligned}
+(\#eq:commu4)
 $$
 
 The previous assumption leads us to consider multiple events as null-probability
@@ -245,24 +255,27 @@ environmental gradients. Consequently, for species $i$, functions $g_i$
 and $f_i$ become multiple inputs functions. Equation \@ref(eq:prod4) then becomes:
 
 $$
- \mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w}) =
+\mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w}) =
  \prod_{\substack{i_1\in I_1}}g_{i_1}(v_{i_1,t}, \mathbf{w})dt
  \prod_{\substack{i_2\in I_2}}f_{i_2}(v_{i_2,t}, \mathbf{w})dt
  \prod_{\substack{i_3\in I_3}}(1-f_{i_3}(v_{i_3,t}, \mathbf{w})dt)
  \prod_{\substack{i_4\in I_4}}(1-g_{i_4}(\mathbf{w}, v_{i_4,t})dt)
- (\#eq:Aprod4w)
+ (\#eq:prod4w)
 $$
+
+
 
 Using Markov chains
 ===================
 
-Using equation \@ref(eq:Aprod4w), we spawn the transition matrix of a discrete
+Using equation \@ref(eq:prod4w), we spawn the transition matrix of a discrete
 Markov chain $\mathbf{M_w^{dt}}$. For a given environment $\mathbf{w}$,
 this matrix describes the probabilities to switch from one state to
 another during $dt$. Its coefficients are obtained as follows:
 
 $$
 \forall (k,l)\in \{ 1,2,..., 2^P\}^2,~ \mu_{k,l}=\mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w})
+(\#eq:mark1)
 $$
 
 Now, let $\mathbf{C_w}(t)$ be the line vector defines at each time $t$ by:
@@ -270,7 +283,9 @@ Now, let $\mathbf{C_w}(t)$ be the line vector defines at each time $t$ by:
 $$
 \begin{aligned}
  \nonumber \mathbf{C_w}(t) &=& \left(\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_1}|\mathbf{W}=\mathbf{w}), \mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_2}|\mathbf{W}=\mathbf{w}),...,\right. \\
- & & \left.\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_{2^n}}|\mathbf{W}=\mathbf{w})\right)\end{aligned}
+ & & \left.\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_{2^n}}|\mathbf{W}=\mathbf{w})\right)
+\end{aligned}
+(\#eq:mark2)
 $$
 
 This vector describes probabilities of each possible island composition
@@ -279,6 +294,7 @@ $\mathbf{C_w}(t)$ as follows:
 
 $$
 \mathbf{C_w}(t+dt)=\mathbf{C_w}(t)\mathbf{M_w^{dt}}
+(\#eq:mark3)
 $$
 
 We assume that none of the $\mathbf{M^{dt}_w}$ is null, which yields a
@@ -287,6 +303,7 @@ equilibrium value $\mathbf{C_{eq}}$ when $t$ increases:
 
 $$
 \lim\limits_{\substack{l \to +\infty }} \mathbf{C}_0(\mathbf{M^{dt}_w})^l=\mathbf{C_{eq}}
+(\#eq:mark4)
 $$
 
 This $\mathbf{C_{eq}}$ satisfies:
@@ -295,12 +312,16 @@ $$
 \mathbf{C_{eq}}(\mathbf{M^{dt}_w}) = \mathbf{C_{eq}}
 $$
 
+and
+
 $$
 ||\mathbf{C_{eq}}|| = 1
 $$
 
 Therefore, $\mathbf{C_{eq}}$ is given by the normalized left Eigen vector
 associated to left Eigen value 1.
+
+
 
 Time continuous Markov chain
 ============================
@@ -325,14 +346,14 @@ $$
 \nonumber & & +\mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_2})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 \nonumber & & + \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_3})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 & & + \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_4})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4})
-\label{eqAnn2_5.1}
 \end{aligned}
+(\#eq:contin0)
 $$
 
 As in this stage, as $\mathbf{Y_t}$ do not refer to the same values for the
 whole equation, we slightly change our denotation: $v_{i,\mathbf{T_j}}$
 represents $v_{i,t}$ when $\mathbf{Y_t}=\mathbf{T_j}$. According to
-\@ref(eq:Aprod4w), we get:
+\@ref(eq:prod4w), we get:
 
 $$
 \begin{aligned}
@@ -341,6 +362,7 @@ $$
 & & +g_1(v_{1,\mathbf{T_3}},\mathbf{w})dt(1-f_2(v_{2,\mathbf{T_3}},\mathbf{w})dt)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 & & +g_1(v_{1,\mathbf{T_4}},\mathbf{w})g_2(v_{2,\mathbf{T_4}},\mathbf{w})dt^2\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4}) +o(dt)
 \end{aligned}
+(\#eq:contin1)
 $$
 
 This yields:
@@ -352,6 +374,7 @@ $$
 \nonumber & & +((g_2(v_{2,\mathbf{T_2}},\mathbf{w})dt-g_2(v_{2,\mathbf{T_2}},\mathbf{w})f_1(v_{1,\mathbf{T_2}},\mathbf{w})dt^2))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 \nonumber & & +(g_1(v_{1,\mathbf{T_3}},\mathbf{w})dt-g_1(v_{1,\mathbf{T_3}},\mathbf{w})f_2(v_{2,\mathbf{T_3}},\mathbf{w})dt^2)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 & & +g_1(v_{1,\mathbf{T_4}},\mathbf{w})g_2(v_{2,\mathbf{T_4}},\mathbf{w})dt^2\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4})+o(dt)\end{aligned}
+(\#eq:contin2)
 $$
 
 
@@ -368,14 +391,16 @@ $$
 \nonumber & & + (g_1(v_{1,\mathbf{T_3}},\mathbf{w})-g_1(v_{1,\mathbf{T_3}},\mathbf{w})f_2(v_{2,\mathbf{T_3}},\mathbf{w})dt)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 & & +g_1(v_{1,\mathbf{T_4}},\mathbf{w})g_2(v_{2,\mathbf{T_4}},\mathbf{w})dt\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4})+\frac{o(dt)}{dt}
 \end{aligned}
+(\#eq:contin3)
 $$
 
 When passing to the limit, we derive the following master equation:
 
 $$
 \begin{aligned}
-\label{eqAnn2_5.5} \nonumber\frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &=& -(f_1(v_{1,\mathbf{T_1}},\mathbf{w})+f_2(v_{2,\mathbf{T_1}},\mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) +g_2(v_{2,\mathbf{T_2}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})\\ & &  + g_1(v_{1,\mathbf{T_3}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})
+\nonumber\frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &=& -(f_1(v_{1,\mathbf{T_1}},\mathbf{w})+f_2(v_{2,\mathbf{T_1}},\mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) +g_2(v_{2,\mathbf{T_2}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})\\ & &  + g_1(v_{1,\mathbf{T_3}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})
 \end{aligned}
+(\#eq:contin4)
 $$
 
 
@@ -386,9 +411,8 @@ $\mathbf{C}(t)=(\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}),\mathbb{P}(\mathbf{Y_t}=\m
 relationship:
 
 $$
-\begin{aligned}
-\label{eqAnn2_5.6} \mathbf{C}'(t)=\mathbf{C}(t)\mathbf{G_w}
-\end{aligned}
+\mathbf{C}'(t) = \mathbf{C}(t)\mathbf{G_w}
+(\#eq:contin5)
 $$
 
 where $\mathbf{G_w}$ is:
@@ -403,6 +427,7 @@ g_1(v_{1,\mathbf{T_3}},\mathbf{w}) & 0 & -(g_1(v_{1,\mathbf{T_3}},\mathbf{w})+f_
 0 & g_1(v_{1,\mathbf{T_4}},\mathbf{w}) & g_2(v_{2,\mathbf{T_4}},\mathbf{w}) & -(g_1(v_{1,\mathbf{T_4}},\mathbf{w})+g_2(v_{2,\mathbf{T_4}},\mathbf{w}))
 \end{array}\right)
 \end{aligned}
+(\#eq:contin6)
 $$
 
 At the equilibrium, the solution is given by $\mathbf{C_{eq}}$ which
@@ -413,21 +438,18 @@ $$
 \mathbf{C_{eq}}\mathbf{G_w} &=& 0 \\
 ||\mathbf{C_{eq}}|| &=& 1
 \end{aligned}
+(\#eq:contin7)
 $$
 
-This is the normalized left
-Eigen vector associated to the left Eigen values 0. We now solve the
-linear system of differential
-[\[eqAnn2\_5.6\]](#eqAnn2_5.6){reference-type="eqref"
-reference="eqAnn2_5.6"}. First, as
-$\{ \mathbf{T_1}, \mathbf{T_2}, \mathbf{T_3}, \mathbf{T_4} \}$ is a
-partition (which also justifies that 0 is a left Eigen values):
+This is the normalized left Eigen vector associated to the left Eigen values 0.
+We now \@ref(eq:contin5). First, as $\{ \mathbf{T_1}, \mathbf{T_2},
+\mathbf{T_3}, \mathbf{T_4} \}$ is a partition (which also justifies that 0 is a
+left Eigen values):
 
 
 $$
-\begin{aligned}
-\label{eqAnn2_5.7} \sum_{i=1}^4 \mathbb{P}(\mathbf{Y_t}=\mathbf{T_i})=1
-\end{aligned}
+\sum_{i=1}^4 \mathbb{P}(\mathbf{Y_t}=\mathbf{T_i})=1
+(\#eq:contin8)
 $$
 
 so, we express $\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})$ using the
@@ -447,76 +469,79 @@ g_1(v_{1,\mathbf{T_4}}, \mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 -(g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w}) \\
  & & + g_2(v_{2,\mathbf{T_4}}, \mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})
  \end{aligned}
- $$
+(\#eq:contin9)
+$$
 
 we denote:
 
 $$
-\begin{aligned}
-\label{eqAnn2_5.8} \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_2})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})-\frac{g_1(v_{1,\mathbf{T_4}}, \mathbf{w})}{f_1(v_{1,\mathbf{T_2}}, \mathbf{w})+g_2(v_{2,\mathbf{T_2}}, \mathbf{w})+g_1(v_{1,\mathbf{T_4}}, \mathbf{w})} \\
-\label{eqAnn2_5.9} \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_3})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})-\frac{g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}{g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w})+g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}\end{aligned}
+\begin{aligned} \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_2})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})-\frac{g_1(v_{1,\mathbf{T_4}}, \mathbf{w})}{f_1(v_{1,\mathbf{T_2}}, \mathbf{w})+g_2(v_{2,\mathbf{T_2}}, \mathbf{w})+g_1(v_{1,\mathbf{T_4}}, \mathbf{w})} \\
+\label{eqAnn2_5.9} \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_3})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})-\frac{g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}{g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w})+g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}\end{aligned}
+(\#eq:contin10)
 $$
+
 as:
+
 $$
 \begin{aligned}
-\frac{dP^*(\mathbf{Y_t}=\mathbf{T_2})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_2})}{dt} \\
-\frac{dP^*(\mathbf{Y_t}=\mathbf{T_3})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_3})}{dt}
+\frac{dP^\ast(\mathbf{Y_t}=\mathbf{T_2})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_2})}{dt} \\
+\frac{dP^\ast(\mathbf{Y_t}=\mathbf{T_3})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_3})}{dt}
 \end{aligned}
+(\#eq:contin10)
 $$
 
 yielding:
 
 $$
 \begin{aligned}
-\label{eqAnn2_5.12} \mathbf{C}^{*'}(t)=\mathbf{C}^*(t)\mathbf{G_w}^*\end{aligned}
+\mathbf{C}^{\ast'}(t)=\mathbf{C}^\ast(t)\mathbf{G_w}^\ast\end{aligned}
 $$
+
 where:
+
 $$
 \begin{aligned}
 \nonumber
-\mathbf{C}^{*'}&=&\left(\begin{array}{ccc} \frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} & \frac{d\mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_2})}{dt} & \frac{d\mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_3})}{dt} \end{array}\right) \\
+\mathbf{C}^{\ast'}&=&\left(\begin{array}{ccc} \frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} & \frac{d\mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_2})}{dt} & \frac{d\mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_3})}{dt} \end{array}\right) \\
 %
-\nonumber \mathbf{C}^{*}&=&\left(\begin{array}{ccc} \mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) & \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_2}) & \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_3}) \end{array}\right)
+\nonumber \mathbf{C}^{\ast}&=&\left(\begin{array}{ccc} \mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) & \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_2}) & \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_3}) \end{array}\right)
 \end{aligned}
+(\#eq:contin12)
 $$
 
 $$
 \begin{aligned}
-\nonumber \mathbf{G_w}^*&=& \scriptsize{
+\nonumber \mathbf{G_w}^\ast&=& \scriptsize{
 \left(\begin{array}{cccc}
 -(f_1(v_{1,\mathbf{T_1}}, \mathbf{w})+f_2(v_{2,\mathbf{T_1}}, \mathbf{w})) & f_2(v_{2,\mathbf{T_1}}, \mathbf{w})-g_1(v_{1,\mathbf{T_4}}, \mathbf{w})) & (f_1(v_{1,\mathbf{T_1}}, \mathbf{w})-g_2(v_{2,\mathbf{T_4}}, \mathbf{w})) \\
 (g_2(v_{2,\mathbf{T_2}}, \mathbf{w})  & -(f_1(v_{1,\mathbf{T_2}}, \mathbf{w})+g_2(v_{2,\mathbf{T_2}}, \mathbf{w})+g_1(v_{1,\mathbf{T_4}}, \mathbf{w})) & -g_2(v_{2,\mathbf{T_4}}, \mathbf{w})  \\
 g_1(v_{1,\mathbf{T_3}}, \mathbf{w}) & -g_1(v_{1,\mathbf{T_4}}, \mathbf{w})  & -(g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w})+g_2(v_{2,\mathbf{T_4}}, \mathbf{w}))
 \end{array}\right)}
 \end{aligned}
+(\#eq:contin13)
 $$
 
-then, if $\mathbf{G_w}^*$ is diagonizable, we readily solve
-[\[eqAnn2\_5.12\]](#eqAnn2_5.12){reference-type="eqref"
-reference="eqAnn2_5.12"}:
+then, if $\mathbf{G_w}^\ast$ is diagonizable, we readily solve \@ref(eq:contin12).
 
 $$
-\begin{aligned}
-\mathbf{C}^{*'}&=&\mathbf{CZDZ^{-1}}
-\end{aligned}
+\mathbf{C}^{\ast'} = \mathbf{CZDZ^{-1}}
+(\#eq:contin14)
 $$
 
-where $\mathbf{D}$ is the diagonal matrix containing the Eigen values of $\mathbf{G_w}^*$
+where $\mathbf{D}$ is the diagonal matrix containing the Eigen values of $\mathbf{G_w}^\ast$
 and $\mathbf{Z}$, the matrix permitting the change of basis:
 
 $$
-\begin{aligned}
-\mathbf{C}^{*'}\mathbf{Z}&=&\mathbf{CZD}
-\end{aligned}
+\mathbf{C}^{\ast'}\mathbf{Z} = \mathbf{CZD}
+(\#eq:contin15)
 $$
 
 Thus we have to
 solve a homogeneous system of differential equations:
 
 $$
-\begin{aligned}
-\mathbf{C}^{*}(t)\mathbf{Z}&=&\mathbf{K}\exp(\Lambda t)
-\end{aligned}
+\mathbf{C}^{\ast}(t)\mathbf{Z} = \mathbf{K}\exp(\Lambda t)
+(\#eq:contin16)
 $$
 
 Where:
@@ -530,43 +555,39 @@ $$
 0  & 0 & \exp(\lambda_3t)
 \end{array}\right)
 \end{aligned}
+(\#eq:contin17)
 $$
 
 
-where $\lambda_i$ stands for the $i$
-Eigen values of $\mathbf{G_w}^*$, therefore:
+where $\lambda_i$ stands for the $i$ Eigen values of $\mathbf{G_w}^\ast$,
+therefore:
 
 $$
-\begin{aligned}
-\mathbf{C}^{*}(t)&=&\mathbf{K}\exp(\Lambda t)\mathbf{Z^{-1}}
-\end{aligned}
+\mathbf{C}^{\ast}(t) = \mathbf{K}\exp(\Lambda t)\mathbf{Z^{-1}}
+(\#eq:contin18)
 $$
 
 Furthermore, given:
 
 $$
-\begin{aligned}
-\mathbf{C}^{*}(0)&=&\mathbf{KZ^{-1}}
-\end{aligned}
+\mathbf{C}^{\ast}(0) = \mathbf{KZ^{-1}}
+(\#eq:contin19)
 $$
 
 we obtain:
 
 $$
-\begin{aligned}
-\mathbf{C}^{*}(t)&=&\mathbf{C}^{*}(0)\mathbf{Z}\exp(\Lambda t)\mathbf{Z^{-1}}\end{aligned}
+\mathbf{C}^{\ast}(t) = \mathbf{C}^{\ast}(0)\mathbf{Z}\exp(\Lambda t)\mathbf{Z^{-1}}
+(\#eq:contin20)
 $$
 
 $\mathbf{C}(t)$ is finally obtained by adding the two constants we have
-subtracted in [\[eqAnn2\_5.8\]](#eqAnn2_5.8){reference-type="eqref"
-reference="eqAnn2_5.8"} and
-[\[eqAnn2\_5.9\]](#eqAnn2_5.9){reference-type="eqref"
-reference="eqAnn2_5.9"}. This allows us to express the expected values
-of local richness $S(t)$ as the following matrix product:
+subtracted in \@ref(eq:contin8) and \@ref(eq:contin9). This allows us to express
+the expected values of local richness $S(t)$ as the following matrix product:
 
 $$
-\begin{aligned}
-\label{eqAnn2_5.19} \mathbb{E}({S}(t))&=&\mathbf{C}(t)\mathbf{N}^T\end{aligned}
+\mathbb{E}({S}(t)) = \mathbf{C}(t)\mathbf{N}^T
+(\#eq:contin21)
 $$
 
 where $\mathbf{N}$ is the vector defined as
@@ -575,33 +596,38 @@ where $ || ~~ || $ denotes the Euclidean norm. In our example, we have
 $\mathbf{N}=(2,1,1,0)$.
 
 
+
+
 Solution for $P$ species
 ------------------------
 
-We first build $\mathbf{M_w^{dt}}$ for $P$ species, we then recall
-equation [\[eqAnn2\_3.1\]](#eqAnn2_3.1){reference-type="eqref"
-reference="eqAnn2_3.1"} and consider the expression of the conditional
-probabilities between any pair of states
+We first build $\mathbf{M_w^{dt}}$ for $P$ species, we then recall equation
+\@ref(eq:prod4w) and consider the expression of the conditional probabilities
+between any pair of states
 ($\mathbf{Y_{t+dt}}=\mathbf{T_i},\mathbf{Y_t}=\mathbf{T_j}$). We assume
 simultaneous colonization and/or extinction of different species to be
-neglectable when $dt$ tends towards 0 (this is shown using
-[\[eqAnn2\_3.1\]](#eqAnn2_3.1){reference-type="eqref"
-reference="eqAnn2_3.1"}, this kind of events are indeed multiplied by
-$dt^m$ with $m\geqslant2$). Consequently, we distinguish the different
-cases associated to the number of changes in presence status of species.
-To do so, we consider all values $||\mathbf{T_i}-\mathbf{T_j}||$ takes.
-Note that when $i=j$ (diagonal terms), the island composition is
-unchanged during $dt$.
+neglectable when $dt$ tends towards 0 (this is shown using  \@ref(eq:prod4w),
+this kind of events are indeed multiplied by $dt^m$ with $m\geqslant2$).
+Consequently, we distinguish the different cases associated to the number of
+changes in presence status of species. To do so, we consider all values
+$||\mathbf{T_i}-\mathbf{T_j}||$ takes. Note that when $i=j$ (diagonal terms),
+the island composition is unchanged during $dt$.
 
 $$
 \begin{aligned}
 \nonumber \mathbb{P}(\mathbf{Y_{t+dt}=\mathbf{T_j} | \mathbf{Y_{t}=\mathbf{T_j})}} &=& \prod_{i_3 \in I_3}(1-f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})dt)\prod_{i_4 \in I_4}(1-g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w})dt) \\
-&&\end{aligned}
-$$ yielding:
+&&
+\end{aligned}
+(\#eq:contin22)
+$$
+
+yielding:
+
 $$
 \begin{aligned}
 \mu_{j,j} &=& 1-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})dt- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w})dt+o(dt)
 \end{aligned}
+(\#eq:contin23)
 $$
 
 when $i \neq j$, we consider three cases:
@@ -612,12 +638,13 @@ $$
 \label{eqAnn2_5.23} ||\mathbf{T_i}-\mathbf{T_j}||  =1  , ~(\mathbf{T_i}-\mathbf{T_j})_l=-1 &\Rightarrow& \mu_{j,i}= f_l(v_{l,\mathbf{T_j}}, \mathbf{w})dt+o(dt) \\
 ||\mathbf{T_i}-\mathbf{T_j}||  >1 &\Rightarrow& \mu_{j,i}=o(dt)
 \end{aligned}
+(\#eq:contin24)
 $$
 
 Here $l$ denotes the identity of the species that go extinct or colonize
 the island during $dt$. Then, we derive $\mathbf{G_w}$ from the previous
 results. Let $K_1$ and $K_2$ be the groups of states which respectively
-correspond to $\eqref{eqAnn2_5.22}$ and $\eqref{eqAnn2_5.23}$. For any
+correspond to \@ref(eq:contin22) and \@ref(eq:contin23). For any
 state $\mathbf{T_i}$:
 
 $$
@@ -627,6 +654,7 @@ $$
 \nonumber  & & + \left(1-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})dt- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w})dt \right)\mathbb{P}(\mathbf{Y_{t}=\mathbf{T_i})} \\
   & & + o(dt)
 \end{aligned}
+(\#eq:contin25)
 $$
 
 Therefore:
@@ -637,6 +665,7 @@ $$
  \nonumber & & + \sum_{k_2 \in K_2} f_{l(k_2)}(v_{l(k_2)},\mathbf{T_{k_2}}, \mathbf{w}) \mathbb{P}(\mathbf{Y_{t}}=\mathbf{T_{k_2})} + \\
  & & \left(-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w}) \right)\mathbb{P}(\mathbf{Y_{t}=\mathbf{T_i})}
 \end{aligned}
+(\#eq:contin26)
 $$
 
 Hence, $\mathbf{G_w}$ is as follows:
@@ -648,20 +677,18 @@ $$
 ||\mathbf{T_j}-\mathbf{T_i}||  >1 &\Rightarrow& \gamma_{i,j}=0
 \end{aligned}
 $$
+
 for the diagonal elements, we get:
 
 $$
 \begin{aligned}
 \gamma_{j,j} &=& \left(-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w}) \right)
 \end{aligned}
+(\#eq:contin27)
 $$
 
 Finally, the solution of the expected richness is given by following the
-different steps from
-[\[eqAnn2\_5.7\]](#eqAnn2_5.7){reference-type="eqref"
-reference="eqAnn2_5.7"} to
-[\[eqAnn2\_5.19\]](#eqAnn2_5.19){reference-type="eqref"
-reference="eqAnn2_5.19"}.
+different steps from \@ref(eq:contin8) to \@ref(eq:contin21).
 
 
 
