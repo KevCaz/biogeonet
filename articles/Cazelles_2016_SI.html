@@ -129,8 +129,9 @@ leading to four possibilities:</p>
 \]</span></p>
 <p>Where <span class="math inline">\(dt\)</span> is defined such as <span class="math inline">\(e_idt&lt;1\)</span> and <span class="math inline">\(c_idt&lt;1\)</span>. For the remaining
 analyses, we use the symbol <span class="math inline">\(o(dt)\)</span> defines as follows:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:A2pp1">\[
 \lim\limits_{\substack{dt \to 0 \\ dt&gt;0}}\frac{o(dt)}{dt} = 0
+\tag{1.5}
 \]</span></p>
 <p>According to <a href="#eq:A2p1">(1.1)</a>, during <span class="math inline">\(dt\)</span>, species <span class="math inline">\(i\)</span> has a probability of
 <span class="math inline">\(c_idt\)</span> of colonizing the island by a single colonization event and <span class="math inline">\(o(dt)\)</span> of
@@ -143,54 +144,59 @@ provides probability of species <span class="math inline">\(i\)</span> staying o
 <span class="math inline">\(\mathcal{L}(X_{i,t+dt}|X_{i,t})\)</span> solely depends on the duration <span class="math inline">\(dt\)</span> not on
 <span class="math inline">\(t\)</span>, <span class="math inline">\(X_{i,t}\)</span> is a no memory process, also called a first order discrete Markov
 chain. As <span class="math inline">\(\{X_{i,t}=0, X_{i,t}=1\}\)</span> is a partition:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:A2pp2">\[
 \begin{aligned}
 \nonumber  \mathbb{P}(X_{i,t+dt}=1)&amp;=&amp; \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=0) \mathbb{P}(X_{i,t}=0) + \\
-\label{eqAnn2_6}              &amp; &amp; \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=1) \mathbb{P}(X_{i,t}=1)
+          &amp; &amp; \mathbb{P}(X_{i,t+dt}=1|X_{i,t}=1) \mathbb{P}(X_{i,t}=1)
 \end{aligned}
+\tag{1.6}
 \]</span></p>
 <p>At time <span class="math inline">\(t+dt\)</span>, species <span class="math inline">\(i\)</span> will be on the island either because species
 <span class="math inline">\(i\)</span> has colonized during <span class="math inline">\(dt\)</span> or because it has not died out from there.
 By using <span class="math inline">\(\mathbb{P}(X_{i,t}=0)=1- \mathbb{P}(X_{i,t}=1)\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:A2pp3">\[
 \begin{aligned}
-\label{eqAnn2_7}  \mathbb{P}(X_{i,t+dt}=1)&amp;=&amp;c_idt(1- \mathbb{P}(X_{i,t}=1))+(1-e_idt) \mathbb{P}(X_{i,t}=1)+o(dt)\end{aligned}
+\mathbb{P}(X_{i,t+dt}=1)&amp;=&amp;c_idt(1- \mathbb{P}(X_{i,t}=1))+(1-e_idt) \mathbb{P}(X_{i,t}=1)+o(dt)
+\end{aligned}
+\tag{1.7}
 \]</span></p>
 <p>Let <span class="math inline">\(p_{i,t}\)</span> stand for <span class="math inline">\(\mathbb{P}(X_{i,t}=1)\)</span>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\label{eqAnn2_8} p_{i,t+dt}&amp;=&amp;c_idt(1-p_{i,t})+(1-e_idt)p_{i,t}+o(dt)
-\end{aligned}
+<p><span class="math display" id="eq:A2pp4">\[
+p_{i,t+dt} = c_idt(1-p_{i,t})+(1-e_idt)p_{i,t}+o(dt)
+\tag{1.8}
 \]</span></p>
 <p><span class="math inline">\(dt&gt;0\)</span>, then:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:A2pp5">\[
 \frac{p_{i,t+dt}-p_{i,t}}{dt} = c_i(1-p_{i,t})-e_ip_{i,t}+\frac{o(dt)}{dt}
+\tag{1.9}
 \]</span></p>
 <p>By passing to the limit, we finally find MacArthur and Wilson’s model
 for one species:</p>
 <p><span class="math display" id="eq:A9">\[
 \frac{dp_{i}}{dt} = c_i(1-p_{i})-e_ip_{i}
-\tag{1.5}
+\tag{1.10}
 \]</span></p>
 <p>Similarly:</p>
 <p><span class="math display" id="eq:A10">\[
 \frac{d(1-p_{i})}{dt} = e_i(1-p_{i})-c_ip_{i}
-\tag{1.6}
+\tag{1.11}
 \]</span></p>
-<p>Equation <a href="#eq:A9">(1.5)</a> describes distribution of <span class="math inline">\(X_{i,t&gt;0}\)</span>: for any <span class="math inline">\(t\)</span>, <span class="math inline">\(X_t\)</span>
-follows a Bernoulli distribution with parameter <span class="math inline">\(p_i(t)\)</span>. Equations <a href="#eq:A9">(1.5)</a>
-and <a href="#eq:A10">(1.6)</a> jointly describe a continuous time Markov Chain. We now
+<p>Equation <a href="#eq:A9">(1.10)</a> describes distribution of <span class="math inline">\(X_{i,t&gt;0}\)</span>: for any <span class="math inline">\(t\)</span>, <span class="math inline">\(X_t\)</span>
+follows a Bernoulli distribution with parameter <span class="math inline">\(p_i(t)\)</span>. Equations <a href="#eq:A9">(1.10)</a>
+and <a href="#eq:A10">(1.11)</a> jointly describe a continuous time Markov Chain. We now
 consider the vector <span class="math inline">\(\mathbf{C}(t)\)</span> defined for any positive real number <span class="math inline">\(t\)</span> as:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:A11">\[
 \begin{aligned}
-\label{eqAnn2_11} \mathbf{C}(t)=\left(\begin{array}{cc}p_{i,t} &amp; 1-p_{i,t} \end{array}\right)
+\mathbf{C}(t) = \left(\begin{array}{cc}p_{i,t} &amp; 1-p_{i,t} \end{array}\right)
 \end{aligned}
+\tag{1.12}
 \]</span></p>
 <p>the derivative is then:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:A2pp6">\[
 \begin{aligned}
 \label{eqAnn2_12} \mathbf{C}'(t)=\mathbf{C}(t)\left(\begin{array}{cc}-e_i &amp; e_i \\c_i &amp; -c_i\end{array}\right)= \mathbf{C}(t)\mathbf{G}
 \end{aligned}
+\tag{1.13}
 \]</span></p>
 <p><span class="math inline">\(\mathbf{G}\)</span> is the generator matrix of a continuous-time Markov chain
 associated to the classical model of MacArthur and Wilson. This provides
@@ -206,11 +212,12 @@ possible states (with or without species <span class="math inline">\(i\)</span>)
 <p>We now consider a pool of <span class="math inline">\(P\)</span> species (<span class="math inline">\(P\)</span> is a natural number). When
 species are independent, the species richness on the island can be
 described as a sum of the random processes associated to the <span class="math inline">\(P\)</span>
-species:
-<span class="math inline">\(\mathbf{S_{t&gt;0}} = \mathbf{X_{1,t&gt;0}} + \mathbf{X_{2,t&gt;0}} + .... + \mathbf{X_{P,t&gt;0}}\)</span>.
+species:</p>
+<p><span class="math inline">\(\mathbf{S_{t&gt;0}} = \mathbf{X_{1,t&gt;0}} + \mathbf{X_{2,t&gt;0}} + .... + \mathbf{X_{P,t&gt;0}}\)</span>.
 As species are supposed to be independent, at any time <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:commu1">\[
 \mathbb{E}(S_t) = \sum_{i=0}^Pp_i(t)
+\tag{2.1}
 \]</span></p>
 <p>For homogeneous colonization and extinction rates among species, we directly
 obtain a solution: for any time <span class="math inline">\(t\)</span>, <span class="math inline">\(S_t\sim \mathcal{B}(P,Pp_i(t))\)</span>.
@@ -220,21 +227,20 @@ differential equation with <span class="math inline">\(P\)</span> species.</p>
 <div id="p-interacting-species" class="section level2">
 <h2 class="hasAnchor">
 <a href="#p-interacting-species" class="anchor"></a><span class="header-section-number">2.2</span> <span class="math inline">\(P\)</span> Interacting species</h2>
-<p>When species are assumed to interact, the composition of insular
-communities must be integrated and must influence the
-colonization/extinction dynamics. Consequently, we gather species
-processes within
-<span class="math inline">\(\mathbf{Y_{t&gt;0}}=(\mathbf{X_{1,t&gt;0}}, \mathbf{X_{2,t&gt;0}}, ...., \mathbf{X_{P,t&gt;0}})\)</span>.
-For any <span class="math inline">\(t\)</span> value, the line vector
-<span class="math inline">\(\mathbf{\mathbf{Y_t}}=(X_{1,t}, X_{2,t}, ...., X_{P,t})\)</span> contains
-presence and absence on the island for all the species of the network.
-Each of <span class="math inline">\(\mathbf{\mathbf{Y_t}}\)</span> elements takes a values of 0 or 1, then
+<p>When species are assumed to interact, the composition of insular communities
+must be integrated and must influence the colonization/extinction dynamics.
+Consequently, we gather species processes within
+<span class="math inline">\(\mathbf{Y_{t&gt;0}}=(\mathbf{X_{1,t&gt;0}}, \mathbf{X_{2,t&gt;0}}, ...., \mathbf{X_{P,t&gt;0}})\)</span>. For any <span class="math inline">\(t\)</span> value, the line vector
+<span class="math inline">\(\mathbf{\mathbf{Y_t}}=(X_{1,t}, X_{2,t}, ...., X_{P,t})\)</span> contains presence and
+absence on the island for all the species of the network. Each of
+<span class="math inline">\(\mathbf{\mathbf{Y_t}}\)</span> elements takes a values of 0 or 1, then
 <span class="math inline">\(\mathbf{\mathbf{Y_t}}\in \{0,1\}^P\)</span>. Elements of matrix <span class="math inline">\(\mathbf{A}\)</span>,
-<span class="math inline">\(\alpha_{i,j}\)</span>, describe the demographical impact of species <span class="math inline">\(j\)</span> on
-species <span class="math inline">\(i\)</span>. At time <span class="math inline">\(t\)</span>, the total influence of insular species on a
-given species <span class="math inline">\(i\)</span>, <span class="math inline">\(v_i\)</span> is:</p>
-<p><span class="math display">\[
+<span class="math inline">\(\alpha_{i,j}\)</span>, describe the demographical impact of species <span class="math inline">\(j\)</span> on species <span class="math inline">\(i\)</span>.
+At time <span class="math inline">\(t\)</span>, the total influence of insular species on a given species <span class="math inline">\(i\)</span>,
+<span class="math inline">\(v_i\)</span> is:</p>
+<p><span class="math display" id="eq:commu2">\[
 v_{i,t} = (\mathbf{A}\mathbf{\mathbf{Y_t}}^T)_i = \sum_{j=1}^P\alpha_{ij}\ast x_{j,t}
+\tag{2.2}
 \]</span></p>
 <p>Where <span class="math inline">\(^T\)</span> denotes the transposition operator, <span class="math inline">\(()_i\)</span> denotes the
 <span class="math inline">\(i^{\text{th}}\)</span> column and <span class="math inline">\(x_{j,t}\)</span> the values of <span class="math inline">\(X_{j,t}\)</span> (<span class="math inline">\(0\)</span> or
@@ -249,7 +255,7 @@ these values (a given species assemblage). We have to split species into
 four different categories: <span class="math inline">\(I_1\)</span>, <span class="math inline">\(I_2\)</span>, <span class="math inline">\(I_3\)</span> et <span class="math inline">\(I_4\)</span> relatively to
 their presence on the island. This refers to the four potential
 situations we have noticed earlier:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:commu3">\[
 \begin{aligned}
 \forall{t} &gt;0, ~\forall{(k,j)} \in \{1, 2,...., 2^P\}^2: &amp; &amp;\\
 \mathbb{P} \mathbf{\mathbf{Y_{t+dt}}} = \mathbf{T_l}|\mathbf{\mathbf{Y_t}}=\mathbf{T_k})
@@ -259,25 +265,27 @@ situations we have noticed earlier:</p>
   \nonumber &amp; &amp; \bigcap_{\substack{i_3\in I_3}}(X_{i_3,t+dt}=1|X_{i_3,t}=1), \\
   \label{eqAnn2_13} &amp; &amp; \left.\bigcap_{\substack{i_4\in I_4}}(X_{i_4,t+dt}=0|X_{i_4,t}=0)\right)
 \end{aligned}
+\tag{2.3}
 \]</span></p>
 <p>Species are interdependent which apparently prevents from getting simple
 results. Nevertheless, with <span class="math inline">\(dt\)</span> enough small, the island composition
 could be regarded as constant during <span class="math inline">\(dt\)</span>. Extinction probability is
 thus calculated at time <span class="math inline">\(t\)</span> and fixed until <span class="math inline">\(t+dt\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:commu4">\[
 \begin{aligned}
 \mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}} = \mathbf{T_l}|\mathbf{\mathbf{Y_t}} = \mathbf{T_k}) = \prod_{\substack{i_1\in I_1}}\mathbb{P}(X_{i_1,t+dt}=1|X_{i_1,t}=0) \\
           \prod_{\substack{i_2\in I_2}}\mathbb{P}(X_{i_2,t+dt}=0|X_{i_2,t}=1)  \\
          \prod_{\substack{i_3\in I_3}}\mathbb{P}(X_{i_3,t+dt}=1|X_{i_3,t}=1) \\
  \prod_{\substack{i_4\in I_4}}\mathbb{P}(X_{i_4,t+dt}=0|X_{i_4,t}=0)
 \end{aligned}
+\tag{2.4}
 \]</span></p>
 <p>The previous assumption leads us to consider multiple events as null-probability
 events, so we assume <span class="math inline">\(dt\)</span> enough small to get <span class="math inline">\(o(dt)=0\)</span>.</p>
 <p><span class="math display" id="eq:prod4">\[
 \mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}} \mathbf{T_l}|\mathbf{\mathbf{Y_t}} = \mathbf{T_k}) = \prod_{\substack{i_1\in I_1}}g_{i_1}(v_{i_1,t})dt \prod_{\substack{i_2\in I_2}}f_{i_2}(v_{i_2,t})dt
 \prod_{\substack{i_3\in I_3}}(1-f_{i_3}(v_{i_3,t})dt ) \prod_{\substack{i_4\in I_4}}(1-g_{i_4}(v_{i_4,t})dt)
-\tag{2.1}
+\tag{2.5}
 \]</span></p>
 </div>
 </div>
@@ -289,9 +297,9 @@ components of the environmental gradient considered; <span class="math inline">\
 be a vector giving a specific set of values for the environmental
 gradient. Colonization and extinction rates are influenced by
 environmental gradients. Consequently, for species <span class="math inline">\(i\)</span>, functions <span class="math inline">\(g_i\)</span>
-and <span class="math inline">\(f_i\)</span> become multiple inputs functions. Equation <a href="#eq:prod4">(2.1)</a> then becomes:</p>
-<p><span class="math display" id="eq:Aprod4w">\[
- \mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w}) =
+and <span class="math inline">\(f_i\)</span> become multiple inputs functions. Equation <a href="#eq:prod4">(2.5)</a> then becomes:</p>
+<p><span class="math display" id="eq:prod4w">\[
+\mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w}) =
  \prod_{\substack{i_1\in I_1}}g_{i_1}(v_{i_1,t}, \mathbf{w})dt
  \prod_{\substack{i_2\in I_2}}f_{i_2}(v_{i_2,t}, \mathbf{w})dt
  \prod_{\substack{i_3\in I_3}}(1-f_{i_3}(v_{i_3,t}, \mathbf{w})dt)
@@ -302,35 +310,41 @@ and <span class="math inline">\(f_i\)</span> become multiple inputs functions. E
 <div id="using-markov-chains" class="section level1">
 <h1 class="hasAnchor">
 <a href="#using-markov-chains" class="anchor"></a><span class="header-section-number">4</span> Using Markov chains</h1>
-<p>Using equation <a href="#eq:Aprod4w">(3.1)</a>, we spawn the transition matrix of a discrete
+<p>Using equation <a href="#eq:prod4w">(3.1)</a>, we spawn the transition matrix of a discrete
 Markov chain <span class="math inline">\(\mathbf{M_w^{dt}}\)</span>. For a given environment <span class="math inline">\(\mathbf{w}\)</span>,
 this matrix describes the probabilities to switch from one state to
 another during <span class="math inline">\(dt\)</span>. Its coefficients are obtained as follows:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:mark1">\[
 \forall (k,l)\in \{ 1,2,..., 2^P\}^2,~ \mu_{k,l}=\mathbb{P}(\mathbf{\mathbf{Y_{t+dt}}}=\mathbf{T_k}|\mathbf{\mathbf{Y_t}}=\mathbf{T_l}, \mathbf{W}=\mathbf{w})
+\tag{4.1}
 \]</span></p>
 <p>Now, let <span class="math inline">\(\mathbf{C_w}(t)\)</span> be the line vector defines at each time <span class="math inline">\(t\)</span> by:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:mark2">\[
 \begin{aligned}
  \nonumber \mathbf{C_w}(t) &amp;=&amp; \left(\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_1}|\mathbf{W}=\mathbf{w}), \mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_2}|\mathbf{W}=\mathbf{w}),...,\right. \\
- &amp; &amp; \left.\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_{2^n}}|\mathbf{W}=\mathbf{w})\right)\end{aligned}
+ &amp; &amp; \left.\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_{2^n}}|\mathbf{W}=\mathbf{w})\right)
+\end{aligned}
+\tag{4.2}
 \]</span></p>
 <p>This vector describes probabilities of each possible island composition
 at any time <span class="math inline">\(t\)</span>, we then derive <span class="math inline">\(\mathbf{C_w}(t+dt)\)</span> from
 <span class="math inline">\(\mathbf{C_w}(t)\)</span> as follows:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:mark3">\[
 \mathbf{C_w}(t+dt)=\mathbf{C_w}(t)\mathbf{M_w^{dt}}
+\tag{4.3}
 \]</span></p>
 <p>We assume that none of the <span class="math inline">\(\mathbf{M^{dt}_w}\)</span> is null, which yields a
 regular Markov chain. In such case, <span class="math inline">\(\mathbf{C}(t)\)</span> converges to an
 equilibrium value <span class="math inline">\(\mathbf{C_{eq}}\)</span> when <span class="math inline">\(t\)</span> increases:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:mark4">\[
 \lim\limits_{\substack{l \to +\infty }} \mathbf{C}_0(\mathbf{M^{dt}_w})^l=\mathbf{C_{eq}}
+\tag{4.4}
 \]</span></p>
 <p>This <span class="math inline">\(\mathbf{C_{eq}}\)</span> satisfies:</p>
 <p><span class="math display">\[
 \mathbf{C_{eq}}(\mathbf{M^{dt}_w}) = \mathbf{C_{eq}}
 \]</span></p>
+<p>and</p>
 <p><span class="math display">\[
 ||\mathbf{C_{eq}}|| = 1
 \]</span></p>
@@ -352,38 +366,40 @@ equations we derived.</p>
 consider here that <span class="math inline">\(\mathbf{W}\)</span> is set to <span class="math inline">\(\mathbf{w}\)</span> and so, for
 instance, <span class="math inline">\(\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_1})\)</span> means
 <span class="math inline">\(\mathbb{P}(\mathbf{\mathbf{Y_t}}=\mathbf{T_1}|\mathbf{W}=\mathbf{w})\)</span>.</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin0">\[
 \begin{aligned}
 \nonumber \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}) &amp;=&amp; \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_1})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) \\
 \nonumber &amp; &amp; +\mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_2})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 \nonumber &amp; &amp; + \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_3})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 &amp; &amp; + \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1}|\mathbf{Y_t}=\mathbf{T_4})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4})
-\label{eqAnn2_5.1}
 \end{aligned}
+\tag{5.1}
 \]</span></p>
 <p>As in this stage, as <span class="math inline">\(\mathbf{Y_t}\)</span> do not refer to the same values for the
 whole equation, we slightly change our denotation: <span class="math inline">\(v_{i,\mathbf{T_j}}\)</span>
 represents <span class="math inline">\(v_{i,t}\)</span> when <span class="math inline">\(\mathbf{Y_t}=\mathbf{T_j}\)</span>. According to
-<a href="#eq:Aprod4w">(3.1)</a>, we get:</p>
-<p><span class="math display">\[
+<a href="#eq:prod4w">(3.1)</a>, we get:</p>
+<p><span class="math display" id="eq:contin1">\[
 \begin{aligned}
 \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1})&amp;=&amp;(1-f_1(v_{1,\mathbf{T_1}},\mathbf{w})dt)(1-f_2(v_{2,\mathbf{T_1}},\mathbf{w})dt)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})\\
 &amp; &amp; +(1-f_1(v_{1,\mathbf{T_2}},\mathbf{w})dt)g_2(v_{2,\mathbf{T_2}},\mathbf{w})dt \mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 &amp; &amp; +g_1(v_{1,\mathbf{T_3}},\mathbf{w})dt(1-f_2(v_{2,\mathbf{T_3}},\mathbf{w})dt)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 &amp; &amp; +g_1(v_{1,\mathbf{T_4}},\mathbf{w})g_2(v_{2,\mathbf{T_4}},\mathbf{w})dt^2\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4}) +o(dt)
 \end{aligned}
+\tag{5.2}
 \]</span></p>
 <p>This yields:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin2">\[
 \begin{aligned}
 \label{eqAnn2_5.3} \nonumber \mathbb{P}(\mathbf{Y_{t+dt}}=\mathbf{T_1})&amp;=&amp;(1-f_1(v_{1,\mathbf{T_1}},\mathbf{w})dt-f_2(v_{2,\mathbf{T_1}},\mathbf{w})dt \\
 \nonumber &amp; &amp; +f_1(v_{1,\mathbf{T_1}},\mathbf{w})f_2(v_{2,\mathbf{T_1}},\mathbf{w})dt^2)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})\\
 \nonumber &amp; &amp; +((g_2(v_{2,\mathbf{T_2}},\mathbf{w})dt-g_2(v_{2,\mathbf{T_2}},\mathbf{w})f_1(v_{1,\mathbf{T_2}},\mathbf{w})dt^2))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 \nonumber &amp; &amp; +(g_1(v_{1,\mathbf{T_3}},\mathbf{w})dt-g_1(v_{1,\mathbf{T_3}},\mathbf{w})f_2(v_{2,\mathbf{T_3}},\mathbf{w})dt^2)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 &amp; &amp; +g_1(v_{1,\mathbf{T_4}},\mathbf{w})g_2(v_{2,\mathbf{T_4}},\mathbf{w})dt^2\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4})+o(dt)\end{aligned}
+\tag{5.3}
 \]</span></p>
 <p>Assuming <span class="math inline">\(dt&gt;0\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin3">\[
 \begin{aligned}
 \label{eqAnn2_5.4}
 \nonumber \frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &amp;=&amp;
@@ -394,24 +410,25 @@ represents <span class="math inline">\(v_{i,t}\)</span> when <span class="math i
 \nonumber &amp; &amp; + (g_1(v_{1,\mathbf{T_3}},\mathbf{w})-g_1(v_{1,\mathbf{T_3}},\mathbf{w})f_2(v_{2,\mathbf{T_3}},\mathbf{w})dt)\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
 &amp; &amp; +g_1(v_{1,\mathbf{T_4}},\mathbf{w})g_2(v_{2,\mathbf{T_4}},\mathbf{w})dt\mathbb{P}(\mathbf{Y_t}=\mathbf{T_4})+\frac{o(dt)}{dt}
 \end{aligned}
+\tag{5.4}
 \]</span></p>
 <p>When passing to the limit, we derive the following master equation:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin4">\[
 \begin{aligned}
-\label{eqAnn2_5.5} \nonumber\frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &amp;=&amp; -(f_1(v_{1,\mathbf{T_1}},\mathbf{w})+f_2(v_{2,\mathbf{T_1}},\mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) +g_2(v_{2,\mathbf{T_2}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})\\ &amp; &amp;  + g_1(v_{1,\mathbf{T_3}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})
+\nonumber\frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &amp;=&amp; -(f_1(v_{1,\mathbf{T_1}},\mathbf{w})+f_2(v_{2,\mathbf{T_1}},\mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) +g_2(v_{2,\mathbf{T_2}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})\\ &amp; &amp;  + g_1(v_{1,\mathbf{T_3}},\mathbf{w})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})
 \end{aligned}
+\tag{5.5}
 \]</span></p>
 <p>We do so for the <span class="math inline">\(\mathbf{T_2}\)</span>, <span class="math inline">\(\mathbf{T_3}\)</span> and <span class="math inline">\(\mathbf{T_4}\)</span>. Let
 <span class="math inline">\(\mathbf{C}(t)\)</span> be the column vector define for all real <span class="math inline">\(t&gt;0\)</span> such as
 <span class="math inline">\(\mathbf{C}(t)=(\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}),\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}),\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}), \mathbb{P}(\mathbf{Y_t}=\mathbf{T_4}))\)</span>. We thus have the following
 relationship:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\label{eqAnn2_5.6} \mathbf{C}'(t)=\mathbf{C}(t)\mathbf{G_w}
-\end{aligned}
+<p><span class="math display" id="eq:contin5">\[
+\mathbf{C}'(t) = \mathbf{C}(t)\mathbf{G_w}
+\tag{5.6}
 \]</span></p>
 <p>where <span class="math inline">\(\mathbf{G_w}\)</span> is:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin6">\[
 \begin{aligned}
 \nonumber
 \left(\begin{array}{cccc}
@@ -421,29 +438,27 @@ g_1(v_{1,\mathbf{T_3}},\mathbf{w}) &amp; 0 &amp; -(g_1(v_{1,\mathbf{T_3}},\mathb
 0 &amp; g_1(v_{1,\mathbf{T_4}},\mathbf{w}) &amp; g_2(v_{2,\mathbf{T_4}},\mathbf{w}) &amp; -(g_1(v_{1,\mathbf{T_4}},\mathbf{w})+g_2(v_{2,\mathbf{T_4}},\mathbf{w}))
 \end{array}\right)
 \end{aligned}
+\tag{5.7}
 \]</span></p>
 <p>At the equilibrium, the solution is given by <span class="math inline">\(\mathbf{C_{eq}}\)</span> which
 verifies:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin7">\[
 \begin{aligned}
 \mathbf{C_{eq}}\mathbf{G_w} &amp;=&amp; 0 \\
 ||\mathbf{C_{eq}}|| &amp;=&amp; 1
 \end{aligned}
+\tag{5.8}
 \]</span></p>
-<p>This is the normalized left
-Eigen vector associated to the left Eigen values 0. We now solve the
-linear system of differential
-<a href="#eqAnn2_5.6" reference-type="eqref" reference="eqAnn2_5.6"><span class="math display">\[eqAnn2\_5.6\]</span></a>. First, as
-<span class="math inline">\(\{ \mathbf{T_1}, \mathbf{T_2}, \mathbf{T_3}, \mathbf{T_4} \}\)</span> is a
-partition (which also justifies that 0 is a left Eigen values):</p>
-<p><span class="math display">\[
-\begin{aligned}
-\label{eqAnn2_5.7} \sum_{i=1}^4 \mathbb{P}(\mathbf{Y_t}=\mathbf{T_i})=1
-\end{aligned}
+<p>This is the normalized left Eigen vector associated to the left Eigen values 0.
+We now <a href="#eq:contin5">(5.6)</a>. First, as <span class="math inline">\(\{ \mathbf{T_1}, \mathbf{T_2}, \mathbf{T_3}, \mathbf{T_4} \}\)</span> is a partition (which also justifies that 0 is a
+left Eigen values):</p>
+<p><span class="math display" id="eq:contin8">\[
+\sum_{i=1}^4 \mathbb{P}(\mathbf{Y_t}=\mathbf{T_i})=1
+\tag{5.9}
 \]</span></p>
 <p>so, we express <span class="math inline">\(\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})\)</span> using the
 probabilities:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin9">\[
 \begin{aligned}
 \nonumber \frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &amp;=&amp; -(f_1(v_{1,\mathbf{T_1}},\mathbf{w}) + f_2(v_{2,\mathbf{T_1}},\mathbf{w})) \mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})
 \\  &amp; &amp; + g_2(v_{2,\mathbf{T_2}},\mathbf{w}) \mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) + g_1(v_{1,\mathbf{T_3}})\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3}) \\
@@ -456,67 +471,67 @@ g_1(v_{1,\mathbf{T_4}}, \mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2}) \\
 -(g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w}) \\
  &amp; &amp; + g_2(v_{2,\mathbf{T_4}}, \mathbf{w}))\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})
  \end{aligned}
- \]</span></p>
+\tag{5.10}
+\]</span></p>
 <p>we denote:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin10">\[
+\begin{aligned} \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_2})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})-\frac{g_1(v_{1,\mathbf{T_4}}, \mathbf{w})}{f_1(v_{1,\mathbf{T_2}}, \mathbf{w})+g_2(v_{2,\mathbf{T_2}}, \mathbf{w})+g_1(v_{1,\mathbf{T_4}}, \mathbf{w})} \\
+\label{eqAnn2_5.9} \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_3})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})-\frac{g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}{g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w})+g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}\end{aligned}
+\tag{5.11}
+\]</span></p>
+<p>as:</p>
+<p><span class="math display" id="eq:contin10">\[
 \begin{aligned}
-\label{eqAnn2_5.8} \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_2})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_2})-\frac{g_1(v_{1,\mathbf{T_4}}, \mathbf{w})}{f_1(v_{1,\mathbf{T_2}}, \mathbf{w})+g_2(v_{2,\mathbf{T_2}}, \mathbf{w})+g_1(v_{1,\mathbf{T_4}}, \mathbf{w})} \\
-\label{eqAnn2_5.9} \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_3})=\mathbb{P}(\mathbf{Y_t}=\mathbf{T_3})-\frac{g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}{g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w})+g_2(v_{2,\mathbf{T_4}}, \mathbf{w})}\end{aligned}
-\]</span>
-as:
-<span class="math display">\[
-\begin{aligned}
-\frac{dP^*(\mathbf{Y_t}=\mathbf{T_2})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_2})}{dt} \\
-\frac{dP^*(\mathbf{Y_t}=\mathbf{T_3})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_3})}{dt}
+\frac{dP^\ast(\mathbf{Y_t}=\mathbf{T_2})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_2})}{dt} \\
+\frac{dP^\ast(\mathbf{Y_t}=\mathbf{T_3})}{dt}=\frac{dP(\mathbf{Y_t}=\mathbf{T_3})}{dt}
 \end{aligned}
+\tag{5.11}
 \]</span></p>
 <p>yielding:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\label{eqAnn2_5.12} \mathbf{C}^{*'}(t)=\mathbf{C}^*(t)\mathbf{G_w}^*\end{aligned}
-\]</span>
-where:
-<span class="math display">\[
+\mathbf{C}^{\ast'}(t)=\mathbf{C}^\ast(t)\mathbf{G_w}^\ast\end{aligned}
+\]</span></p>
+<p>where:</p>
+<p><span class="math display" id="eq:contin12">\[
 \begin{aligned}
 \nonumber
-\mathbf{C}^{*'}&amp;=&amp;\left(\begin{array}{ccc} \frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &amp; \frac{d\mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_2})}{dt} &amp; \frac{d\mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_3})}{dt} \end{array}\right) \\
+\mathbf{C}^{\ast'}&amp;=&amp;\left(\begin{array}{ccc} \frac{d\mathbb{P}(\mathbf{Y_t}=\mathbf{T_1})}{dt} &amp; \frac{d\mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_2})}{dt} &amp; \frac{d\mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_3})}{dt} \end{array}\right) \\
 %
-\nonumber \mathbf{C}^{*}&amp;=&amp;\left(\begin{array}{ccc} \mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) &amp; \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_2}) &amp; \mathbb{P}^*(\mathbf{Y_t}=\mathbf{T_3}) \end{array}\right)
+\nonumber \mathbf{C}^{\ast}&amp;=&amp;\left(\begin{array}{ccc} \mathbb{P}(\mathbf{Y_t}=\mathbf{T_1}) &amp; \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_2}) &amp; \mathbb{P}^\ast(\mathbf{Y_t}=\mathbf{T_3}) \end{array}\right)
 \end{aligned}
+\tag{5.12}
 \]</span></p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin13">\[
 \begin{aligned}
-\nonumber \mathbf{G_w}^*&amp;=&amp; \scriptsize{
+\nonumber \mathbf{G_w}^\ast&amp;=&amp; \scriptsize{
 \left(\begin{array}{cccc}
 -(f_1(v_{1,\mathbf{T_1}}, \mathbf{w})+f_2(v_{2,\mathbf{T_1}}, \mathbf{w})) &amp; f_2(v_{2,\mathbf{T_1}}, \mathbf{w})-g_1(v_{1,\mathbf{T_4}}, \mathbf{w})) &amp; (f_1(v_{1,\mathbf{T_1}}, \mathbf{w})-g_2(v_{2,\mathbf{T_4}}, \mathbf{w})) \\
 (g_2(v_{2,\mathbf{T_2}}, \mathbf{w})  &amp; -(f_1(v_{1,\mathbf{T_2}}, \mathbf{w})+g_2(v_{2,\mathbf{T_2}}, \mathbf{w})+g_1(v_{1,\mathbf{T_4}}, \mathbf{w})) &amp; -g_2(v_{2,\mathbf{T_4}}, \mathbf{w})  \\
 g_1(v_{1,\mathbf{T_3}}, \mathbf{w}) &amp; -g_1(v_{1,\mathbf{T_4}}, \mathbf{w})  &amp; -(g_1(v_{1,\mathbf{T_3}}, \mathbf{w})+f_2(v_{2,\mathbf{T_3}}, \mathbf{w})+g_2(v_{2,\mathbf{T_4}}, \mathbf{w}))
 \end{array}\right)}
 \end{aligned}
+\tag{5.13}
 \]</span></p>
-<p>then, if <span class="math inline">\(\mathbf{G_w}^*\)</span> is diagonizable, we readily solve
-<a href="#eqAnn2_5.12" reference-type="eqref" reference="eqAnn2_5.12"><span class="math display">\[eqAnn2\_5.12\]</span></a>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{C}^{*'}&amp;=&amp;\mathbf{CZDZ^{-1}}
-\end{aligned}
+<p>then, if <span class="math inline">\(\mathbf{G_w}^\ast\)</span> is diagonizable, we readily solve <a href="#eq:contin12">(5.12)</a>.</p>
+<p><span class="math display" id="eq:contin14">\[
+\mathbf{C}^{\ast'} = \mathbf{CZDZ^{-1}}
+\tag{5.14}
 \]</span></p>
-<p>where <span class="math inline">\(\mathbf{D}\)</span> is the diagonal matrix containing the Eigen values of <span class="math inline">\(\mathbf{G_w}^*\)</span>
+<p>where <span class="math inline">\(\mathbf{D}\)</span> is the diagonal matrix containing the Eigen values of <span class="math inline">\(\mathbf{G_w}^\ast\)</span>
 and <span class="math inline">\(\mathbf{Z}\)</span>, the matrix permitting the change of basis:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{C}^{*'}\mathbf{Z}&amp;=&amp;\mathbf{CZD}
-\end{aligned}
+<p><span class="math display" id="eq:contin15">\[
+\mathbf{C}^{\ast'}\mathbf{Z} = \mathbf{CZD}
+\tag{5.15}
 \]</span></p>
 <p>Thus we have to
 solve a homogeneous system of differential equations:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{C}^{*}(t)\mathbf{Z}&amp;=&amp;\mathbf{K}\exp(\Lambda t)
-\end{aligned}
+<p><span class="math display" id="eq:contin16">\[
+\mathbf{C}^{\ast}(t)\mathbf{Z} = \mathbf{K}\exp(\Lambda t)
+\tag{5.16}
 \]</span></p>
 <p>Where:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin17">\[
 \begin{aligned}
 \nonumber \exp(\Lambda t)&amp;=&amp;
 \left(\begin{array}{cccc}
@@ -525,32 +540,30 @@ solve a homogeneous system of differential equations:</p>
 0  &amp; 0 &amp; \exp(\lambda_3t)
 \end{array}\right)
 \end{aligned}
+\tag{5.17}
 \]</span></p>
-<p>where <span class="math inline">\(\lambda_i\)</span> stands for the <span class="math inline">\(i\)</span>
-Eigen values of <span class="math inline">\(\mathbf{G_w}^*\)</span>, therefore:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{C}^{*}(t)&amp;=&amp;\mathbf{K}\exp(\Lambda t)\mathbf{Z^{-1}}
-\end{aligned}
+<p>where <span class="math inline">\(\lambda_i\)</span> stands for the <span class="math inline">\(i\)</span> Eigen values of <span class="math inline">\(\mathbf{G_w}^\ast\)</span>,
+therefore:</p>
+<p><span class="math display" id="eq:contin18">\[
+\mathbf{C}^{\ast}(t) = \mathbf{K}\exp(\Lambda t)\mathbf{Z^{-1}}
+\tag{5.18}
 \]</span></p>
 <p>Furthermore, given:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{C}^{*}(0)&amp;=&amp;\mathbf{KZ^{-1}}
-\end{aligned}
+<p><span class="math display" id="eq:contin19">\[
+\mathbf{C}^{\ast}(0) = \mathbf{KZ^{-1}}
+\tag{5.19}
 \]</span></p>
 <p>we obtain:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{C}^{*}(t)&amp;=&amp;\mathbf{C}^{*}(0)\mathbf{Z}\exp(\Lambda t)\mathbf{Z^{-1}}\end{aligned}
+<p><span class="math display" id="eq:contin20">\[
+\mathbf{C}^{\ast}(t) = \mathbf{C}^{\ast}(0)\mathbf{Z}\exp(\Lambda t)\mathbf{Z^{-1}}
+\tag{5.20}
 \]</span></p>
 <p><span class="math inline">\(\mathbf{C}(t)\)</span> is finally obtained by adding the two constants we have
-subtracted in <a href="#eqAnn2_5.8" reference-type="eqref" reference="eqAnn2_5.8"><span class="math display">\[eqAnn2\_5.8\]</span></a> and
-<a href="#eqAnn2_5.9" reference-type="eqref" reference="eqAnn2_5.9"><span class="math display">\[eqAnn2\_5.9\]</span></a>. This allows us to express the expected values
-of local richness <span class="math inline">\(S(t)\)</span> as the following matrix product:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\label{eqAnn2_5.19} \mathbb{E}({S}(t))&amp;=&amp;\mathbf{C}(t)\mathbf{N}^T\end{aligned}
+subtracted in <a href="#eq:contin8">(5.9)</a> and <a href="#eq:contin9">(5.10)</a>. This allows us to express
+the expected values of local richness <span class="math inline">\(S(t)\)</span> as the following matrix product:</p>
+<p><span class="math display" id="eq:contin21">\[
+\mathbb{E}({S}(t)) = \mathbf{C}(t)\mathbf{N}^T
+\tag{5.21}
 \]</span></p>
 <p>where <span class="math inline">\(\mathbf{N}\)</span> is the vector defined as
 <span class="math inline">\(\mathbf{N}=(||\mathbf{T_1}||^2, ||\mathbf{T_2}||^2, ||\mathbf{T_3}||^2, ||\mathbf{T_4}||^2)\)</span>,
@@ -560,56 +573,62 @@ where $ || ~~ || $ denotes the Euclidean norm. In our example, we have
 <div id="solution-for-p-species" class="section level2">
 <h2 class="hasAnchor">
 <a href="#solution-for-p-species" class="anchor"></a><span class="header-section-number">5.2</span> Solution for <span class="math inline">\(P\)</span> species</h2>
-<p>We first build <span class="math inline">\(\mathbf{M_w^{dt}}\)</span> for <span class="math inline">\(P\)</span> species, we then recall
-equation <a href="#eqAnn2_3.1" reference-type="eqref" reference="eqAnn2_3.1"><span class="math display">\[eqAnn2\_3.1\]</span></a> and consider the expression of the conditional
-probabilities between any pair of states
+<p>We first build <span class="math inline">\(\mathbf{M_w^{dt}}\)</span> for <span class="math inline">\(P\)</span> species, we then recall equation
+<a href="#eq:prod4w">(3.1)</a> and consider the expression of the conditional probabilities
+between any pair of states
 (<span class="math inline">\(\mathbf{Y_{t+dt}}=\mathbf{T_i},\mathbf{Y_t}=\mathbf{T_j}\)</span>). We assume
 simultaneous colonization and/or extinction of different species to be
-neglectable when <span class="math inline">\(dt\)</span> tends towards 0 (this is shown using
-<a href="#eqAnn2_3.1" reference-type="eqref" reference="eqAnn2_3.1"><span class="math display">\[eqAnn2\_3.1\]</span></a>, this kind of events are indeed multiplied by
-<span class="math inline">\(dt^m\)</span> with <span class="math inline">\(m\geqslant2\)</span>). Consequently, we distinguish the different
-cases associated to the number of changes in presence status of species.
-To do so, we consider all values <span class="math inline">\(||\mathbf{T_i}-\mathbf{T_j}||\)</span> takes.
-Note that when <span class="math inline">\(i=j\)</span> (diagonal terms), the island composition is
-unchanged during <span class="math inline">\(dt\)</span>.</p>
-<p><span class="math display">\[
+neglectable when <span class="math inline">\(dt\)</span> tends towards 0 (this is shown using <a href="#eq:prod4w">(3.1)</a>,
+this kind of events are indeed multiplied by <span class="math inline">\(dt^m\)</span> with <span class="math inline">\(m\geqslant2\)</span>).
+Consequently, we distinguish the different cases associated to the number of
+changes in presence status of species. To do so, we consider all values
+<span class="math inline">\(||\mathbf{T_i}-\mathbf{T_j}||\)</span> takes. Note that when <span class="math inline">\(i=j\)</span> (diagonal terms),
+the island composition is unchanged during <span class="math inline">\(dt\)</span>.</p>
+<p><span class="math display" id="eq:contin22">\[
 \begin{aligned}
 \nonumber \mathbb{P}(\mathbf{Y_{t+dt}=\mathbf{T_j} | \mathbf{Y_{t}=\mathbf{T_j})}} &amp;=&amp; \prod_{i_3 \in I_3}(1-f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})dt)\prod_{i_4 \in I_4}(1-g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w})dt) \\
-&amp;&amp;\end{aligned}
-\]</span> yielding:
-<span class="math display">\[
+&amp;&amp;
+\end{aligned}
+\tag{5.22}
+\]</span></p>
+<p>yielding:</p>
+<p><span class="math display" id="eq:contin23">\[
 \begin{aligned}
 \mu_{j,j} &amp;=&amp; 1-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})dt- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w})dt+o(dt)
 \end{aligned}
+\tag{5.23}
 \]</span></p>
 <p>when <span class="math inline">\(i \neq j\)</span>, we consider three cases:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin24">\[
 \begin{aligned}
 \label{eqAnn2_5.22} ||\mathbf{T_i}-\mathbf{T_j}|| = 1, ~(\mathbf{T_i}-\mathbf{T_j})_l=1 &amp;\Rightarrow&amp; \mu_{j,i}= g_l(v_{l,\mathbf{T_j}}, \mathbf{w})dt+ o(dt) \\
 \label{eqAnn2_5.23} ||\mathbf{T_i}-\mathbf{T_j}||  =1  , ~(\mathbf{T_i}-\mathbf{T_j})_l=-1 &amp;\Rightarrow&amp; \mu_{j,i}= f_l(v_{l,\mathbf{T_j}}, \mathbf{w})dt+o(dt) \\
 ||\mathbf{T_i}-\mathbf{T_j}||  &gt;1 &amp;\Rightarrow&amp; \mu_{j,i}=o(dt)
 \end{aligned}
+\tag{5.24}
 \]</span></p>
 <p>Here <span class="math inline">\(l\)</span> denotes the identity of the species that go extinct or colonize
 the island during <span class="math inline">\(dt\)</span>. Then, we derive <span class="math inline">\(\mathbf{G_w}\)</span> from the previous
 results. Let <span class="math inline">\(K_1\)</span> and <span class="math inline">\(K_2\)</span> be the groups of states which respectively
-correspond to <span class="math inline">\(\eqref{eqAnn2_5.22}\)</span> and <span class="math inline">\(\eqref{eqAnn2_5.23}\)</span>. For any
+correspond to <a href="#eq:contin22">(5.22)</a> and <a href="#eq:contin23">(5.23)</a>. For any
 state <span class="math inline">\(\mathbf{T_i}\)</span>:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin25">\[
 \begin{aligned}
 \nonumber \mathbb{P}(\mathbf{Y_{t+dt} = \mathbf{T_i})} &amp;=&amp; \sum_{k_1 \in K_1}g_{l(k_1)}(v_{l(k_1)},\mathbf{T_{k_1}}, \mathbf{w})dt\mathbb{P}(\mathbf{Y_{t}=\mathbf{T_{k_1}})} \\
 \nonumber  &amp; &amp; + \sum_{k_2 \in K_2} f_{l(k_2)}(v_{l(k_2)},\mathbf{T_{k_2}}, \mathbf{w}) dt \mathbb{P}(\mathbf{Y_{t}}=\mathbf{T_{k_2})} \\
 \nonumber  &amp; &amp; + \left(1-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})dt- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w})dt \right)\mathbb{P}(\mathbf{Y_{t}=\mathbf{T_i})} \\
   &amp; &amp; + o(dt)
 \end{aligned}
+\tag{5.25}
 \]</span></p>
 <p>Therefore:</p>
-<p><span class="math display">\[
+<p><span class="math display" id="eq:contin26">\[
 \begin{aligned}
 \nonumber \frac{d\mathbb{P}(\mathbf{Y_{t}}=\mathbf{T_i})}{dt} &amp;=&amp; \sum_{k_1 \in K_1}g_{l(k_1)}(v_{l(k_1)},\mathbf{T_{k_1}}, \mathbf{w})\mathbb{P}(\mathbf{Y_{t}=\mathbf{T_{k_1}})} \\
  \nonumber &amp; &amp; + \sum_{k_2 \in K_2} f_{l(k_2)}(v_{l(k_2)},\mathbf{T_{k_2}}, \mathbf{w}) \mathbb{P}(\mathbf{Y_{t}}=\mathbf{T_{k_2})} + \\
  &amp; &amp; \left(-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w}) \right)\mathbb{P}(\mathbf{Y_{t}=\mathbf{T_i})}
 \end{aligned}
+\tag{5.26}
 \]</span></p>
 <p>Hence, <span class="math inline">\(\mathbf{G_w}\)</span> is as follows:</p>
 <p><span class="math display">\[
@@ -618,17 +637,16 @@ state <span class="math inline">\(\mathbf{T_i}\)</span>:</p>
 ||\mathbf{T_j}-\mathbf{T_i}||  =1  ,~ (\mathbf{T_j-T_i})_l=-1&amp;\Rightarrow&amp; \gamma_{i,j}= g(v_{l,\mathbf{T_i}}, \mathbf{w}) \\
 ||\mathbf{T_j}-\mathbf{T_i}||  &gt;1 &amp;\Rightarrow&amp; \gamma_{i,j}=0
 \end{aligned}
-\]</span>
-for the diagonal elements, we get:</p>
-<p><span class="math display">\[
+\]</span></p>
+<p>for the diagonal elements, we get:</p>
+<p><span class="math display" id="eq:contin27">\[
 \begin{aligned}
 \gamma_{j,j} &amp;=&amp; \left(-\sum_{i_3 \in I_3}f_{i_3}(v_{i_3,\mathbf{T_j}}, \mathbf{w})- \sum_{i_4 \in I_4}g_{i_4}(v_{i_4,\mathbf{T_j}}, \mathbf{w}) \right)
 \end{aligned}
+\tag{5.27}
 \]</span></p>
 <p>Finally, the solution of the expected richness is given by following the
-different steps from
-<a href="#eqAnn2_5.7" reference-type="eqref" reference="eqAnn2_5.7"><span class="math display">\[eqAnn2\_5.7\]</span></a> to
-<a href="#eqAnn2_5.19" reference-type="eqref" reference="eqAnn2_5.19"><span class="math display">\[eqAnn2\_5.19\]</span></a>.</p>
+different steps from <a href="#eq:contin8">(5.9)</a> to <a href="#eq:contin21">(5.21)</a>.</p>
 </div>
 </div>
 <div class="footnotes">
