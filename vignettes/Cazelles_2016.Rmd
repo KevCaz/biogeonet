@@ -38,7 +38,7 @@ nicheModel(nbsp = 5, .2, 1)
 nicheModel(nbsp = 10, .2, 1)
 ```
 
-The second parameter controls the connectance (the expected connectance).
+The second parameter controls the expected connectance.
 
 ```{r}
 nicheModel(5, connec = .1, 1)
@@ -76,9 +76,9 @@ plot(seqx, vc_colo, type="l", las = 1, ylab = "Extinction probability",
 The extinction probability is basically a flexible logistic function (see `?extinction` for details)
 
 ```{r}
-seqx <- seq(-2, 2, .01)
-vc_exti <- sapply(seqx, FUN = extinction, 1e-5, 1e-3, 1e3, -1)
-plot(seqx, log10(vc_exti), type="l", las = 1, ylab = "Extinction probability",
+seqx <- seq(-10, 10, .01)
+vc_exti <- sapply(seqx, FUN = extinction, 1e-3, 1e-2, 1e2, -1)
+plot(seqx, vc_exti, type="l", las = 1, ylab = "Extinction probability",
   xlab = "Environmental gradient")
 ```
 
@@ -87,7 +87,7 @@ plot(seqx, log10(vc_exti), type="l", las = 1, ylab = "Extinction probability",
 
 For a specific vector of colonisation (1 value per species), a specific
 ecological networks (use to derive extinction probabilities), we can build the
-transition matrix of a Markov chain with `buildMarkov()`. So far, it builds the matrix of a continuous-time Markov chain](https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain) ans so probabilities described above should actuall be rates.
+transition matrix of a Markov chain with `buildMarkov()`. So far, it builds the matrix of a continuous-time Markov chain](https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain) ans so probabilities described above should actually be rates.
 
 ```{r}
 # number of species
@@ -104,17 +104,30 @@ mat
 then `solveMarkov()` returns the probabilities at equilibrium for all communities:
 
 ```{r}
-sol <- solveMarkov(mat, continuous = TRUE)
+sol <- solveMarkov(mat$markov, continuous = TRUE)
 sol
 ```
 
 This gives the probability at equilibrium (*sensu* MacArthur & Wilson 1967)  for all of the $2^{nbsp}$ community (here `nbsp`=4, so there are 16 potential communities).
 
 ```{r}
-# NB some to one
+# NB sum to one
 sum(sol)
 ```
 
+In order to compute the species richness, one simply needs to compute the
+expectation value of the random variable that associates to every state, its
+species richness, i.e.:
+
+```{r}
+sum(sol * mat$speciesRichness)
+```
+
+Similarly, one can compute the expected presence of all species
+
+```{r}
+mat$speciesPresence %*% sol
+```
 
 
 ## Reproduce the study
