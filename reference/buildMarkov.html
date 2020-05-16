@@ -72,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biogeonet</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -157,12 +157,8 @@
       <td><p>extinction rate without interaction.</p></td>
     </tr>
     <tr>
-      <th>mn</th>
-      <td><p>a real number giving the minimum rate of extinction.</p></td>
-    </tr>
-    <tr>
-      <th>mx</th>
-      <td><p>a real number giving the maximum rate of extinction.</p></td>
+      <th>mn, mx</th>
+      <td><p>a real number giving the minimum and maximum rate of extinction.</p></td>
     </tr>
     <tr>
       <th>shape</th>
@@ -172,7 +168,12 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns the transition matrix of the Markov chain to be solved.</p>
+    <p>A list including:</p><ul>
+<li><p><code>makov</code>: the transition of the Markov chain to be solved.</p></li>
+<li><p><code>speciesRichness</code>: species richness for all states.</p></li>
+<li><p><code>speciesPresence</code>: matrix of presence for every species in all states.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Cazelles, K., Mouquet, N., Mouillot, D. &amp; Gravel, D. On the integration of

@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">biogeonet</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -113,75 +113,75 @@
 <a href="#niche-model" class="anchor"></a>Niche model</h2>
 <p>To simulate I use the niche model that I implemented in <code><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel()</a></code>. The first parameters, <code>nbsp</code>, determines the number of species:</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="kw">nbsp</span> <span class="kw">=</span> <span class="fl">5</span>, <span class="fl">.2</span>, <span class="fl">1</span>)
-<span class="co">#&gt;            [,1]        [,2]       [,3]       [,4]       [,5]</span>
-<span class="co">#&gt; [1,] -0.9593486  0.00000000  0.0000000  0.2454443 0.00000000</span>
-<span class="co">#&gt; [2,]  0.0000000  0.00000000  0.0000000  0.2845675 0.07346899</span>
-<span class="co">#&gt; [3,]  0.0000000  0.00000000  0.0000000  0.0000000 0.57412572</span>
-<span class="co">#&gt; [4,] -0.4344211 -0.52058914  0.0000000  0.0000000 0.38568332</span>
-<span class="co">#&gt; [5,]  0.0000000 -0.07034477 -0.1280276 -0.8885212 0.00000000</span>
+<span class="co">#&gt;            [,1]       [,2]        [,3]        [,4]      [,5]</span>
+<span class="co">#&gt; [1,]  0.0000000  0.0000000  0.00000000  0.33236422 0.0000000</span>
+<span class="co">#&gt; [2,]  0.0000000  0.0000000  0.00000000  0.03608205 0.0000000</span>
+<span class="co">#&gt; [3,]  0.0000000  0.0000000  0.00000000  0.77903683 0.0000000</span>
+<span class="co">#&gt; [4,] -0.2483893 -0.2615522 -0.03363379 -0.56977655 0.7670426</span>
+<span class="co">#&gt; [5,]  0.0000000  0.0000000  0.00000000 -0.08233662 0.0000000</span>
 <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="kw">nbsp</span> <span class="kw">=</span> <span class="fl">10</span>, <span class="fl">.2</span>, <span class="fl">1</span>)
-<span class="co">#&gt;              [,1]       [,2]        [,3]        [,4]       [,5]        [,6]</span>
-<span class="co">#&gt;  [1,]  0.00000000  0.0000000  0.00000000  0.00000000  0.3367826  0.41046488</span>
-<span class="co">#&gt;  [2,]  0.00000000  0.0000000  0.00000000  0.00000000  0.9287815  0.93087516</span>
-<span class="co">#&gt;  [3,]  0.00000000  0.0000000  0.00000000  0.01938182  0.6316176  0.89048499</span>
-<span class="co">#&gt;  [4,]  0.00000000  0.0000000 -0.05980911  0.00000000  0.0000000  0.04393182</span>
-<span class="co">#&gt;  [5,] -0.73658867 -0.9143064 -0.12564466  0.00000000  0.0000000  0.00000000</span>
-<span class="co">#&gt;  [6,] -0.20624917 -0.5716869 -0.27272977 -0.80069430  0.0000000  0.00000000</span>
-<span class="co">#&gt;  [7,]  0.00000000  0.0000000  0.00000000 -0.64769062 -0.6196620 -0.53373524</span>
-<span class="co">#&gt;  [8,]  0.00000000  0.0000000 -0.06102754 -0.08647013  0.0000000  0.00000000</span>
-<span class="co">#&gt;  [9,]  0.00000000  0.0000000  0.00000000  0.00000000  0.0000000  0.00000000</span>
-<span class="co">#&gt; [10,] -0.04923739 -0.8680409 -0.85703137 -0.73649163  0.0000000  0.00000000</span>
-<span class="co">#&gt;             [,7]      [,8] [,9]     [,10]</span>
-<span class="co">#&gt;  [1,]  0.0000000 0.0000000    0 0.7025503</span>
-<span class="co">#&gt;  [2,]  0.0000000 0.0000000    0 0.2915340</span>
-<span class="co">#&gt;  [3,]  0.0000000 0.3944925    0 0.9754837</span>
-<span class="co">#&gt;  [4,]  0.2953239 0.3809513    0 0.1554068</span>
-<span class="co">#&gt;  [5,]  0.3397617 0.0000000    0 0.0000000</span>
-<span class="co">#&gt;  [6,]  0.4649919 0.0000000    0 0.0000000</span>
-<span class="co">#&gt;  [7,] -0.9267186 0.0000000    0 0.0000000</span>
-<span class="co">#&gt;  [8,]  0.0000000 0.0000000    0 0.0000000</span>
-<span class="co">#&gt;  [9,]  0.0000000 0.0000000    0 0.0000000</span>
-<span class="co">#&gt; [10,]  0.0000000 0.0000000    0 0.0000000</span></pre></body></html></div>
-<p>The second parameter controls the connectance (the expected connectance).</p>
+<span class="co">#&gt;              [,1]       [,2]       [,3]        [,4]       [,5]       [,6]</span>
+<span class="co">#&gt;  [1,]  0.00000000  0.0000000  0.3841360  0.85394965  0.0000000  0.0000000</span>
+<span class="co">#&gt;  [2,]  0.00000000 -0.3750247 -0.9981889  0.95745936  0.0000000  0.0000000</span>
+<span class="co">#&gt;  [3,] -0.98501505  0.8154719  0.0000000  0.66046801  0.0000000  0.0000000</span>
+<span class="co">#&gt;  [4,] -0.02846291 -0.5160620 -0.4495050 -0.92402186  0.0000000  0.4072649</span>
+<span class="co">#&gt;  [5,]  0.00000000  0.0000000  0.0000000  0.00000000  0.0000000  0.2341506</span>
+<span class="co">#&gt;  [6,]  0.00000000  0.0000000  0.0000000 -0.62204806 -0.2942034 -0.3762614</span>
+<span class="co">#&gt;  [7,]  0.00000000 -0.4999713 -0.5694014 -0.01884913 -0.6807970  0.6601791</span>
+<span class="co">#&gt;  [8,]  0.00000000 -0.7282874 -0.1698769  0.00000000  0.0000000  0.0000000</span>
+<span class="co">#&gt;  [9,] -0.76358026  0.0000000  0.0000000  0.00000000  0.0000000  0.0000000</span>
+<span class="co">#&gt; [10,]  0.00000000 -0.3374719 -0.3382163 -0.35345944 -0.5736737  0.0000000</span>
+<span class="co">#&gt;               [,7]      [,8]      [,9]     [,10]</span>
+<span class="co">#&gt;  [1,]  0.000000000 0.0000000 0.3642837 0.0000000</span>
+<span class="co">#&gt;  [2,]  0.344138852 0.8830474 0.0000000 0.8076427</span>
+<span class="co">#&gt;  [3,]  0.007748912 0.5956353 0.0000000 0.4507875</span>
+<span class="co">#&gt;  [4,]  0.347627673 0.0000000 0.0000000 0.6339386</span>
+<span class="co">#&gt;  [5,]  0.786232939 0.0000000 0.0000000 0.2205929</span>
+<span class="co">#&gt;  [6,] -0.382116071 0.0000000 0.0000000 0.0000000</span>
+<span class="co">#&gt;  [7,]  0.000000000 0.0000000 0.0000000 0.0000000</span>
+<span class="co">#&gt;  [8,]  0.000000000 0.0000000 0.0000000 0.0000000</span>
+<span class="co">#&gt;  [9,]  0.000000000 0.0000000 0.0000000 0.0000000</span>
+<span class="co">#&gt; [10,]  0.000000000 0.0000000 0.0000000 0.0000000</span></pre></body></html></div>
+<p>The second parameter controls the expected connectance.</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="kw">connec</span> <span class="kw">=</span> <span class="fl">.1</span>, <span class="fl">1</span>)
-<span class="co">#&gt;      [,1]       [,2]      [,3]      [,4] [,5]</span>
-<span class="co">#&gt; [1,]    0  0.0000000  0.000000 0.0000000    0</span>
-<span class="co">#&gt; [2,]    0  0.0000000  0.000000 0.2384596    0</span>
-<span class="co">#&gt; [3,]    0  0.0000000 -0.517874 0.0000000    0</span>
-<span class="co">#&gt; [4,]    0 -0.1397669  0.000000 0.0000000    0</span>
-<span class="co">#&gt; [5,]    0  0.0000000  0.000000 0.0000000    0</span>
+<span class="co">#&gt;             [,1]       [,2] [,3]      [,4] [,5]</span>
+<span class="co">#&gt; [1,]  0.00000000  0.8851977    0 0.9109430    0</span>
+<span class="co">#&gt; [2,] -0.06858638  0.0000000    0 0.1818991    0</span>
+<span class="co">#&gt; [3,]  0.00000000  0.0000000    0 0.0000000    0</span>
+<span class="co">#&gt; [4,] -0.91030452 -0.4129825    0 0.0000000    0</span>
+<span class="co">#&gt; [5,]  0.00000000  0.0000000    0 0.0000000    0</span>
 <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="kw">connec</span> <span class="kw">=</span> <span class="fl">.4</span>, <span class="fl">1</span>)
-<span class="co">#&gt;            [,1]        [,2]       [,3]        [,4]      [,5]</span>
-<span class="co">#&gt; [1,]  0.0000000  0.49957868  0.0000000  0.99193781 0.9951367</span>
-<span class="co">#&gt; [2,] -0.9286828 -0.57218291  0.7234953  0.24587818 0.4542469</span>
-<span class="co">#&gt; [3,]  0.0000000 -0.35517645 -0.6108358  0.85683920 0.2618193</span>
-<span class="co">#&gt; [4,] -0.3860237 -0.02577851 -0.5593390  0.00000000 0.3091770</span>
-<span class="co">#&gt; [5,] -0.3984194 -0.17756729 -0.6568078 -0.05065128 0.0000000</span></pre></body></html></div>
+<span class="co">#&gt;            [,1]        [,2]        [,3]       [,4]      [,5]</span>
+<span class="co">#&gt; [1,] -0.9841690  0.00000000  0.29242813  0.0000000 0.0000000</span>
+<span class="co">#&gt; [2,]  0.0000000  0.00000000  0.82954198  0.3879820 0.2239297</span>
+<span class="co">#&gt; [3,] -0.5189022 -0.08568547  0.00000000  0.8029444 0.0000000</span>
+<span class="co">#&gt; [4,]  0.0000000 -0.44476858 -0.02897205 -0.6111635 0.0000000</span>
+<span class="co">#&gt; [5,]  0.0000000 -0.82795797  0.00000000  0.0000000 0.0000000</span></pre></body></html></div>
 <p>The last parameter, <code>mode</code>, affects the sign structure of the output matrix (not included in the original publication of the niche model):</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="co"># mode 1 + and -, refered as "predation" in Cazelles (2016)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="fl">.2</span>, <span class="kw">mode</span> <span class="kw">=</span> <span class="fl">1</span>)
-<span class="co">#&gt;              [,1]       [,2]       [,3]       [,4]       [,5]</span>
-<span class="co">#&gt; [1,] -0.001762349  0.4611590  0.0000000  0.0000000  0.0000000</span>
-<span class="co">#&gt; [2,] -0.880656090  0.0000000  0.9889424  0.7465212  0.7808532</span>
-<span class="co">#&gt; [3,]  0.000000000 -0.5297992 -0.1877268 -0.7126877  0.9654815</span>
-<span class="co">#&gt; [4,]  0.000000000 -0.3022143  0.5381777  0.0000000  0.5178947</span>
-<span class="co">#&gt; [5,]  0.000000000 -0.4696978 -0.2974062 -0.9878505 -0.7303714</span>
+<span class="co">#&gt;            [,1]       [,2]       [,3] [,4]     [,5]</span>
+<span class="co">#&gt; [1,]  0.0000000  0.8030849  0.0000000    0 0.000000</span>
+<span class="co">#&gt; [2,] -0.8579318  0.0000000  0.1610954    0 0.336101</span>
+<span class="co">#&gt; [3,]  0.0000000 -0.2457675 -0.7525627    0 0.000000</span>
+<span class="co">#&gt; [4,]  0.0000000  0.0000000  0.0000000    0 0.000000</span>
+<span class="co">#&gt; [5,]  0.0000000 -0.4672883  0.0000000    0 0.000000</span>
 <span class="co"># mode 2, only -, refered as "competition" in Cazelles (2016)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="fl">.2</span>, <span class="kw">mode</span> <span class="kw">=</span> <span class="fl">2</span>)
-<span class="co">#&gt;      [,1]       [,2]       [,3]       [,4]       [,5]</span>
-<span class="co">#&gt; [1,]    0  0.0000000  0.0000000  0.0000000  0.0000000</span>
-<span class="co">#&gt; [2,]    0  0.0000000 -0.3053745 -0.8135088  0.0000000</span>
-<span class="co">#&gt; [3,]    0 -0.4030943 -0.6482879 -0.7216371  0.0000000</span>
-<span class="co">#&gt; [4,]    0 -0.1388125 -0.6839908  0.0000000  0.0000000</span>
-<span class="co">#&gt; [5,]    0  0.0000000  0.0000000  0.0000000 -0.6417372</span>
+<span class="co">#&gt;            [,1]       [,2]        [,3]        [,4]       [,5]</span>
+<span class="co">#&gt; [1,]  0.0000000 -0.8275084 -0.28216915 -0.08436808 -0.1292878</span>
+<span class="co">#&gt; [2,] -0.5868197 -0.2568651 -0.02139296 -0.09211540 -0.9332288</span>
+<span class="co">#&gt; [3,] -0.3046849 -0.3417499  0.00000000  0.00000000 -0.4632092</span>
+<span class="co">#&gt; [4,] -0.5982661 -0.1033734  0.00000000  0.00000000 -0.6710231</span>
+<span class="co">#&gt; [5,] -0.6106307 -0.2024269 -0.67715417 -0.72855328 -0.8842671</span>
 <span class="co"># mode 2, only +, refered as "mutualism" in Cazelles (2016)</span>
 <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">nicheModel</a></span>(<span class="fl">5</span>, <span class="fl">.2</span>, <span class="kw">mode</span> <span class="kw">=</span> <span class="fl">3</span>)
-<span class="co">#&gt;           [,1]      [,2]       [,3]     [,4]      [,5]</span>
-<span class="co">#&gt; [1,] 0.0000000 0.0000000 0.01703906 0.000000 0.0000000</span>
-<span class="co">#&gt; [2,] 0.0000000 0.4290166 0.23750699 0.719604 0.3541424</span>
-<span class="co">#&gt; [3,] 0.3926414 0.4346821 0.00000000 0.000000 0.0000000</span>
-<span class="co">#&gt; [4,] 0.0000000 0.2165174 0.00000000 0.000000 0.0000000</span>
-<span class="co">#&gt; [5,] 0.0000000 0.1748800 0.00000000 0.000000 0.0000000</span></pre></body></html></div>
+<span class="co">#&gt;           [,1]     [,2]      [,3] [,4] [,5]</span>
+<span class="co">#&gt; [1,] 0.9061011 0.000000 0.1060589    0    0</span>
+<span class="co">#&gt; [2,] 0.0000000 0.000000 0.2712583    0    0</span>
+<span class="co">#&gt; [3,] 0.8293471 0.403457 0.2538694    0    0</span>
+<span class="co">#&gt; [4,] 0.0000000 0.000000 0.0000000    0    0</span>
+<span class="co">#&gt; [5,] 0.0000000 0.000000 0.0000000    0    0</span></pre></body></html></div>
 <p>See <code><a href="https://rdrr.io/pkg/biogeonet/man/nicheModel.html">?nicheModel</a></code> for further details.</p>
 </div>
 <div id="colonization" class="section level2">
@@ -198,16 +198,16 @@
 <h2 class="hasAnchor">
 <a href="#extinction" class="anchor"></a>Extinction</h2>
 <p>The extinction probability is basically a flexible logistic function (see <code><a href="https://rdrr.io/pkg/biogeonet/man/extinction.html">?extinction</a></code> for details)</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">seqx</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(-<span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">.01</span>)
-<span class="no">vc_exti</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="no">seqx</span>, <span class="kw">FUN</span> <span class="kw">=</span> <span class="no">extinction</span>, <span class="fl">1e-5</span>, <span class="fl">1e-3</span>, <span class="fl">1e3</span>, -<span class="fl">1</span>)
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">seqx</span>, <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="no">vc_exti</span>), <span class="kw">type</span><span class="kw">=</span><span class="st">"l"</span>, <span class="kw">las</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">"Extinction probability"</span>,
+<div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="no">seqx</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span>(-<span class="fl">10</span>, <span class="fl">10</span>, <span class="fl">.01</span>)
+<span class="no">vc_exti</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span>(<span class="no">seqx</span>, <span class="kw">FUN</span> <span class="kw">=</span> <span class="no">extinction</span>, <span class="fl">1e-3</span>, <span class="fl">1e-2</span>, <span class="fl">1e2</span>, -<span class="fl">1</span>)
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.html">plot</a></span>(<span class="no">seqx</span>, <span class="no">vc_exti</span>, <span class="kw">type</span><span class="kw">=</span><span class="st">"l"</span>, <span class="kw">las</span> <span class="kw">=</span> <span class="fl">1</span>, <span class="kw">ylab</span> <span class="kw">=</span> <span class="st">"Extinction probability"</span>,
   <span class="kw">xlab</span> <span class="kw">=</span> <span class="st">"Environmental gradient"</span>)</pre></body></html></div>
 <p><img src="Cazelles_2016_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
 </div>
 <div id="building-markov-chain-and-deriving-its-equilibrium" class="section level2">
 <h2 class="hasAnchor">
 <a href="#building-markov-chain-and-deriving-its-equilibrium" class="anchor"></a>Building Markov chain and deriving its equilibrium</h2>
-<p>For a specific vector of colonisation (1 value per species), a specific ecological networks (use to derive extinction probabilities), we can build the transition matrix of a Markov chain with <code><a href="https://rdrr.io/pkg/biogeonet/man/buildMarkov.html">buildMarkov()</a></code>. So far, it builds the matrix of a continuous-time Markov chain](<a href="https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain" class="uri">https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain</a>) ans so probabilities described above should actuall be rates.</p>
+<p>For a specific vector of colonisation (1 value per species), a specific ecological networks (use to derive extinction probabilities), we can build the transition matrix of a Markov chain with <code><a href="https://rdrr.io/pkg/biogeonet/man/buildMarkov.html">buildMarkov()</a></code>. So far, it builds the matrix of a continuous-time Markov chain](<a href="https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain" class="uri">https://en.wikipedia.org/wiki/Markov_chain#Continuous-time_Markov_chain</a>) ans so probabilities described above should actually be rates.</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="co"># number of species</span>
 <span class="no">nbsp</span> <span class="kw">&lt;-</span> <span class="fl">4</span>
 <span class="co"># network</span>
@@ -217,57 +217,58 @@
 <span class="co">#</span>
 <span class="no">mat</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/buildMarkov.html">buildMarkov</a></span>(<span class="no">nbsp</span>, <span class="no">colo</span>, <span class="no">web</span>, <span class="fl">1e-5</span>, <span class="fl">1e-3</span>, <span class="fl">1e3</span>, -<span class="fl">1</span>)
 <span class="no">mat</span>
+<span class="co">#&gt; $markov</span>
 <span class="co">#&gt;                [,1]          [,2]          [,3]          [,4]          [,5]</span>
-<span class="co">#&gt;  [1,] -1.452829e-04  1.000000e-05  1.000000e-05  0.000000e+00  9.487525e-06</span>
-<span class="co">#&gt;  [2,]  1.025198e-04 -5.276309e-05  0.000000e+00  4.127019e-06  0.000000e+00</span>
-<span class="co">#&gt;  [3,]  4.060519e-05  0.000000e+00 -1.146777e-04  1.995273e-05  0.000000e+00</span>
-<span class="co">#&gt;  [4,]  0.000000e+00  4.060519e-05  1.025198e-04 -2.623766e-05  0.000000e+00</span>
-<span class="co">#&gt;  [5,]  2.041375e-06  0.000000e+00  0.000000e+00  0.000000e+00 -1.527290e-04</span>
-<span class="co">#&gt;  [6,]  0.000000e+00  2.041375e-06  0.000000e+00  0.000000e+00  1.025198e-04</span>
-<span class="co">#&gt;  [7,]  0.000000e+00  0.000000e+00  2.041375e-06  0.000000e+00  4.060519e-05</span>
-<span class="co">#&gt;  [8,]  0.000000e+00  0.000000e+00  0.000000e+00  2.041375e-06  0.000000e+00</span>
-<span class="co">#&gt;  [9,]  1.165296e-07  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt; [10,]  0.000000e+00  1.165296e-07  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt; [11,]  0.000000e+00  0.000000e+00  1.165296e-07  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt; [12,]  0.000000e+00  0.000000e+00  0.000000e+00  1.165296e-07  0.000000e+00</span>
-<span class="co">#&gt; [13,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  1.165296e-07</span>
+<span class="co">#&gt;  [1,] -3.619764e-04  1.000000e-05  7.930139e-06  0.000000e+00  4.208889e-06</span>
+<span class="co">#&gt;  [2,]  5.804130e-06 -3.661723e-04  0.000000e+00  7.123548e-06  0.000000e+00</span>
+<span class="co">#&gt;  [3,]  3.240423e-04  0.000000e+00 -4.586422e-05  2.383297e-05  0.000000e+00</span>
+<span class="co">#&gt;  [4,]  0.000000e+00  3.240423e-04  5.804130e-06 -6.308648e-05  0.000000e+00</span>
+<span class="co">#&gt;  [5,]  1.780241e-05  0.000000e+00  0.000000e+00  0.000000e+00 -3.483829e-04</span>
+<span class="co">#&gt;  [6,]  0.000000e+00  1.780241e-05  0.000000e+00  0.000000e+00  5.804130e-06</span>
+<span class="co">#&gt;  [7,]  0.000000e+00  0.000000e+00  1.780241e-05  0.000000e+00  3.240423e-04</span>
+<span class="co">#&gt;  [8,]  0.000000e+00  0.000000e+00  0.000000e+00  1.780241e-05  0.000000e+00</span>
+<span class="co">#&gt;  [9,]  1.432754e-05  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt; [10,]  0.000000e+00  1.432754e-05  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt; [11,]  0.000000e+00  0.000000e+00  1.432754e-05  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt; [12,]  0.000000e+00  0.000000e+00  0.000000e+00  1.432754e-05  0.000000e+00</span>
+<span class="co">#&gt; [13,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  1.432754e-05</span>
 <span class="co">#&gt; [14,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
 <span class="co">#&gt; [15,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
 <span class="co">#&gt; [16,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
 <span class="co">#&gt;                [,6]          [,7]          [,8]          [,9]         [,10]</span>
-<span class="co">#&gt;  [1,]  0.000000e+00  0.000000e+00  0.000000e+00  7.848019e-06  0.000000e+00</span>
-<span class="co">#&gt;  [2,]  9.487525e-06  0.000000e+00  0.000000e+00  0.000000e+00  7.848019e-06</span>
-<span class="co">#&gt;  [3,]  0.000000e+00  9.487525e-06  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [4,]  0.000000e+00  0.000000e+00  9.487525e-06  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [5,]  1.000000e-05  1.000000e-05  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [6,] -6.020924e-05  0.000000e+00  4.127019e-06  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [7,]  0.000000e+00 -1.221239e-04  1.995273e-05  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [8,]  4.060519e-05  1.025198e-04 -3.368381e-05  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [9,]  0.000000e+00  0.000000e+00  0.000000e+00 -1.530144e-04  1.000000e-05</span>
-<span class="co">#&gt; [10,]  0.000000e+00  0.000000e+00  0.000000e+00  1.025198e-04 -6.049458e-05</span>
-<span class="co">#&gt; [11,]  0.000000e+00  0.000000e+00  0.000000e+00  4.060519e-05  0.000000e+00</span>
-<span class="co">#&gt; [12,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  4.060519e-05</span>
-<span class="co">#&gt; [13,]  0.000000e+00  0.000000e+00  0.000000e+00  2.041375e-06  0.000000e+00</span>
-<span class="co">#&gt; [14,]  1.165296e-07  0.000000e+00  0.000000e+00  0.000000e+00  2.041375e-06</span>
-<span class="co">#&gt; [15,]  0.000000e+00  1.165296e-07  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt; [16,]  0.000000e+00  0.000000e+00  1.165296e-07  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [1,]  0.000000e+00  0.000000e+00  0.000000e+00  7.525700e-06  0.000000e+00</span>
+<span class="co">#&gt;  [2,]  4.208889e-06  0.000000e+00  0.000000e+00  0.000000e+00  7.525700e-06</span>
+<span class="co">#&gt;  [3,]  0.000000e+00  4.208889e-06  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [4,]  0.000000e+00  0.000000e+00  4.208889e-06  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [5,]  1.000000e-05  7.930139e-06  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [6,] -3.525788e-04  0.000000e+00  7.123548e-06  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [7,]  0.000000e+00 -3.227070e-05  2.383297e-05  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [8,]  3.240423e-04  5.804130e-06 -4.949296e-05  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [9,]  0.000000e+00  0.000000e+00  0.000000e+00 -3.551746e-04  1.000000e-05</span>
+<span class="co">#&gt; [10,]  0.000000e+00  0.000000e+00  0.000000e+00  5.804130e-06 -3.593704e-04</span>
+<span class="co">#&gt; [11,]  0.000000e+00  0.000000e+00  0.000000e+00  3.240423e-04  0.000000e+00</span>
+<span class="co">#&gt; [12,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  3.240423e-04</span>
+<span class="co">#&gt; [13,]  0.000000e+00  0.000000e+00  0.000000e+00  1.780241e-05  0.000000e+00</span>
+<span class="co">#&gt; [14,]  1.432754e-05  0.000000e+00  0.000000e+00  0.000000e+00  1.780241e-05</span>
+<span class="co">#&gt; [15,]  0.000000e+00  1.432754e-05  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt; [16,]  0.000000e+00  0.000000e+00  1.432754e-05  0.000000e+00  0.000000e+00</span>
 <span class="co">#&gt;               [,11]         [,12]         [,13]         [,14]         [,15]</span>
 <span class="co">#&gt;  [1,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
 <span class="co">#&gt;  [2,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [3,]  3.240372e-06  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [4,]  0.000000e+00  3.240372e-06  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [5,]  0.000000e+00  0.000000e+00  5.297089e-06  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [6,]  0.000000e+00  0.000000e+00  0.000000e+00  5.297089e-06  0.000000e+00</span>
-<span class="co">#&gt;  [7,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  2.188702e-06</span>
+<span class="co">#&gt;  [3,]  7.525700e-06  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [4,]  0.000000e+00  7.525700e-06  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [5,]  0.000000e+00  0.000000e+00  5.097426e-06  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt;  [6,]  0.000000e+00  0.000000e+00  0.000000e+00  5.097426e-06  0.000000e+00</span>
+<span class="co">#&gt;  [7,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  5.097426e-06</span>
 <span class="co">#&gt;  [8,]  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt;  [9,]  1.640419e-05  0.000000e+00  1.119271e-05  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt; [10,]  0.000000e+00  6.768821e-06  0.000000e+00  1.119271e-05  0.000000e+00</span>
-<span class="co">#&gt; [11,] -1.242057e-04  1.995273e-05  0.000000e+00  0.000000e+00  1.119271e-05</span>
-<span class="co">#&gt; [12,]  1.025198e-04 -3.200330e-05  0.000000e+00  0.000000e+00  0.000000e+00</span>
-<span class="co">#&gt; [13,]  0.000000e+00  0.000000e+00 -1.596148e-04  1.000000e-05  1.640419e-05</span>
-<span class="co">#&gt; [14,]  0.000000e+00  0.000000e+00  1.025198e-04 -6.709499e-05  0.000000e+00</span>
-<span class="co">#&gt; [15,]  2.041375e-06  0.000000e+00  4.060519e-05  0.000000e+00 -1.323054e-04</span>
-<span class="co">#&gt; [16,]  0.000000e+00  2.041375e-06  0.000000e+00  4.060519e-05  1.025198e-04</span>
+<span class="co">#&gt;  [9,]  7.930139e-06  0.000000e+00  7.301092e-06  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt; [10,]  0.000000e+00  7.123548e-06  0.000000e+00  7.301092e-06  0.000000e+00</span>
+<span class="co">#&gt; [11,] -3.906238e-05  2.383297e-05  0.000000e+00  0.000000e+00  7.301092e-06</span>
+<span class="co">#&gt; [12,]  5.804130e-06 -5.628463e-05  0.000000e+00  0.000000e+00  0.000000e+00</span>
+<span class="co">#&gt; [13,]  0.000000e+00  0.000000e+00 -3.422450e-04  1.000000e-05  7.930139e-06</span>
+<span class="co">#&gt; [14,]  0.000000e+00  0.000000e+00  5.804130e-06 -3.464408e-04  0.000000e+00</span>
+<span class="co">#&gt; [15,]  1.780241e-05  0.000000e+00  3.240423e-04  0.000000e+00 -2.613279e-05</span>
+<span class="co">#&gt; [16,]  0.000000e+00  1.780241e-05  0.000000e+00  3.240423e-04  5.804130e-06</span>
 <span class="co">#&gt;               [,16]</span>
 <span class="co">#&gt;  [1,]  0.000000e+00</span>
 <span class="co">#&gt;  [2,]  0.000000e+00</span>
@@ -276,26 +277,51 @@
 <span class="co">#&gt;  [5,]  0.000000e+00</span>
 <span class="co">#&gt;  [6,]  0.000000e+00</span>
 <span class="co">#&gt;  [7,]  0.000000e+00</span>
-<span class="co">#&gt;  [8,]  2.188702e-06</span>
+<span class="co">#&gt;  [8,]  5.097426e-06</span>
 <span class="co">#&gt;  [9,]  0.000000e+00</span>
 <span class="co">#&gt; [10,]  0.000000e+00</span>
 <span class="co">#&gt; [11,]  0.000000e+00</span>
-<span class="co">#&gt; [12,]  1.119271e-05</span>
+<span class="co">#&gt; [12,]  7.301092e-06</span>
 <span class="co">#&gt; [13,]  0.000000e+00</span>
-<span class="co">#&gt; [14,]  6.768821e-06</span>
-<span class="co">#&gt; [15,]  1.995273e-05</span>
-<span class="co">#&gt; [16,] -4.010297e-05</span></pre></body></html></div>
+<span class="co">#&gt; [14,]  7.123548e-06</span>
+<span class="co">#&gt; [15,]  2.383297e-05</span>
+<span class="co">#&gt; [16,] -4.335504e-05</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $speciesRichness</span>
+<span class="co">#&gt;  [1] 0 1 1 2 1 2 2 3 1 2 2 3 2 3 3 4</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; $speciesPresence</span>
+<span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]</span>
+<span class="co">#&gt; [1,]    0    1    0    1    0    1    0    1    0     1     0     1     0     1</span>
+<span class="co">#&gt; [2,]    0    0    1    1    0    0    1    1    0     0     1     1     0     0</span>
+<span class="co">#&gt; [3,]    0    0    0    0    1    1    1    1    0     0     0     0     1     1</span>
+<span class="co">#&gt; [4,]    0    0    0    0    0    0    0    0    1     1     1     1     1     1</span>
+<span class="co">#&gt;      [,15] [,16]</span>
+<span class="co">#&gt; [1,]     0     1</span>
+<span class="co">#&gt; [2,]     1     1</span>
+<span class="co">#&gt; [3,]     1     1</span>
+<span class="co">#&gt; [4,]     1     1</span></pre></body></html></div>
 <p>then <code><a href="https://rdrr.io/pkg/biogeonet/man/solveMarkov.html">solveMarkov()</a></code> returns the probabilities at equilibrium for all communities:</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">sol</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/solveMarkov.html">solveMarkov</a></span>(<span class="no">mat</span>, <span class="kw">continuous</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
+<div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">sol</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/biogeonet/man/solveMarkov.html">solveMarkov</a></span>(<span class="no">mat</span>$<span class="no">markov</span>, <span class="kw">continuous</span> <span class="kw">=</span> <span class="fl">TRUE</span>)
 <span class="no">sol</span>
-<span class="co">#&gt;  [1] 4.316088e-04 1.448489e-02 3.116198e-02 9.091087e-01 1.979388e-05</span>
-<span class="co">#&gt;  [6] 6.637018e-04 1.432228e-03 4.178126e-02 8.564459e-07 2.718459e-05</span>
-<span class="co">#&gt; [11] 2.678792e-05 8.244394e-04 3.666529e-08 1.179765e-06 1.111430e-06</span>
-<span class="co">#&gt; [16] 3.422716e-05</span></pre></body></html></div>
+<span class="co">#&gt;  [1] 8.143621e-06 4.495148e-07 1.388899e-02 8.476522e-04 6.992460e-05</span>
+<span class="co">#&gt;  [6] 3.859726e-06 1.192568e-01 7.278304e-03 5.635265e-05 3.110576e-06</span>
+<span class="co">#&gt; [11] 9.610974e-02 5.865628e-03 4.178675e-04 2.306561e-05 7.126752e-01</span>
+<span class="co">#&gt; [16] 4.349494e-02</span></pre></body></html></div>
 <p>This gives the probability at equilibrium (<em>sensu</em> MacArthur &amp; Wilson 1967) for all of the <span class="math inline">\(2^{nbsp}\)</span> community (here <code>nbsp</code>=4, so there are 16 potential communities).</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="co"># NB some to one</span>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="co"># NB sum to one</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">sol</span>)
 <span class="co">#&gt; [1] 1</span></pre></body></html></div>
+<p>In order to compute the species richness, one simply needs to compute the expectation value of the random variable that associates to every state, its species richness, i.e.:</p>
+<div class="sourceCode" id="cb10"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span>(<span class="no">sol</span> * <span class="no">mat</span>$<span class="no">speciesRichness</span>)
+<span class="co">#&gt; [1] 2.7988</span></pre></body></html></div>
+<p>Similarly, one can compute the expected presence of all species</p>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="no">mat</span>$<span class="no">speciesPresence</span> <span class="kw">%*%</span> <span class="no">sol</span>
+<span class="co">#&gt;            [,1]</span>
+<span class="co">#&gt; [1,] 0.05751701</span>
+<span class="co">#&gt; [2,] 0.99941723</span>
+<span class="co">#&gt; [3,] 0.88321993</span>
+<span class="co">#&gt; [4,] 0.85864590</span></pre></body></html></div>
 </div>
 <div id="reproduce-the-study" class="section level2">
 <h2 class="hasAnchor">
