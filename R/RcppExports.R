@@ -5,13 +5,9 @@
 #' @title Extinction rate for a given set of biotic interactions.
 #' @description This function returns the extinction associated with a given biotic environment.
 #'
-#' @author
-#' Kevin Cazelles
-#'
 #' @param inter a real number giving the sum of interactions.
 #' @param basexti extinction rate without interaction.
-#' @param mn a real number giving the minimum rate of extinction.
-#' @param mx a real number giving the maximum rate of extinction.
+#' @param mn,mx a real number coefficient by which `basexti` should be multiply to obtain the minimum and maximum rate of extinction.
 #' @param shape a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
 #'
 #' @return Returns the extinction rate associated with a given biotic environment.
@@ -51,18 +47,17 @@ colonization <- function(envir, maxcolo, opti, width) {
 #' @title Generates the transition matrix for a given probability and  an interaction network using the niche model.
 #' @description Generates the transition matrix for a given probability and  an interaction network using the niche model.
 #'
-#' @author
-#' Kevin Cazelles
-#'
 #' @param nbsp an integer giving the number of species.
 #' @param colo a vector giving the colonization rates of all species.
 #' @param metaweb a matrix describing the interaction network.
 #' @param basexti extinction rate without interaction.
-#' @param mn a real number giving the minimum rate of extinction.
-#' @param mx a real number giving the maximum rate of extinction.
+#' @param mn,mx a real number giving the minimum and maximum rate of extinction.
 #' @param shape a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.
 #'
-#' @return Returns the transition matrix of the Markov chain to be solved.
+#' @return A list including:
+#' * `makov`: the transition of the Markov chain to be solved.
+#' * `speciesRichness`: species richness for all states.
+#' * `speciesPresence`: matrix of presence for every species in all states.
 #'
 #' @references
 #' Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of

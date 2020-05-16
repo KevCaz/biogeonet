@@ -36,7 +36,7 @@ BEGIN_RCPP
 END_RCPP
 }
 // buildMarkov
-NumericMatrix buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, double basexti, double mn, double mx, double shape);
+List buildMarkov(int nbsp, NumericVector colo, NumericMatrix metaweb, double basexti, double mn, double mx, double shape);
 RcppExport SEXP _biogeonet_buildMarkov(SEXP nbspSEXP, SEXP coloSEXP, SEXP metawebSEXP, SEXP basextiSEXP, SEXP mnSEXP, SEXP mxSEXP, SEXP shapeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;

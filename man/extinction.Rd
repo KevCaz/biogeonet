@@ -11,9 +11,7 @@ extinction(inter, basexti, mn, mx, shape)
 
 \item{basexti}{extinction rate without interaction.}
 
-\item{mn}{a real number giving the minimum rate of extinction.}
-
-\item{mx}{a real number giving the maximum rate of extinction.}
+\item{mn, mx}{a real number coefficient by which \code{basexti} should be multiply to obtain the minimum and maximum rate of extinction.}
 
 \item{shape}{a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.}
 }
@@ -27,7 +25,4 @@ This function returns the extinction associated with a given biotic environment.
 Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of
 biotic interaction and environmental constraints at the biogeographical scale.
 (equation 5).
-}
-\author{
-Kevin Cazelles
 }

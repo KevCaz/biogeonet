@@ -15,14 +15,17 @@ buildMarkov(nbsp, colo, metaweb, basexti, mn, mx, shape)
 
 \item{basexti}{extinction rate without interaction.}
 
-\item{mn}{a real number giving the minimum rate of extinction.}
-
-\item{mx}{a real number giving the maximum rate of extinction.}
+\item{mn, mx}{a real number giving the minimum and maximum rate of extinction.}
 
 \item{shape}{a positive real number controlling the impact of biotic interactions: the larger the value the stronger the impact of interactions.}
 }
 \value{
-Returns the transition matrix of the Markov chain to be solved.
+A list including:
+\itemize{
+\item \code{makov}: the transition of the Markov chain to be solved.
+\item \code{speciesRichness}: species richness for all states.
+\item \code{speciesPresence}: matrix of presence for every species in all states.
+}
 }
 \description{
 Generates the transition matrix for a given probability and  an interaction network using the niche model.
@@ -30,7 +33,4 @@ Generates the transition matrix for a given probability and  an interaction netw
 \references{
 Cazelles, K., Mouquet, N., Mouillot, D. & Gravel, D. On the integration of
 biotic interaction and environmental constraints at the biogeographical scale.
-}
-\author{
-Kevin Cazelles
 }
